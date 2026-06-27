@@ -1,0 +1,210 @@
+{
+  "url": "https://laravel.com/docs/13.x/installation",
+  "title": "Installation",
+  "headings": [
+    {
+      "level": 2,
+      "id": "meet-laravel",
+      "text": "Meet Laravel"
+    },
+    {
+      "level": 3,
+      "id": "why-laravel",
+      "text": "Why Laravel?"
+    },
+    {
+      "level": 2,
+      "id": "creating-a-laravel-project",
+      "text": "Creating a Laravel Application"
+    },
+    {
+      "level": 3,
+      "id": "getting-started-using-ai",
+      "text": "Getting Started Using AI"
+    },
+    {
+      "level": 3,
+      "id": "installing-php",
+      "text": "Installing PHP and the Laravel Installer"
+    },
+    {
+      "level": 3,
+      "id": "creating-an-application",
+      "text": "Creating an Application"
+    },
+    {
+      "level": 2,
+      "id": "initial-configuration",
+      "text": "Initial Configuration"
+    },
+    {
+      "level": 3,
+      "id": "environment-based-configuration",
+      "text": "Environment Based Configuration"
+    },
+    {
+      "level": 3,
+      "id": "databases-and-migrations",
+      "text": "Databases and Migrations"
+    },
+    {
+      "level": 3,
+      "id": "directory-configuration",
+      "text": "Directory Configuration"
+    },
+    {
+      "level": 2,
+      "id": "installation-using-herd",
+      "text": "Installation Using Herd"
+    },
+    {
+      "level": 3,
+      "id": "herd-on-macos",
+      "text": "Herd on macOS"
+    },
+    {
+      "level": 3,
+      "id": "herd-on-windows",
+      "text": "Herd on Windows"
+    },
+    {
+      "level": 2,
+      "id": "ide-support",
+      "text": "IDE Support"
+    },
+    {
+      "level": 2,
+      "id": "laravel-and-ai",
+      "text": "Laravel and AI"
+    },
+    {
+      "level": 3,
+      "id": "installing-laravel-boost",
+      "text": "Installing Laravel Boost"
+    },
+    {
+      "level": 4,
+      "id": "adding-custom-ai-guidelines",
+      "text": "Adding Custom AI Guidelines"
+    },
+    {
+      "level": 2,
+      "id": "next-steps",
+      "text": "Next Steps"
+    },
+    {
+      "level": 3,
+      "id": "laravel-the-fullstack-framework",
+      "text": "Laravel the Full Stack Framework"
+    },
+    {
+      "level": 3,
+      "id": "laravel-the-api-backend",
+      "text": "Laravel the API Backend"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 13,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

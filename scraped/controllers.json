@@ -1,0 +1,260 @@
+{
+  "url": "https://laravel.com/docs/13.x/controllers",
+  "title": "Controllers",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "writing-controllers",
+      "text": "Writing Controllers"
+    },
+    {
+      "level": 3,
+      "id": "basic-controllers",
+      "text": "Basic Controllers"
+    },
+    {
+      "level": 3,
+      "id": "single-action-controllers",
+      "text": "Single Action Controllers"
+    },
+    {
+      "level": 2,
+      "id": "controller-middleware",
+      "text": "Controller Middleware"
+    },
+    {
+      "level": 3,
+      "id": "middleware-attributes",
+      "text": "Middleware Attributes"
+    },
+    {
+      "level": 3,
+      "id": "authorization-attributes",
+      "text": "Authorization Attributes"
+    },
+    {
+      "level": 2,
+      "id": "resource-controllers",
+      "text": "Resource Controllers"
+    },
+    {
+      "level": 4,
+      "id": "actions-handled-by-resource-controllers",
+      "text": "Actions Handled by Resource Controllers"
+    },
+    {
+      "level": 4,
+      "id": "customizing-missing-model-behavior",
+      "text": "Customizing Missing Model Behavior"
+    },
+    {
+      "level": 4,
+      "id": "soft-deleted-models",
+      "text": "Soft Deleted Models"
+    },
+    {
+      "level": 4,
+      "id": "specifying-the-resource-model",
+      "text": "Specifying the Resource Model"
+    },
+    {
+      "level": 4,
+      "id": "generating-form-requests",
+      "text": "Generating Form Requests"
+    },
+    {
+      "level": 3,
+      "id": "restful-partial-resource-routes",
+      "text": "Partial Resource Routes"
+    },
+    {
+      "level": 4,
+      "id": "api-resource-routes",
+      "text": "API Resource Routes"
+    },
+    {
+      "level": 3,
+      "id": "restful-nested-resources",
+      "text": "Nested Resources"
+    },
+    {
+      "level": 4,
+      "id": "scoping-nested-resources",
+      "text": "Scoping Nested Resources"
+    },
+    {
+      "level": 4,
+      "id": "shallow-nesting",
+      "text": "Shallow Nesting"
+    },
+    {
+      "level": 3,
+      "id": "restful-naming-resource-routes",
+      "text": "Naming Resource Routes"
+    },
+    {
+      "level": 3,
+      "id": "restful-naming-resource-route-parameters",
+      "text": "Naming Resource Route Parameters"
+    },
+    {
+      "level": 3,
+      "id": "restful-scoping-resource-routes",
+      "text": "Scoping Resource Routes"
+    },
+    {
+      "level": 3,
+      "id": "restful-localizing-resource-uris",
+      "text": "Localizing Resource URIs"
+    },
+    {
+      "level": 3,
+      "id": "restful-supplementing-resource-controllers",
+      "text": "Supplementing Resource Controllers"
+    },
+    {
+      "level": 3,
+      "id": "singleton-resource-controllers",
+      "text": "Singleton Resource Controllers"
+    },
+    {
+      "level": 4,
+      "id": "creatable-singleton-resources",
+      "text": "Creatable Singleton Resources"
+    },
+    {
+      "level": 4,
+      "id": "api-singleton-resources",
+      "text": "API Singleton Resources"
+    },
+    {
+      "level": 3,
+      "id": "middleware-and-resource-controllers",
+      "text": "Middleware and Resource Controllers"
+    },
+    {
+      "level": 2,
+      "id": "dependency-injection-and-controllers",
+      "text": "Dependency Injection and Controllers"
+    },
+    {
+      "level": 4,
+      "id": "constructor-injection",
+      "text": "Constructor Injection"
+    },
+    {
+      "level": 4,
+      "id": "method-injection",
+      "text": "Method Injection"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 50,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

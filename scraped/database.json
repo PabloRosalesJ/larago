@@ -1,0 +1,255 @@
+{
+  "url": "https://laravel.com/docs/13.x/database",
+  "title": "Database: Getting Started",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 4,
+      "id": "sqlite-configuration",
+      "text": "SQLite Configuration"
+    },
+    {
+      "level": 4,
+      "id": "mssql-configuration",
+      "text": "Microsoft SQL Server Configuration"
+    },
+    {
+      "level": 4,
+      "id": "configuration-using-urls",
+      "text": "Configuration Using URLs"
+    },
+    {
+      "level": 3,
+      "id": "read-and-write-connections",
+      "text": "Read and Write Connections"
+    },
+    {
+      "level": 4,
+      "id": "the-sticky-option",
+      "text": "The sticky Option"
+    },
+    {
+      "level": 3,
+      "id": "pooled-postgresql-connections",
+      "text": "Pooled PostgreSQL Connections"
+    },
+    {
+      "level": 2,
+      "id": "running-queries",
+      "text": "Running SQL Queries"
+    },
+    {
+      "level": 4,
+      "id": "running-a-select-query",
+      "text": "Running a Select Query"
+    },
+    {
+      "level": 4,
+      "id": "selecting-scalar-values",
+      "text": "Selecting Scalar Values"
+    },
+    {
+      "level": 4,
+      "id": "selecting-multiple-result-sets",
+      "text": "Selecting Multiple Result Sets"
+    },
+    {
+      "level": 4,
+      "id": "using-named-bindings",
+      "text": "Using Named Bindings"
+    },
+    {
+      "level": 4,
+      "id": "running-an-insert-statement",
+      "text": "Running an Insert Statement"
+    },
+    {
+      "level": 4,
+      "id": "running-an-update-statement",
+      "text": "Running an Update Statement"
+    },
+    {
+      "level": 4,
+      "id": "running-a-delete-statement",
+      "text": "Running a Delete Statement"
+    },
+    {
+      "level": 4,
+      "id": "running-a-general-statement",
+      "text": "Running a General Statement"
+    },
+    {
+      "level": 4,
+      "id": "running-an-unprepared-statement",
+      "text": "Running an Unprepared Statement"
+    },
+    {
+      "level": 4,
+      "id": "implicit-commits-in-transactions",
+      "text": "Implicit Commits"
+    },
+    {
+      "level": 3,
+      "id": "using-multiple-database-connections",
+      "text": "Using Multiple Database Connections"
+    },
+    {
+      "level": 3,
+      "id": "listening-for-query-events",
+      "text": "Listening for Query Events"
+    },
+    {
+      "level": 3,
+      "id": "monitoring-cumulative-query-time",
+      "text": "Monitoring Cumulative Query Time"
+    },
+    {
+      "level": 2,
+      "id": "database-transactions",
+      "text": "Database Transactions"
+    },
+    {
+      "level": 4,
+      "id": "handling-deadlocks",
+      "text": "Handling Deadlocks"
+    },
+    {
+      "level": 4,
+      "id": "manually-using-transactions",
+      "text": "Manually Using Transactions"
+    },
+    {
+      "level": 2,
+      "id": "connecting-to-the-database-cli",
+      "text": "Connecting to the Database CLI"
+    },
+    {
+      "level": 2,
+      "id": "inspecting-your-databases",
+      "text": "Inspecting Your Databases"
+    },
+    {
+      "level": 4,
+      "id": "table-overview",
+      "text": "Table Overview"
+    },
+    {
+      "level": 2,
+      "id": "monitoring-your-databases",
+      "text": "Monitoring Your Databases"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 38,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

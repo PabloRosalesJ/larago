@@ -1,0 +1,295 @@
+{
+  "url": "https://laravel.com/docs/13.x/events",
+  "title": "Events",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "generating-events-and-listeners",
+      "text": "Generating Events and Listeners"
+    },
+    {
+      "level": 2,
+      "id": "registering-events-and-listeners",
+      "text": "Registering Events and Listeners"
+    },
+    {
+      "level": 3,
+      "id": "event-discovery",
+      "text": "Event Discovery"
+    },
+    {
+      "level": 4,
+      "id": "event-discovery-in-production",
+      "text": "Event Discovery in Production"
+    },
+    {
+      "level": 4,
+      "id": "dynamic-event-discovery",
+      "text": "Dynamic Event Discovery"
+    },
+    {
+      "level": 3,
+      "id": "manually-registering-events",
+      "text": "Manually Registering Events"
+    },
+    {
+      "level": 3,
+      "id": "closure-listeners",
+      "text": "Closure Listeners"
+    },
+    {
+      "level": 4,
+      "id": "queueable-anonymous-event-listeners",
+      "text": "Queueable Anonymous Event Listeners"
+    },
+    {
+      "level": 4,
+      "id": "wildcard-event-listeners",
+      "text": "Wildcard Event Listeners"
+    },
+    {
+      "level": 2,
+      "id": "defining-events",
+      "text": "Defining Events"
+    },
+    {
+      "level": 2,
+      "id": "defining-listeners",
+      "text": "Defining Listeners"
+    },
+    {
+      "level": 4,
+      "id": "stopping-the-propagation-of-an-event",
+      "text": "Stopping The Propagation Of An Event"
+    },
+    {
+      "level": 2,
+      "id": "queued-event-listeners",
+      "text": "Queued Event Listeners"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-queue-connection-queue-name",
+      "text": "Customizing The Queue Connection, Name, &amp; Delay"
+    },
+    {
+      "level": 4,
+      "id": "conditionally-queueing-listeners",
+      "text": "Conditionally Queueing Listeners"
+    },
+    {
+      "level": 3,
+      "id": "manually-interacting-with-the-queue",
+      "text": "Manually Interacting With the Queue"
+    },
+    {
+      "level": 3,
+      "id": "queued-event-listeners-and-database-transactions",
+      "text": "Queued Event Listeners and Database Transactions"
+    },
+    {
+      "level": 3,
+      "id": "queued-listener-middleware",
+      "text": "Queued Listener Middleware"
+    },
+    {
+      "level": 4,
+      "id": "encrypted-queued-listeners",
+      "text": "Encrypted Queued Listeners"
+    },
+    {
+      "level": 3,
+      "id": "unique-event-listeners",
+      "text": "Unique Event Listeners"
+    },
+    {
+      "level": 4,
+      "id": "keeping-listeners-unique-until-processing-begins",
+      "text": "Keeping Listeners Unique Until Processing Begins"
+    },
+    {
+      "level": 4,
+      "id": "unique-listener-locks",
+      "text": "Unique Listener Locks"
+    },
+    {
+      "level": 3,
+      "id": "handling-failed-jobs",
+      "text": "Handling Failed Jobs"
+    },
+    {
+      "level": 4,
+      "id": "specifying-queued-listener-maximum-attempts",
+      "text": "Specifying Queued Listener Maximum Attempts"
+    },
+    {
+      "level": 4,
+      "id": "specifying-queued-listener-backoff",
+      "text": "Specifying Queued Listener Backoff"
+    },
+    {
+      "level": 4,
+      "id": "specifying-queued-listener-max-exceptions",
+      "text": "Specifying Queued Listener Max Exceptions"
+    },
+    {
+      "level": 4,
+      "id": "specifying-queued-listener-timeout",
+      "text": "Specifying Queued Listener Timeout"
+    },
+    {
+      "level": 2,
+      "id": "dispatching-events",
+      "text": "Dispatching Events"
+    },
+    {
+      "level": 3,
+      "id": "dispatching-events-after-database-transactions",
+      "text": "Dispatching Events After Database Transactions"
+    },
+    {
+      "level": 3,
+      "id": "deferring-events",
+      "text": "Deferring Events"
+    },
+    {
+      "level": 2,
+      "id": "event-subscribers",
+      "text": "Event Subscribers"
+    },
+    {
+      "level": 3,
+      "id": "writing-event-subscribers",
+      "text": "Writing Event Subscribers"
+    },
+    {
+      "level": 3,
+      "id": "registering-event-subscribers",
+      "text": "Registering Event Subscribers"
+    },
+    {
+      "level": 2,
+      "id": "testing",
+      "text": "Testing"
+    },
+    {
+      "level": 3,
+      "id": "faking-a-subset-of-events",
+      "text": "Faking a Subset of Events"
+    },
+    {
+      "level": 3,
+      "id": "scoped-event-fakes",
+      "text": "Scoped Event Fakes"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 55,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

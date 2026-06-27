@@ -1,0 +1,295 @@
+{
+  "url": "https://laravel.com/docs/13.x/http-client",
+  "title": "HTTP Client",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "making-requests",
+      "text": "Making Requests"
+    },
+    {
+      "level": 4,
+      "id": "uri-templates",
+      "text": "URI Templates"
+    },
+    {
+      "level": 4,
+      "id": "dumping-requests",
+      "text": "Dumping Requests"
+    },
+    {
+      "level": 3,
+      "id": "request-data",
+      "text": "Request Data"
+    },
+    {
+      "level": 4,
+      "id": "get-request-query-parameters",
+      "text": "GET Request Query Parameters"
+    },
+    {
+      "level": 4,
+      "id": "sending-form-url-encoded-requests",
+      "text": "Sending Form URL Encoded Requests"
+    },
+    {
+      "level": 4,
+      "id": "sending-a-raw-request-body",
+      "text": "Sending a Raw Request Body"
+    },
+    {
+      "level": 4,
+      "id": "multi-part-requests",
+      "text": "Multi-Part Requests"
+    },
+    {
+      "level": 3,
+      "id": "headers",
+      "text": "Headers"
+    },
+    {
+      "level": 3,
+      "id": "authentication",
+      "text": "Authentication"
+    },
+    {
+      "level": 4,
+      "id": "bearer-tokens",
+      "text": "Bearer Tokens"
+    },
+    {
+      "level": 3,
+      "id": "timeout",
+      "text": "Timeout"
+    },
+    {
+      "level": 3,
+      "id": "retries",
+      "text": "Retries"
+    },
+    {
+      "level": 3,
+      "id": "error-handling",
+      "text": "Error Handling"
+    },
+    {
+      "level": 4,
+      "id": "throwing-exceptions",
+      "text": "Throwing Exceptions"
+    },
+    {
+      "level": 3,
+      "id": "guzzle-middleware",
+      "text": "Guzzle Middleware"
+    },
+    {
+      "level": 4,
+      "id": "global-middleware",
+      "text": "Global Middleware"
+    },
+    {
+      "level": 3,
+      "id": "guzzle-options",
+      "text": "Guzzle Options"
+    },
+    {
+      "level": 4,
+      "id": "global-options",
+      "text": "Global Options"
+    },
+    {
+      "level": 2,
+      "id": "concurrent-requests",
+      "text": "Concurrent Requests"
+    },
+    {
+      "level": 3,
+      "id": "request-pooling",
+      "text": "Request Pooling"
+    },
+    {
+      "level": 4,
+      "id": "customizing-concurrent-requests",
+      "text": "Customizing Concurrent Requests"
+    },
+    {
+      "level": 3,
+      "id": "request-batching",
+      "text": "Request Batching"
+    },
+    {
+      "level": 4,
+      "id": "inspecting-batches",
+      "text": "Inspecting Batches"
+    },
+    {
+      "level": 4,
+      "id": "deferring-batches",
+      "text": "Deferring Batches"
+    },
+    {
+      "level": 2,
+      "id": "macros",
+      "text": "Macros"
+    },
+    {
+      "level": 2,
+      "id": "testing",
+      "text": "Testing"
+    },
+    {
+      "level": 3,
+      "id": "faking-responses",
+      "text": "Faking Responses"
+    },
+    {
+      "level": 4,
+      "id": "faking-specific-urls",
+      "text": "Faking Specific URLs"
+    },
+    {
+      "level": 4,
+      "id": "faking-connection-exceptions",
+      "text": "Faking Exceptions"
+    },
+    {
+      "level": 4,
+      "id": "faking-response-sequences",
+      "text": "Faking Response Sequences"
+    },
+    {
+      "level": 4,
+      "id": "fake-callback",
+      "text": "Fake Callback"
+    },
+    {
+      "level": 3,
+      "id": "inspecting-requests",
+      "text": "Inspecting Requests"
+    },
+    {
+      "level": 4,
+      "id": "recording-requests-and-responses",
+      "text": "Recording Requests / Responses"
+    },
+    {
+      "level": 3,
+      "id": "preventing-stray-requests",
+      "text": "Preventing Stray Requests"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 68,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

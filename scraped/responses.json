@@ -1,0 +1,255 @@
+{
+  "url": "https://laravel.com/docs/13.x/responses",
+  "title": "HTTP Responses",
+  "headings": [
+    {
+      "level": 2,
+      "id": "creating-responses",
+      "text": "Creating Responses"
+    },
+    {
+      "level": 4,
+      "id": "strings-arrays",
+      "text": "Strings and Arrays"
+    },
+    {
+      "level": 4,
+      "id": "response-objects",
+      "text": "Response Objects"
+    },
+    {
+      "level": 4,
+      "id": "eloquent-models-and-collections",
+      "text": "Eloquent Models and Collections"
+    },
+    {
+      "level": 3,
+      "id": "attaching-headers-to-responses",
+      "text": "Attaching Headers to Responses"
+    },
+    {
+      "level": 4,
+      "id": "cache-control-middleware",
+      "text": "Cache Control Middleware"
+    },
+    {
+      "level": 3,
+      "id": "attaching-cookies-to-responses",
+      "text": "Attaching Cookies to Responses"
+    },
+    {
+      "level": 4,
+      "id": "generating-cookie-instances",
+      "text": "Generating Cookie Instances"
+    },
+    {
+      "level": 4,
+      "id": "expiring-cookies-early",
+      "text": "Expiring Cookies Early"
+    },
+    {
+      "level": 3,
+      "id": "cookies-and-encryption",
+      "text": "Cookies and Encryption"
+    },
+    {
+      "level": 2,
+      "id": "redirects",
+      "text": "Redirects"
+    },
+    {
+      "level": 3,
+      "id": "redirecting-named-routes",
+      "text": "Redirecting to Named Routes"
+    },
+    {
+      "level": 4,
+      "id": "populating-parameters-via-eloquent-models",
+      "text": "Populating Parameters via Eloquent Models"
+    },
+    {
+      "level": 3,
+      "id": "redirecting-controller-actions",
+      "text": "Redirecting to Controller Actions"
+    },
+    {
+      "level": 3,
+      "id": "redirecting-external-domains",
+      "text": "Redirecting to External Domains"
+    },
+    {
+      "level": 3,
+      "id": "redirecting-with-flashed-session-data",
+      "text": "Redirecting With Flashed Session Data"
+    },
+    {
+      "level": 4,
+      "id": "redirecting-with-input",
+      "text": "Redirecting With Input"
+    },
+    {
+      "level": 2,
+      "id": "other-response-types",
+      "text": "Other Response Types"
+    },
+    {
+      "level": 3,
+      "id": "view-responses",
+      "text": "View Responses"
+    },
+    {
+      "level": 3,
+      "id": "json-responses",
+      "text": "JSON Responses"
+    },
+    {
+      "level": 3,
+      "id": "file-downloads",
+      "text": "File Downloads"
+    },
+    {
+      "level": 3,
+      "id": "file-responses",
+      "text": "File Responses"
+    },
+    {
+      "level": 2,
+      "id": "streamed-responses",
+      "text": "Streamed Responses"
+    },
+    {
+      "level": 3,
+      "id": "consuming-streamed-responses",
+      "text": "Consuming Streamed Responses"
+    },
+    {
+      "level": 3,
+      "id": "streamed-json-responses",
+      "text": "Streamed JSON Responses"
+    },
+    {
+      "level": 3,
+      "id": "event-streams",
+      "text": "Event Streams (SSE)"
+    },
+    {
+      "level": 4,
+      "id": "consuming-event-streams",
+      "text": "Consuming Event Streams"
+    },
+    {
+      "level": 3,
+      "id": "streamed-downloads",
+      "text": "Streamed Downloads"
+    },
+    {
+      "level": 2,
+      "id": "response-macros",
+      "text": "Response Macros"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 72,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "url": "https://laravel.com/docs/13.x/database-testing",
+  "title": "Database Testing",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "resetting-the-database-after-each-test",
+      "text": "Resetting the Database After Each Test"
+    },
+    {
+      "level": 2,
+      "id": "model-factories",
+      "text": "Model Factories"
+    },
+    {
+      "level": 2,
+      "id": "running-seeders",
+      "text": "Running Seeders"
+    },
+    {
+      "level": 2,
+      "id": "available-assertions",
+      "text": "Available Assertions"
+    },
+    {
+      "level": 4,
+      "id": "assert-database-count",
+      "text": "assertDatabaseCount"
+    },
+    {
+      "level": 4,
+      "id": "assert-database-empty",
+      "text": "assertDatabaseEmpty"
+    },
+    {
+      "level": 4,
+      "id": "assert-database-has",
+      "text": "assertDatabaseHas"
+    },
+    {
+      "level": 4,
+      "id": "assert-database-missing",
+      "text": "assertDatabaseMissing"
+    },
+    {
+      "level": 4,
+      "id": "assert-deleted",
+      "text": "assertSoftDeleted"
+    },
+    {
+      "level": 4,
+      "id": "assert-not-deleted",
+      "text": "assertNotSoftDeleted"
+    },
+    {
+      "level": 4,
+      "id": "assert-model-exists",
+      "text": "assertModelExists"
+    },
+    {
+      "level": 4,
+      "id": "assert-model-missing",
+      "text": "assertModelMissing"
+    },
+    {
+      "level": 4,
+      "id": "expects-database-query-count",
+      "text": "expectsDatabaseQueryCount"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 17,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

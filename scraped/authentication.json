@@ -1,0 +1,320 @@
+{
+  "url": "https://laravel.com/docs/13.x/authentication",
+  "title": "Authentication",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "starter-kits",
+      "text": "Starter Kits"
+    },
+    {
+      "level": 3,
+      "id": "introduction-database-considerations",
+      "text": "Database Considerations"
+    },
+    {
+      "level": 3,
+      "id": "ecosystem-overview",
+      "text": "Ecosystem Overview"
+    },
+    {
+      "level": 4,
+      "id": "laravels-built-in-browser-authentication-services",
+      "text": "Laravel's Built-in Browser Authentication Services"
+    },
+    {
+      "level": 4,
+      "id": "laravels-api-authentication-services",
+      "text": "Laravel's API Authentication Services"
+    },
+    {
+      "level": 4,
+      "id": "summary-choosing-your-stack",
+      "text": "Summary and Choosing Your Stack"
+    },
+    {
+      "level": 2,
+      "id": "authentication-quickstart",
+      "text": "Authentication Quickstart"
+    },
+    {
+      "level": 3,
+      "id": "install-a-starter-kit",
+      "text": "Install a Starter Kit"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-the-authenticated-user",
+      "text": "Retrieving the Authenticated User"
+    },
+    {
+      "level": 4,
+      "id": "determining-if-the-current-user-is-authenticated",
+      "text": "Determining if the Current User is Authenticated"
+    },
+    {
+      "level": 3,
+      "id": "protecting-routes",
+      "text": "Protecting Routes"
+    },
+    {
+      "level": 4,
+      "id": "redirecting-unauthenticated-users",
+      "text": "Redirecting Unauthenticated Users"
+    },
+    {
+      "level": 4,
+      "id": "redirecting-authenticated-users",
+      "text": "Redirecting Authenticated Users"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-guard",
+      "text": "Specifying a Guard"
+    },
+    {
+      "level": 3,
+      "id": "login-throttling",
+      "text": "Login Throttling"
+    },
+    {
+      "level": 2,
+      "id": "authenticating-users",
+      "text": "Manually Authenticating Users"
+    },
+    {
+      "level": 4,
+      "id": "specifying-additional-conditions",
+      "text": "Specifying Additional Conditions"
+    },
+    {
+      "level": 4,
+      "id": "accessing-specific-guard-instances",
+      "text": "Accessing Specific Guard Instances"
+    },
+    {
+      "level": 3,
+      "id": "remembering-users",
+      "text": "Remembering Users"
+    },
+    {
+      "level": 3,
+      "id": "other-authentication-methods",
+      "text": "Other Authentication Methods"
+    },
+    {
+      "level": 4,
+      "id": "authenticate-a-user-instance",
+      "text": "Authenticate a User Instance"
+    },
+    {
+      "level": 4,
+      "id": "authenticate-a-user-by-id",
+      "text": "Authenticate a User by ID"
+    },
+    {
+      "level": 4,
+      "id": "authenticate-a-user-once",
+      "text": "Authenticate a User Once"
+    },
+    {
+      "level": 2,
+      "id": "http-basic-authentication",
+      "text": "HTTP Basic Authentication"
+    },
+    {
+      "level": 4,
+      "id": "a-note-on-fastcgi",
+      "text": "A Note on FastCGI"
+    },
+    {
+      "level": 3,
+      "id": "stateless-http-basic-authentication",
+      "text": "Stateless HTTP Basic Authentication"
+    },
+    {
+      "level": 2,
+      "id": "logging-out",
+      "text": "Logging Out"
+    },
+    {
+      "level": 3,
+      "id": "invalidating-sessions-on-other-devices",
+      "text": "Invalidating Sessions on Other Devices"
+    },
+    {
+      "level": 2,
+      "id": "password-confirmation",
+      "text": "Password Confirmation"
+    },
+    {
+      "level": 3,
+      "id": "password-confirmation-configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 3,
+      "id": "password-confirmation-routing",
+      "text": "Routing"
+    },
+    {
+      "level": 4,
+      "id": "the-password-confirmation-form",
+      "text": "The Password Confirmation Form"
+    },
+    {
+      "level": 4,
+      "id": "confirming-the-password",
+      "text": "Confirming the Password"
+    },
+    {
+      "level": 3,
+      "id": "password-confirmation-protecting-routes",
+      "text": "Protecting Routes"
+    },
+    {
+      "level": 2,
+      "id": "adding-custom-guards",
+      "text": "Adding Custom Guards"
+    },
+    {
+      "level": 3,
+      "id": "closure-request-guards",
+      "text": "Closure Request Guards"
+    },
+    {
+      "level": 2,
+      "id": "adding-custom-user-providers",
+      "text": "Adding Custom User Providers"
+    },
+    {
+      "level": 3,
+      "id": "the-user-provider-contract",
+      "text": "The User Provider Contract"
+    },
+    {
+      "level": 3,
+      "id": "the-authenticatable-contract",
+      "text": "The Authenticatable Contract"
+    },
+    {
+      "level": 2,
+      "id": "automatic-password-rehashing",
+      "text": "Automatic Password Rehashing"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 42,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

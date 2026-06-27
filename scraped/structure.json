@@ -1,0 +1,240 @@
+{
+  "url": "https://laravel.com/docs/13.x/structure",
+  "title": "Directory Structure",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "the-root-directory",
+      "text": "The Root Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-root-app-directory",
+      "text": "The App Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-bootstrap-directory",
+      "text": "The Bootstrap Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-config-directory",
+      "text": "The Config Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-database-directory",
+      "text": "The Database Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-public-directory",
+      "text": "The Public Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-resources-directory",
+      "text": "The Resources Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-routes-directory",
+      "text": "The Routes Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-storage-directory",
+      "text": "The Storage Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-tests-directory",
+      "text": "The Tests Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-vendor-directory",
+      "text": "The Vendor Directory"
+    },
+    {
+      "level": 2,
+      "id": "the-app-directory",
+      "text": "The App Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-broadcasting-directory",
+      "text": "The Broadcasting Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-console-directory",
+      "text": "The Console Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-events-directory",
+      "text": "The Events Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-exceptions-directory",
+      "text": "The Exceptions Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-http-directory",
+      "text": "The Http Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-jobs-directory",
+      "text": "The Jobs Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-listeners-directory",
+      "text": "The Listeners Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-mail-directory",
+      "text": "The Mail Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-models-directory",
+      "text": "The Models Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-notifications-directory",
+      "text": "The Notifications Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-policies-directory",
+      "text": "The Policies Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-providers-directory",
+      "text": "The Providers Directory"
+    },
+    {
+      "level": 3,
+      "id": "the-rules-directory",
+      "text": "The Rules Directory"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 0,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

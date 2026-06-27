@@ -1,0 +1,210 @@
+{
+  "url": "https://laravel.com/docs/13.x/pagination",
+  "title": "Database: Pagination",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 4,
+      "id": "tailwind",
+      "text": "Tailwind"
+    },
+    {
+      "level": 2,
+      "id": "basic-usage",
+      "text": "Basic Usage"
+    },
+    {
+      "level": 3,
+      "id": "paginating-query-builder-results",
+      "text": "Paginating Query Builder Results"
+    },
+    {
+      "level": 4,
+      "id": "simple-pagination",
+      "text": "Simple Pagination"
+    },
+    {
+      "level": 3,
+      "id": "paginating-eloquent-results",
+      "text": "Paginating Eloquent Results"
+    },
+    {
+      "level": 4,
+      "id": "multiple-paginator-instances-per-page",
+      "text": "Multiple Paginator Instances per Page"
+    },
+    {
+      "level": 3,
+      "id": "cursor-pagination",
+      "text": "Cursor Pagination"
+    },
+    {
+      "level": 4,
+      "id": "cursor-vs-offset-pagination",
+      "text": "Cursor vs. Offset Pagination"
+    },
+    {
+      "level": 3,
+      "id": "manually-creating-a-paginator",
+      "text": "Manually Creating a Paginator"
+    },
+    {
+      "level": 3,
+      "id": "customizing-pagination-urls",
+      "text": "Customizing Pagination URLs"
+    },
+    {
+      "level": 4,
+      "id": "appending-query-string-values",
+      "text": "Appending Query String Values"
+    },
+    {
+      "level": 4,
+      "id": "appending-hash-fragments",
+      "text": "Appending Hash Fragments"
+    },
+    {
+      "level": 2,
+      "id": "displaying-pagination-results",
+      "text": "Displaying Pagination Results"
+    },
+    {
+      "level": 3,
+      "id": "adjusting-the-pagination-link-window",
+      "text": "Adjusting the Pagination Link Window"
+    },
+    {
+      "level": 3,
+      "id": "converting-results-to-json",
+      "text": "Converting Results to JSON"
+    },
+    {
+      "level": 2,
+      "id": "customizing-the-pagination-view",
+      "text": "Customizing the Pagination View"
+    },
+    {
+      "level": 3,
+      "id": "using-bootstrap",
+      "text": "Using Bootstrap"
+    },
+    {
+      "level": 2,
+      "id": "paginator-instance-methods",
+      "text": "Paginator / LengthAwarePaginator Instance Methods"
+    },
+    {
+      "level": 2,
+      "id": "cursor-paginator-instance-methods",
+      "text": "Cursor Paginator Instance Methods"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 23,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

@@ -1,0 +1,505 @@
+{
+  "url": "https://laravel.com/docs/13.x/notifications",
+  "title": "Notifications",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "generating-notifications",
+      "text": "Generating Notifications"
+    },
+    {
+      "level": 2,
+      "id": "sending-notifications",
+      "text": "Sending Notifications"
+    },
+    {
+      "level": 3,
+      "id": "using-the-notifiable-trait",
+      "text": "Using the Notifiable Trait"
+    },
+    {
+      "level": 3,
+      "id": "using-the-notification-facade",
+      "text": "Using the Notification Facade"
+    },
+    {
+      "level": 3,
+      "id": "specifying-delivery-channels",
+      "text": "Specifying Delivery Channels"
+    },
+    {
+      "level": 3,
+      "id": "queueing-notifications",
+      "text": "Queueing Notifications"
+    },
+    {
+      "level": 4,
+      "id": "delaying-notifications",
+      "text": "Delaying Notifications"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-notification-queue-connection",
+      "text": "Customizing the Notification Queue Connection"
+    },
+    {
+      "level": 4,
+      "id": "customizing-notification-channel-queues",
+      "text": "Customizing Notification Channel Queues"
+    },
+    {
+      "level": 4,
+      "id": "customizing-queued-notification-job-properties",
+      "text": "Customizing Queued Notification Job Attributes"
+    },
+    {
+      "level": 4,
+      "id": "queued-notification-middleware",
+      "text": "Queued Notification Middleware"
+    },
+    {
+      "level": 4,
+      "id": "queued-notifications-and-database-transactions",
+      "text": "Queued Notifications and Database Transactions"
+    },
+    {
+      "level": 4,
+      "id": "determining-if-the-queued-notification-should-be-sent",
+      "text": "Determining if a Queued Notification Should Be Sent"
+    },
+    {
+      "level": 4,
+      "id": "after-sending-notifications",
+      "text": "After Sending Notifications"
+    },
+    {
+      "level": 3,
+      "id": "on-demand-notifications",
+      "text": "On-Demand Notifications"
+    },
+    {
+      "level": 2,
+      "id": "mail-notifications",
+      "text": "Mail Notifications"
+    },
+    {
+      "level": 3,
+      "id": "formatting-mail-messages",
+      "text": "Formatting Mail Messages"
+    },
+    {
+      "level": 4,
+      "id": "error-messages",
+      "text": "Error Messages"
+    },
+    {
+      "level": 4,
+      "id": "other-mail-notification-formatting-options",
+      "text": "Other Mail Notification Formatting Options"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-sender",
+      "text": "Customizing the Sender"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-recipient",
+      "text": "Customizing the Recipient"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-subject",
+      "text": "Customizing the Subject"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-mailer",
+      "text": "Customizing the Mailer"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-templates",
+      "text": "Customizing the Templates"
+    },
+    {
+      "level": 3,
+      "id": "mail-attachments",
+      "text": "Attachments"
+    },
+    {
+      "level": 4,
+      "id": "raw-data-attachments",
+      "text": "Raw Data Attachments"
+    },
+    {
+      "level": 3,
+      "id": "adding-tags-metadata",
+      "text": "Adding Tags and Metadata"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-symfony-message",
+      "text": "Customizing the Symfony Message"
+    },
+    {
+      "level": 3,
+      "id": "using-mailables",
+      "text": "Using Mailables"
+    },
+    {
+      "level": 4,
+      "id": "mailables-and-on-demand-notifications",
+      "text": "Mailables and On-Demand Notifications"
+    },
+    {
+      "level": 3,
+      "id": "previewing-mail-notifications",
+      "text": "Previewing Mail Notifications"
+    },
+    {
+      "level": 2,
+      "id": "markdown-mail-notifications",
+      "text": "Markdown Mail Notifications"
+    },
+    {
+      "level": 3,
+      "id": "generating-the-message",
+      "text": "Generating the Message"
+    },
+    {
+      "level": 3,
+      "id": "writing-the-message",
+      "text": "Writing the Message"
+    },
+    {
+      "level": 4,
+      "id": "button-component",
+      "text": "Button Component"
+    },
+    {
+      "level": 4,
+      "id": "panel-component",
+      "text": "Panel Component"
+    },
+    {
+      "level": 4,
+      "id": "table-component",
+      "text": "Table Component"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-components",
+      "text": "Customizing the Components"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-css",
+      "text": "Customizing the CSS"
+    },
+    {
+      "level": 2,
+      "id": "database-notifications",
+      "text": "Database Notifications"
+    },
+    {
+      "level": 3,
+      "id": "database-prerequisites",
+      "text": "Prerequisites"
+    },
+    {
+      "level": 3,
+      "id": "formatting-database-notifications",
+      "text": "Formatting Database Notifications"
+    },
+    {
+      "level": 4,
+      "id": "todatabase-vs-toarray",
+      "text": "toDatabase vs. toArray"
+    },
+    {
+      "level": 3,
+      "id": "accessing-the-notifications",
+      "text": "Accessing the Notifications"
+    },
+    {
+      "level": 3,
+      "id": "marking-notifications-as-read",
+      "text": "Marking Notifications as Read"
+    },
+    {
+      "level": 2,
+      "id": "broadcast-notifications",
+      "text": "Broadcast Notifications"
+    },
+    {
+      "level": 3,
+      "id": "broadcast-prerequisites",
+      "text": "Prerequisites"
+    },
+    {
+      "level": 3,
+      "id": "formatting-broadcast-notifications",
+      "text": "Formatting Broadcast Notifications"
+    },
+    {
+      "level": 4,
+      "id": "broadcast-queue-configuration",
+      "text": "Broadcast Queue Configuration"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-notification-type",
+      "text": "Customizing the Notification Type"
+    },
+    {
+      "level": 3,
+      "id": "listening-for-notifications",
+      "text": "Listening for Notifications"
+    },
+    {
+      "level": 4,
+      "id": "using-react-or-vue",
+      "text": "Using React, Vue, or Svelte"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-notification-channel",
+      "text": "Customizing the Notification Channel"
+    },
+    {
+      "level": 2,
+      "id": "sms-notifications",
+      "text": "SMS Notifications"
+    },
+    {
+      "level": 3,
+      "id": "sms-prerequisites",
+      "text": "Prerequisites"
+    },
+    {
+      "level": 3,
+      "id": "formatting-sms-notifications",
+      "text": "Formatting SMS Notifications"
+    },
+    {
+      "level": 4,
+      "id": "unicode-content",
+      "text": "Unicode Content"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-from-number",
+      "text": "Customizing the &quot;From&quot; Number"
+    },
+    {
+      "level": 3,
+      "id": "adding-a-client-reference",
+      "text": "Adding a Client Reference"
+    },
+    {
+      "level": 3,
+      "id": "routing-sms-notifications",
+      "text": "Routing SMS Notifications"
+    },
+    {
+      "level": 2,
+      "id": "slack-notifications",
+      "text": "Slack Notifications"
+    },
+    {
+      "level": 3,
+      "id": "slack-prerequisites",
+      "text": "Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "slack-app-distribution",
+      "text": "App Distribution"
+    },
+    {
+      "level": 3,
+      "id": "formatting-slack-notifications",
+      "text": "Formatting Slack Notifications"
+    },
+    {
+      "level": 4,
+      "id": "using-slacks-block-kit-builder-template",
+      "text": "Using Slack's Block Kit Builder Template"
+    },
+    {
+      "level": 3,
+      "id": "slack-interactivity",
+      "text": "Slack Interactivity"
+    },
+    {
+      "level": 4,
+      "id": "slack-confirmation-modals",
+      "text": "Confirmation Modals"
+    },
+    {
+      "level": 4,
+      "id": "inspecting-slack-blocks",
+      "text": "Inspecting Slack Blocks"
+    },
+    {
+      "level": 3,
+      "id": "routing-slack-notifications",
+      "text": "Routing Slack Notifications"
+    },
+    {
+      "level": 3,
+      "id": "notifying-external-slack-workspaces",
+      "text": "Notifying External Slack Workspaces"
+    },
+    {
+      "level": 2,
+      "id": "localizing-notifications",
+      "text": "Localizing Notifications"
+    },
+    {
+      "level": 4,
+      "id": "user-preferred-locales",
+      "text": "User Preferred Locales"
+    },
+    {
+      "level": 2,
+      "id": "testing",
+      "text": "Testing"
+    },
+    {
+      "level": 4,
+      "id": "on-demand-notifications",
+      "text": "On-Demand Notifications"
+    },
+    {
+      "level": 2,
+      "id": "notification-events",
+      "text": "Notification Events"
+    },
+    {
+      "level": 4,
+      "id": "notification-sending-event",
+      "text": "Notification Sending Event"
+    },
+    {
+      "level": 4,
+      "id": "notification-sent-event",
+      "text": "Notification Sent Event"
+    },
+    {
+      "level": 2,
+      "id": "custom-channels",
+      "text": "Custom Channels"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 107,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

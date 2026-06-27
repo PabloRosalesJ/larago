@@ -1,0 +1,305 @@
+{
+  "url": "https://laravel.com/docs/13.x/cache",
+  "title": "Cache",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 3,
+      "id": "driver-prerequisites",
+      "text": "Driver Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "prerequisites-database",
+      "text": "Database"
+    },
+    {
+      "level": 4,
+      "id": "memcached",
+      "text": "Memcached"
+    },
+    {
+      "level": 4,
+      "id": "redis",
+      "text": "Redis"
+    },
+    {
+      "level": 4,
+      "id": "storage",
+      "text": "Storage"
+    },
+    {
+      "level": 4,
+      "id": "dynamodb",
+      "text": "DynamoDB"
+    },
+    {
+      "level": 4,
+      "id": "mongodb",
+      "text": "MongoDB"
+    },
+    {
+      "level": 2,
+      "id": "cache-usage",
+      "text": "Cache Usage"
+    },
+    {
+      "level": 3,
+      "id": "obtaining-a-cache-instance",
+      "text": "Obtaining a Cache Instance"
+    },
+    {
+      "level": 4,
+      "id": "accessing-multiple-cache-stores",
+      "text": "Accessing Multiple Cache Stores"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-items-from-the-cache",
+      "text": "Retrieving Items From the Cache"
+    },
+    {
+      "level": 4,
+      "id": "determining-item-existence",
+      "text": "Determining Item Existence"
+    },
+    {
+      "level": 4,
+      "id": "incrementing-decrementing-values",
+      "text": "Incrementing / Decrementing Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieve-store",
+      "text": "Retrieve and Store"
+    },
+    {
+      "level": 4,
+      "id": "swr",
+      "text": "Stale While Revalidate"
+    },
+    {
+      "level": 4,
+      "id": "retrieve-delete",
+      "text": "Retrieve and Delete"
+    },
+    {
+      "level": 3,
+      "id": "storing-items-in-the-cache",
+      "text": "Storing Items in the Cache"
+    },
+    {
+      "level": 4,
+      "id": "store-if-not-present",
+      "text": "Store if Not Present"
+    },
+    {
+      "level": 3,
+      "id": "extending-item-lifetime",
+      "text": "Extending Item Lifetime"
+    },
+    {
+      "level": 4,
+      "id": "storing-items-forever",
+      "text": "Storing Items Forever"
+    },
+    {
+      "level": 3,
+      "id": "removing-items-from-the-cache",
+      "text": "Removing Items From the Cache"
+    },
+    {
+      "level": 3,
+      "id": "cache-memoization",
+      "text": "Cache Memoization"
+    },
+    {
+      "level": 3,
+      "id": "the-cache-helper",
+      "text": "The Cache Helper"
+    },
+    {
+      "level": 2,
+      "id": "cache-tags",
+      "text": "Cache Tags"
+    },
+    {
+      "level": 3,
+      "id": "storing-tagged-cache-items",
+      "text": "Storing Tagged Cache Items"
+    },
+    {
+      "level": 3,
+      "id": "accessing-tagged-cache-items",
+      "text": "Accessing Tagged Cache Items"
+    },
+    {
+      "level": 3,
+      "id": "removing-tagged-cache-items",
+      "text": "Removing Tagged Cache Items"
+    },
+    {
+      "level": 2,
+      "id": "atomic-locks",
+      "text": "Atomic Locks"
+    },
+    {
+      "level": 3,
+      "id": "managing-locks",
+      "text": "Managing Locks"
+    },
+    {
+      "level": 3,
+      "id": "managing-locks-across-processes",
+      "text": "Managing Locks Across Processes"
+    },
+    {
+      "level": 3,
+      "id": "refreshing-locks",
+      "text": "Refreshing Locks"
+    },
+    {
+      "level": 3,
+      "id": "concurrency-limiting",
+      "text": "Concurrency Limiting"
+    },
+    {
+      "level": 2,
+      "id": "cache-failover",
+      "text": "Cache Failover"
+    },
+    {
+      "level": 2,
+      "id": "adding-custom-cache-drivers",
+      "text": "Adding Custom Cache Drivers"
+    },
+    {
+      "level": 3,
+      "id": "writing-the-driver",
+      "text": "Writing the Driver"
+    },
+    {
+      "level": 3,
+      "id": "registering-the-driver",
+      "text": "Registering the Driver"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 58,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

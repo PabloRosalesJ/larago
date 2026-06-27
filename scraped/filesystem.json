@@ -1,0 +1,320 @@
+{
+  "url": "https://laravel.com/docs/13.x/filesystem",
+  "title": "File Storage",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 3,
+      "id": "the-local-driver",
+      "text": "The Local Driver"
+    },
+    {
+      "level": 3,
+      "id": "the-public-disk",
+      "text": "The Public Disk"
+    },
+    {
+      "level": 3,
+      "id": "driver-prerequisites",
+      "text": "Driver Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "s3-driver-configuration",
+      "text": "S3 Driver Configuration"
+    },
+    {
+      "level": 4,
+      "id": "ftp-driver-configuration",
+      "text": "FTP Driver Configuration"
+    },
+    {
+      "level": 4,
+      "id": "sftp-driver-configuration",
+      "text": "SFTP Driver Configuration"
+    },
+    {
+      "level": 3,
+      "id": "scoped-and-read-only-filesystems",
+      "text": "Scoped and Read-Only Filesystems"
+    },
+    {
+      "level": 3,
+      "id": "amazon-s3-compatible-filesystems",
+      "text": "Amazon S3 Compatible Filesystems"
+    },
+    {
+      "level": 2,
+      "id": "obtaining-disk-instances",
+      "text": "Obtaining Disk Instances"
+    },
+    {
+      "level": 3,
+      "id": "on-demand-disks",
+      "text": "On-Demand Disks"
+    },
+    {
+      "level": 2,
+      "id": "retrieving-files",
+      "text": "Retrieving Files"
+    },
+    {
+      "level": 3,
+      "id": "downloading-files",
+      "text": "Downloading Files"
+    },
+    {
+      "level": 3,
+      "id": "file-urls",
+      "text": "File URLs"
+    },
+    {
+      "level": 4,
+      "id": "url-host-customization",
+      "text": "URL Host Customization"
+    },
+    {
+      "level": 3,
+      "id": "temporary-urls",
+      "text": "Temporary URLs"
+    },
+    {
+      "level": 4,
+      "id": "enabling-local-temporary-urls",
+      "text": "Enabling Local Temporary URLs"
+    },
+    {
+      "level": 4,
+      "id": "s3-request-parameters",
+      "text": "S3 Request Parameters"
+    },
+    {
+      "level": 4,
+      "id": "customizing-temporary-urls",
+      "text": "Customizing Temporary URLs"
+    },
+    {
+      "level": 4,
+      "id": "temporary-upload-urls",
+      "text": "Temporary Upload URLs"
+    },
+    {
+      "level": 3,
+      "id": "file-metadata",
+      "text": "File Metadata"
+    },
+    {
+      "level": 4,
+      "id": "file-paths",
+      "text": "File Paths"
+    },
+    {
+      "level": 2,
+      "id": "storing-files",
+      "text": "Storing Files"
+    },
+    {
+      "level": 4,
+      "id": "failed-writes",
+      "text": "Failed Writes"
+    },
+    {
+      "level": 3,
+      "id": "prepending-appending-to-files",
+      "text": "Prepending and Appending To Files"
+    },
+    {
+      "level": 3,
+      "id": "copying-moving-files",
+      "text": "Copying and Moving Files"
+    },
+    {
+      "level": 3,
+      "id": "automatic-streaming",
+      "text": "Automatic Streaming"
+    },
+    {
+      "level": 3,
+      "id": "file-uploads",
+      "text": "File Uploads"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-file-name",
+      "text": "Specifying a File Name"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-disk",
+      "text": "Specifying a Disk"
+    },
+    {
+      "level": 4,
+      "id": "other-uploaded-file-information",
+      "text": "Other Uploaded File Information"
+    },
+    {
+      "level": 3,
+      "id": "file-visibility",
+      "text": "File Visibility"
+    },
+    {
+      "level": 4,
+      "id": "local-files-and-visibility",
+      "text": "Local Files and Visibility"
+    },
+    {
+      "level": 2,
+      "id": "deleting-files",
+      "text": "Deleting Files"
+    },
+    {
+      "level": 2,
+      "id": "directories",
+      "text": "Directories"
+    },
+    {
+      "level": 4,
+      "id": "get-all-files-within-a-directory",
+      "text": "Get All Files Within a Directory"
+    },
+    {
+      "level": 4,
+      "id": "get-all-directories-within-a-directory",
+      "text": "Get All Directories Within a Directory"
+    },
+    {
+      "level": 4,
+      "id": "create-a-directory",
+      "text": "Create a Directory"
+    },
+    {
+      "level": 4,
+      "id": "delete-a-directory",
+      "text": "Delete a Directory"
+    },
+    {
+      "level": 2,
+      "id": "testing",
+      "text": "Testing"
+    },
+    {
+      "level": 2,
+      "id": "custom-filesystems",
+      "text": "Custom Filesystems"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 64,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

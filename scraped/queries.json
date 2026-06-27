@@ -1,0 +1,415 @@
+{
+  "url": "https://laravel.com/docs/13.x/queries",
+  "title": "Database: Query Builder",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "running-database-queries",
+      "text": "Running Database Queries"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-all-rows-from-a-table",
+      "text": "Retrieving All Rows From a Table"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-a-single-row-column-from-a-table",
+      "text": "Retrieving a Single Row / Column From a Table"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-a-list-of-column-values",
+      "text": "Retrieving a List of Column Values"
+    },
+    {
+      "level": 3,
+      "id": "chunking-results",
+      "text": "Chunking Results"
+    },
+    {
+      "level": 3,
+      "id": "streaming-results-lazily",
+      "text": "Streaming Results Lazily"
+    },
+    {
+      "level": 3,
+      "id": "aggregates",
+      "text": "Aggregates"
+    },
+    {
+      "level": 4,
+      "id": "determining-if-records-exist",
+      "text": "Determining if Records Exist"
+    },
+    {
+      "level": 2,
+      "id": "select-statements",
+      "text": "Select Statements"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-select-clause",
+      "text": "Specifying a Select Clause"
+    },
+    {
+      "level": 2,
+      "id": "raw-expressions",
+      "text": "Raw Expressions"
+    },
+    {
+      "level": 3,
+      "id": "raw-methods",
+      "text": "Raw Methods"
+    },
+    {
+      "level": 4,
+      "id": "selectraw",
+      "text": "selectRaw"
+    },
+    {
+      "level": 4,
+      "id": "whereraw-orwhereraw",
+      "text": "whereRaw / orWhereRaw"
+    },
+    {
+      "level": 4,
+      "id": "havingraw-orhavingraw",
+      "text": "havingRaw / orHavingRaw"
+    },
+    {
+      "level": 4,
+      "id": "orderbyraw",
+      "text": "orderByRaw"
+    },
+    {
+      "level": 3,
+      "id": "groupbyraw",
+      "text": "groupByRaw"
+    },
+    {
+      "level": 2,
+      "id": "joins",
+      "text": "Joins"
+    },
+    {
+      "level": 4,
+      "id": "inner-join-clause",
+      "text": "Inner Join Clause"
+    },
+    {
+      "level": 4,
+      "id": "left-join-right-join-clause",
+      "text": "Left Join / Right Join Clause"
+    },
+    {
+      "level": 4,
+      "id": "cross-join-clause",
+      "text": "Cross Join Clause"
+    },
+    {
+      "level": 4,
+      "id": "advanced-join-clauses",
+      "text": "Advanced Join Clauses"
+    },
+    {
+      "level": 4,
+      "id": "subquery-joins",
+      "text": "Subquery Joins"
+    },
+    {
+      "level": 4,
+      "id": "lateral-joins",
+      "text": "Lateral Joins"
+    },
+    {
+      "level": 2,
+      "id": "unions",
+      "text": "Unions"
+    },
+    {
+      "level": 2,
+      "id": "basic-where-clauses",
+      "text": "Basic Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "where-clauses",
+      "text": "Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "or-where-clauses",
+      "text": "Or Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "where-not-clauses",
+      "text": "Where Not Clauses"
+    },
+    {
+      "level": 3,
+      "id": "where-any-all-none-clauses",
+      "text": "Where Any / All / None Clauses"
+    },
+    {
+      "level": 3,
+      "id": "json-where-clauses",
+      "text": "JSON Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "additional-where-clauses",
+      "text": "Additional Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "logical-grouping",
+      "text": "Logical Grouping"
+    },
+    {
+      "level": 2,
+      "id": "advanced-where-clauses",
+      "text": "Advanced Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "where-exists-clauses",
+      "text": "Where Exists Clauses"
+    },
+    {
+      "level": 3,
+      "id": "subquery-where-clauses",
+      "text": "Subquery Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "full-text-where-clauses",
+      "text": "Full Text Where Clauses"
+    },
+    {
+      "level": 3,
+      "id": "vector-similarity-clauses",
+      "text": "Vector Similarity Clauses"
+    },
+    {
+      "level": 2,
+      "id": "ordering-grouping-limit-and-offset",
+      "text": "Ordering, Grouping, Limit and Offset"
+    },
+    {
+      "level": 3,
+      "id": "ordering",
+      "text": "Ordering"
+    },
+    {
+      "level": 4,
+      "id": "orderby",
+      "text": "The orderBy Method"
+    },
+    {
+      "level": 4,
+      "id": "latest-oldest",
+      "text": "The latest and oldest Methods"
+    },
+    {
+      "level": 4,
+      "id": "random-ordering",
+      "text": "Random Ordering"
+    },
+    {
+      "level": 4,
+      "id": "removing-existing-orderings",
+      "text": "Removing Existing Orderings"
+    },
+    {
+      "level": 3,
+      "id": "grouping",
+      "text": "Grouping"
+    },
+    {
+      "level": 4,
+      "id": "groupby-having",
+      "text": "The groupBy and having Methods"
+    },
+    {
+      "level": 3,
+      "id": "limit-and-offset",
+      "text": "Limit and Offset"
+    },
+    {
+      "level": 2,
+      "id": "conditional-clauses",
+      "text": "Conditional Clauses"
+    },
+    {
+      "level": 2,
+      "id": "insert-statements",
+      "text": "Insert Statements"
+    },
+    {
+      "level": 4,
+      "id": "auto-incrementing-ids",
+      "text": "Auto-Incrementing IDs"
+    },
+    {
+      "level": 3,
+      "id": "upserts",
+      "text": "Upserts"
+    },
+    {
+      "level": 2,
+      "id": "update-statements",
+      "text": "Update Statements"
+    },
+    {
+      "level": 4,
+      "id": "update-or-insert",
+      "text": "Update or Insert"
+    },
+    {
+      "level": 3,
+      "id": "updating-json-columns",
+      "text": "Updating JSON Columns"
+    },
+    {
+      "level": 3,
+      "id": "increment-and-decrement",
+      "text": "Increment and Decrement"
+    },
+    {
+      "level": 2,
+      "id": "delete-statements",
+      "text": "Delete Statements"
+    },
+    {
+      "level": 2,
+      "id": "pessimistic-locking",
+      "text": "Pessimistic Locking"
+    },
+    {
+      "level": 2,
+      "id": "reusable-query-components",
+      "text": "Reusable Query Components"
+    },
+    {
+      "level": 4,
+      "id": "query-pipes",
+      "text": "Query Pipes"
+    },
+    {
+      "level": 2,
+      "id": "debugging",
+      "text": "Debugging"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 136,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

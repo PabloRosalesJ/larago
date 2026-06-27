@@ -1,0 +1,345 @@
+{
+  "url": "https://laravel.com/docs/13.x/routing",
+  "title": "Routing",
+  "headings": [
+    {
+      "level": 2,
+      "id": "basic-routing",
+      "text": "Basic Routing"
+    },
+    {
+      "level": 3,
+      "id": "the-default-route-files",
+      "text": "The Default Route Files"
+    },
+    {
+      "level": 4,
+      "id": "api-routes",
+      "text": "API Routes"
+    },
+    {
+      "level": 4,
+      "id": "available-router-methods",
+      "text": "Available Router Methods"
+    },
+    {
+      "level": 4,
+      "id": "dependency-injection",
+      "text": "Dependency Injection"
+    },
+    {
+      "level": 4,
+      "id": "csrf-protection",
+      "text": "CSRF Protection"
+    },
+    {
+      "level": 3,
+      "id": "redirect-routes",
+      "text": "Redirect Routes"
+    },
+    {
+      "level": 3,
+      "id": "view-routes",
+      "text": "View Routes"
+    },
+    {
+      "level": 3,
+      "id": "listing-your-routes",
+      "text": "Listing Your Routes"
+    },
+    {
+      "level": 3,
+      "id": "routing-customization",
+      "text": "Routing Customization"
+    },
+    {
+      "level": 2,
+      "id": "route-parameters",
+      "text": "Route Parameters"
+    },
+    {
+      "level": 3,
+      "id": "required-parameters",
+      "text": "Required Parameters"
+    },
+    {
+      "level": 4,
+      "id": "parameters-and-dependency-injection",
+      "text": "Parameters and Dependency Injection"
+    },
+    {
+      "level": 3,
+      "id": "parameters-optional-parameters",
+      "text": "Optional Parameters"
+    },
+    {
+      "level": 3,
+      "id": "parameters-regular-expression-constraints",
+      "text": "Regular Expression Constraints"
+    },
+    {
+      "level": 4,
+      "id": "parameters-global-constraints",
+      "text": "Global Constraints"
+    },
+    {
+      "level": 4,
+      "id": "parameters-encoded-forward-slashes",
+      "text": "Encoded Forward Slashes"
+    },
+    {
+      "level": 2,
+      "id": "named-routes",
+      "text": "Named Routes"
+    },
+    {
+      "level": 4,
+      "id": "generating-urls-to-named-routes",
+      "text": "Generating URLs to Named Routes"
+    },
+    {
+      "level": 4,
+      "id": "inspecting-the-current-route",
+      "text": "Inspecting the Current Route"
+    },
+    {
+      "level": 2,
+      "id": "route-groups",
+      "text": "Route Groups"
+    },
+    {
+      "level": 3,
+      "id": "route-group-middleware",
+      "text": "Middleware"
+    },
+    {
+      "level": 3,
+      "id": "route-group-controllers",
+      "text": "Controllers"
+    },
+    {
+      "level": 3,
+      "id": "route-group-subdomain-routing",
+      "text": "Subdomain Routing"
+    },
+    {
+      "level": 3,
+      "id": "route-group-prefixes",
+      "text": "Route Prefixes"
+    },
+    {
+      "level": 3,
+      "id": "route-group-name-prefixes",
+      "text": "Route Name Prefixes"
+    },
+    {
+      "level": 2,
+      "id": "route-model-binding",
+      "text": "Route Model Binding"
+    },
+    {
+      "level": 3,
+      "id": "implicit-binding",
+      "text": "Implicit Binding"
+    },
+    {
+      "level": 4,
+      "id": "implicit-soft-deleted-models",
+      "text": "Soft Deleted Models"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-default-key-name",
+      "text": "Customizing the Key"
+    },
+    {
+      "level": 4,
+      "id": "implicit-model-binding-scoping",
+      "text": "Custom Keys and Scoping"
+    },
+    {
+      "level": 4,
+      "id": "customizing-missing-model-behavior",
+      "text": "Customizing Missing Model Behavior"
+    },
+    {
+      "level": 3,
+      "id": "implicit-enum-binding",
+      "text": "Implicit Enum Binding"
+    },
+    {
+      "level": 3,
+      "id": "explicit-binding",
+      "text": "Explicit Binding"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-resolution-logic",
+      "text": "Customizing the Resolution Logic"
+    },
+    {
+      "level": 2,
+      "id": "fallback-routes",
+      "text": "Fallback Routes"
+    },
+    {
+      "level": 2,
+      "id": "rate-limiting",
+      "text": "Rate Limiting"
+    },
+    {
+      "level": 3,
+      "id": "defining-rate-limiters",
+      "text": "Defining Rate Limiters"
+    },
+    {
+      "level": 4,
+      "id": "segmenting-rate-limits",
+      "text": "Segmenting Rate Limits"
+    },
+    {
+      "level": 4,
+      "id": "multiple-rate-limits",
+      "text": "Multiple Rate Limits"
+    },
+    {
+      "level": 4,
+      "id": "response-base-rate-limiting",
+      "text": "Response-Based Rate Limiting"
+    },
+    {
+      "level": 3,
+      "id": "attaching-rate-limiters-to-routes",
+      "text": "Attaching Rate Limiters to Routes"
+    },
+    {
+      "level": 4,
+      "id": "throttling-with-redis",
+      "text": "Throttling With Redis"
+    },
+    {
+      "level": 2,
+      "id": "form-method-spoofing",
+      "text": "Form Method Spoofing"
+    },
+    {
+      "level": 2,
+      "id": "accessing-the-current-route",
+      "text": "Accessing the Current Route"
+    },
+    {
+      "level": 2,
+      "id": "cors",
+      "text": "Cross-Origin Resource Sharing (CORS)"
+    },
+    {
+      "level": 2,
+      "id": "route-caching",
+      "text": "Route Caching"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 76,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

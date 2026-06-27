@@ -1,0 +1,350 @@
+{
+  "url": "https://laravel.com/docs/13.x/upgrade",
+  "title": "Upgrade Guide",
+  "headings": [
+    {
+      "level": 2,
+      "id": "high-impact-changes",
+      "text": "High Impact Changes"
+    },
+    {
+      "level": 2,
+      "id": "medium-impact-changes",
+      "text": "Medium Impact Changes"
+    },
+    {
+      "level": 2,
+      "id": "low-impact-changes",
+      "text": "Low Impact Changes"
+    },
+    {
+      "level": 2,
+      "id": "upgrade-13.0",
+      "text": "Upgrading To 13.0 From 12.x"
+    },
+    {
+      "level": 3,
+      "id": "upgrading-using-ai",
+      "text": "Upgrading Using AI"
+    },
+    {
+      "level": 3,
+      "id": "updating-dependencies",
+      "text": "Updating Dependencies"
+    },
+    {
+      "level": 3,
+      "id": "updating-the-laravel-installer",
+      "text": "Updating the Laravel Installer"
+    },
+    {
+      "level": 3,
+      "id": "cache",
+      "text": "Cache"
+    },
+    {
+      "level": 4,
+      "id": "cache-prefixes-and-session-cookie-names",
+      "text": "Cache Prefixes and Session Cookie Names"
+    },
+    {
+      "level": 4,
+      "id": "store-and-repository-contracts-touch",
+      "text": "Store and Repository Contracts: touch"
+    },
+    {
+      "level": 4,
+      "id": "cache-serializable_classes-configuration",
+      "text": "Cache serializable_classes Configuration"
+    },
+    {
+      "level": 3,
+      "id": "container",
+      "text": "Container"
+    },
+    {
+      "level": 4,
+      "id": "containercall-and-nullable-class-defaults",
+      "text": "Container::call and Nullable Class Defaults"
+    },
+    {
+      "level": 3,
+      "id": "contracts",
+      "text": "Contracts"
+    },
+    {
+      "level": 4,
+      "id": "dispatcher-contract-dispatchafterresponse",
+      "text": "Dispatcher Contract: dispatchAfterResponse"
+    },
+    {
+      "level": 4,
+      "id": "responsefactory-contract-eventstream",
+      "text": "ResponseFactory Contract: eventStream"
+    },
+    {
+      "level": 4,
+      "id": "mustverifyemail-contract-markemailasunverified",
+      "text": "MustVerifyEmail Contract: markEmailAsUnverified"
+    },
+    {
+      "level": 3,
+      "id": "database",
+      "text": "Database"
+    },
+    {
+      "level": 4,
+      "id": "database-upsert-mariadb-mysql",
+      "text": "Database upsert With MySQL or MariaDB"
+    },
+    {
+      "level": 4,
+      "id": "mysql-delete-queries-with-join-order-by-and-limit",
+      "text": "MySQL DELETE Queries With JOIN, ORDER BY, and LIMIT"
+    },
+    {
+      "level": 3,
+      "id": "eloquent",
+      "text": "Eloquent"
+    },
+    {
+      "level": 4,
+      "id": "model-booting-and-nested-instantiation",
+      "text": "Model Booting and Nested Instantiation"
+    },
+    {
+      "level": 4,
+      "id": "polymorphic-pivot-table-name-generation",
+      "text": "Polymorphic Pivot Table Name Generation"
+    },
+    {
+      "level": 4,
+      "id": "collection-model-serialization-restores-eager-loaded-relations",
+      "text": "Collection Model Serialization Restores Eager-Loaded Relations"
+    },
+    {
+      "level": 3,
+      "id": "http-client",
+      "text": "HTTP Client"
+    },
+    {
+      "level": 4,
+      "id": "http-client-response-throw-and-throwif-signatures",
+      "text": "HTTP Client Response::throw and throwIf Signatures"
+    },
+    {
+      "level": 3,
+      "id": "notifications",
+      "text": "Notifications"
+    },
+    {
+      "level": 4,
+      "id": "default-password-reset-subject",
+      "text": "Default Password Reset Subject"
+    },
+    {
+      "level": 4,
+      "id": "queued-notifications-and-missing-models",
+      "text": "Queued Notifications and Missing Models"
+    },
+    {
+      "level": 3,
+      "id": "queue",
+      "text": "Queue"
+    },
+    {
+      "level": 4,
+      "id": "jobattempted-event-exception-payload",
+      "text": "JobAttempted Event Exception Payload"
+    },
+    {
+      "level": 4,
+      "id": "queuebusy-event-property-rename",
+      "text": "QueueBusy Event Property Rename"
+    },
+    {
+      "level": 4,
+      "id": "queue-contract-method-additions",
+      "text": "Queue Contract Method Additions"
+    },
+    {
+      "level": 3,
+      "id": "routing",
+      "text": "Routing"
+    },
+    {
+      "level": 4,
+      "id": "domain-route-registration-precedence",
+      "text": "Domain Route Registration Precedence"
+    },
+    {
+      "level": 3,
+      "id": "scheduling",
+      "text": "Scheduling"
+    },
+    {
+      "level": 4,
+      "id": "withscheduling-registration-timing",
+      "text": "withScheduling Registration Timing"
+    },
+    {
+      "level": 3,
+      "id": "security",
+      "text": "Security"
+    },
+    {
+      "level": 4,
+      "id": "request-forgery-protection",
+      "text": "Request Forgery Protection"
+    },
+    {
+      "level": 3,
+      "id": "support",
+      "text": "Support"
+    },
+    {
+      "level": 4,
+      "id": "manager-extend-callback-binding",
+      "text": "Manager extend Callback Binding"
+    },
+    {
+      "level": 4,
+      "id": "str-factories-reset-between-tests",
+      "text": "Str Factories Reset Between Tests"
+    },
+    {
+      "level": 4,
+      "id": "jsfrom-uses-unescaped-unicode-by-default",
+      "text": "Js::from Uses Unescaped Unicode By Default"
+    },
+    {
+      "level": 3,
+      "id": "utilities",
+      "text": "Utilities"
+    },
+    {
+      "level": 4,
+      "id": "symfony-polyfill",
+      "text": "Symfony PHP 8.5 Polyfill and Global Function Conflicts"
+    },
+    {
+      "level": 3,
+      "id": "views",
+      "text": "Views"
+    },
+    {
+      "level": 4,
+      "id": "pagination-bootstrap-view-names",
+      "text": "Pagination Bootstrap View Names"
+    },
+    {
+      "level": 3,
+      "id": "miscellaneous",
+      "text": "Miscellaneous"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 12,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

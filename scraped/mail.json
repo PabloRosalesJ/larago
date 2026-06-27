@@ -1,0 +1,415 @@
+{
+  "url": "https://laravel.com/docs/13.x/mail",
+  "title": "Mail",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 3,
+      "id": "driver-prerequisites",
+      "text": "Driver / Transport Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "cloudflare-driver",
+      "text": "Cloudflare Driver"
+    },
+    {
+      "level": 4,
+      "id": "mailgun-driver",
+      "text": "Mailgun Driver"
+    },
+    {
+      "level": 4,
+      "id": "postmark-driver",
+      "text": "Postmark Driver"
+    },
+    {
+      "level": 4,
+      "id": "resend-driver",
+      "text": "Resend Driver"
+    },
+    {
+      "level": 4,
+      "id": "ses-driver",
+      "text": "SES Driver"
+    },
+    {
+      "level": 3,
+      "id": "failover-configuration",
+      "text": "Failover Configuration"
+    },
+    {
+      "level": 3,
+      "id": "round-robin-configuration",
+      "text": "Round Robin Configuration"
+    },
+    {
+      "level": 2,
+      "id": "generating-mailables",
+      "text": "Generating Mailables"
+    },
+    {
+      "level": 2,
+      "id": "writing-mailables",
+      "text": "Writing Mailables"
+    },
+    {
+      "level": 3,
+      "id": "configuring-the-sender",
+      "text": "Configuring the Sender"
+    },
+    {
+      "level": 4,
+      "id": "using-the-envelope",
+      "text": "Using the Envelope"
+    },
+    {
+      "level": 4,
+      "id": "using-a-global-from-address",
+      "text": "Using a Global from Address"
+    },
+    {
+      "level": 3,
+      "id": "configuring-the-view",
+      "text": "Configuring the View"
+    },
+    {
+      "level": 4,
+      "id": "plain-text-emails",
+      "text": "Plain Text Emails"
+    },
+    {
+      "level": 3,
+      "id": "view-data",
+      "text": "View Data"
+    },
+    {
+      "level": 4,
+      "id": "via-public-properties",
+      "text": "Via Public Properties"
+    },
+    {
+      "level": 4,
+      "id": "via-the-with-parameter",
+      "text": "Via the with Parameter:"
+    },
+    {
+      "level": 3,
+      "id": "attachments",
+      "text": "Attachments"
+    },
+    {
+      "level": 4,
+      "id": "attaching-files-from-disk",
+      "text": "Attaching Files From Disk"
+    },
+    {
+      "level": 4,
+      "id": "raw-data-attachments",
+      "text": "Raw Data Attachments"
+    },
+    {
+      "level": 3,
+      "id": "inline-attachments",
+      "text": "Inline Attachments"
+    },
+    {
+      "level": 4,
+      "id": "embedding-raw-data-attachments",
+      "text": "Embedding Raw Data Attachments"
+    },
+    {
+      "level": 3,
+      "id": "attachable-objects",
+      "text": "Attachable Objects"
+    },
+    {
+      "level": 3,
+      "id": "headers",
+      "text": "Headers"
+    },
+    {
+      "level": 3,
+      "id": "tags-and-metadata",
+      "text": "Tags and Metadata"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-symfony-message",
+      "text": "Customizing the Symfony Message"
+    },
+    {
+      "level": 2,
+      "id": "markdown-mailables",
+      "text": "Markdown Mailables"
+    },
+    {
+      "level": 3,
+      "id": "generating-markdown-mailables",
+      "text": "Generating Markdown Mailables"
+    },
+    {
+      "level": 3,
+      "id": "writing-markdown-messages",
+      "text": "Writing Markdown Messages"
+    },
+    {
+      "level": 4,
+      "id": "button-component",
+      "text": "Button Component"
+    },
+    {
+      "level": 4,
+      "id": "panel-component",
+      "text": "Panel Component"
+    },
+    {
+      "level": 4,
+      "id": "table-component",
+      "text": "Table Component"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-components",
+      "text": "Customizing the Components"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-css",
+      "text": "Customizing the CSS"
+    },
+    {
+      "level": 2,
+      "id": "sending-mail",
+      "text": "Sending Mail"
+    },
+    {
+      "level": 4,
+      "id": "looping-over-recipients",
+      "text": "Looping Over Recipients"
+    },
+    {
+      "level": 4,
+      "id": "sending-mail-via-a-specific-mailer",
+      "text": "Sending Mail via a Specific Mailer"
+    },
+    {
+      "level": 3,
+      "id": "queueing-mail",
+      "text": "Queueing Mail"
+    },
+    {
+      "level": 4,
+      "id": "queueing-a-mail-message",
+      "text": "Queueing a Mail Message"
+    },
+    {
+      "level": 4,
+      "id": "delayed-message-queueing",
+      "text": "Delayed Message Queueing"
+    },
+    {
+      "level": 4,
+      "id": "pushing-to-specific-queues",
+      "text": "Pushing to Specific Queues"
+    },
+    {
+      "level": 4,
+      "id": "queueing-by-default",
+      "text": "Queueing by Default"
+    },
+    {
+      "level": 4,
+      "id": "queued-mailables-and-database-transactions",
+      "text": "Queued Mailables and Database Transactions"
+    },
+    {
+      "level": 4,
+      "id": "queued-email-failures",
+      "text": "Queued Email Failures"
+    },
+    {
+      "level": 2,
+      "id": "rendering-mailables",
+      "text": "Rendering Mailables"
+    },
+    {
+      "level": 3,
+      "id": "previewing-mailables-in-the-browser",
+      "text": "Previewing Mailables in the Browser"
+    },
+    {
+      "level": 2,
+      "id": "localizing-mailables",
+      "text": "Localizing Mailables"
+    },
+    {
+      "level": 4,
+      "id": "user-preferred-locales",
+      "text": "User Preferred Locales"
+    },
+    {
+      "level": 2,
+      "id": "testing-mailables",
+      "text": "Testing"
+    },
+    {
+      "level": 3,
+      "id": "testing-mailable-content",
+      "text": "Testing Mailable Content"
+    },
+    {
+      "level": 3,
+      "id": "testing-mailable-sending",
+      "text": "Testing Mailable Sending"
+    },
+    {
+      "level": 2,
+      "id": "mail-and-local-development",
+      "text": "Mail and Local Development"
+    },
+    {
+      "level": 4,
+      "id": "log-driver",
+      "text": "Log Driver"
+    },
+    {
+      "level": 4,
+      "id": "mailtrap",
+      "text": "HELO / Mailtrap / Mailpit"
+    },
+    {
+      "level": 4,
+      "id": "using-a-global-to-address",
+      "text": "Using a Global to Address"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    },
+    {
+      "level": 2,
+      "id": "custom-transports",
+      "text": "Custom Transports"
+    },
+    {
+      "level": 3,
+      "id": "additional-symfony-transports",
+      "text": "Additional Symfony Transports"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 94,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

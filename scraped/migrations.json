@@ -1,0 +1,675 @@
+{
+  "url": "https://laravel.com/docs/13.x/migrations",
+  "title": "Database: Migrations",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "generating-migrations",
+      "text": "Generating Migrations"
+    },
+    {
+      "level": 3,
+      "id": "squashing-migrations",
+      "text": "Squashing Migrations"
+    },
+    {
+      "level": 2,
+      "id": "migration-structure",
+      "text": "Migration Structure"
+    },
+    {
+      "level": 4,
+      "id": "setting-the-migration-connection",
+      "text": "Setting the Migration Connection"
+    },
+    {
+      "level": 4,
+      "id": "skipping-migrations",
+      "text": "Skipping Migrations"
+    },
+    {
+      "level": 2,
+      "id": "running-migrations",
+      "text": "Running Migrations"
+    },
+    {
+      "level": 4,
+      "id": "isolating-migration-execution",
+      "text": "Isolating Migration Execution"
+    },
+    {
+      "level": 4,
+      "id": "forcing-migrations-to-run-in-production",
+      "text": "Forcing Migrations to Run in Production"
+    },
+    {
+      "level": 3,
+      "id": "rolling-back-migrations",
+      "text": "Rolling Back Migrations"
+    },
+    {
+      "level": 4,
+      "id": "roll-back-migrate-using-a-single-command",
+      "text": "Roll Back and Migrate Using a Single Command"
+    },
+    {
+      "level": 4,
+      "id": "drop-all-tables-migrate",
+      "text": "Drop All Tables and Migrate"
+    },
+    {
+      "level": 2,
+      "id": "tables",
+      "text": "Tables"
+    },
+    {
+      "level": 3,
+      "id": "creating-tables",
+      "text": "Creating Tables"
+    },
+    {
+      "level": 4,
+      "id": "determining-table-column-existence",
+      "text": "Determining Table / Column Existence"
+    },
+    {
+      "level": 4,
+      "id": "database-connection-table-options",
+      "text": "Database Connection and Table Options"
+    },
+    {
+      "level": 3,
+      "id": "updating-tables",
+      "text": "Updating Tables"
+    },
+    {
+      "level": 3,
+      "id": "renaming-and-dropping-tables",
+      "text": "Renaming / Dropping Tables"
+    },
+    {
+      "level": 4,
+      "id": "renaming-tables-with-foreign-keys",
+      "text": "Renaming Tables With Foreign Keys"
+    },
+    {
+      "level": 2,
+      "id": "columns",
+      "text": "Columns"
+    },
+    {
+      "level": 3,
+      "id": "creating-columns",
+      "text": "Creating Columns"
+    },
+    {
+      "level": 3,
+      "id": "available-column-types",
+      "text": "Available Column Types"
+    },
+    {
+      "level": 4,
+      "id": "booleans-method-list",
+      "text": "Boolean Types"
+    },
+    {
+      "level": 4,
+      "id": "strings-and-texts-method-list",
+      "text": "String &amp; Text Types"
+    },
+    {
+      "level": 4,
+      "id": "numbers--method-list",
+      "text": "Numeric Types"
+    },
+    {
+      "level": 4,
+      "id": "dates-and-times-method-list",
+      "text": "Date &amp; Time Types"
+    },
+    {
+      "level": 4,
+      "id": "binaries-method-list",
+      "text": "Binary Types"
+    },
+    {
+      "level": 4,
+      "id": "object-and-jsons-method-list",
+      "text": "Object &amp; Json Types"
+    },
+    {
+      "level": 4,
+      "id": "uuids-and-ulids-method-list",
+      "text": "UUID &amp; ULID Types"
+    },
+    {
+      "level": 4,
+      "id": "spatials-method-list",
+      "text": "Spatial Types"
+    },
+    {
+      "level": 4,
+      "id": "relationship-method-list",
+      "text": "Relationship Types"
+    },
+    {
+      "level": 4,
+      "id": "specifics-method-list",
+      "text": "Specialty Types"
+    },
+    {
+      "level": 4,
+      "id": "column-method-bigIncrements",
+      "text": "bigIncrements()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-bigInteger",
+      "text": "bigInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-binary",
+      "text": "binary()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-boolean",
+      "text": "boolean()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-char",
+      "text": "char()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-dateTimeTz",
+      "text": "dateTimeTz()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-dateTime",
+      "text": "dateTime()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-date",
+      "text": "date()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-decimal",
+      "text": "decimal()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-double",
+      "text": "double()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-enum",
+      "text": "enum()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-float",
+      "text": "float()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-foreignId",
+      "text": "foreignId()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-foreignIdFor",
+      "text": "foreignIdFor()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-foreignUlid",
+      "text": "foreignUlid()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-foreignUuid",
+      "text": "foreignUuid()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-foreignUuidFor",
+      "text": "foreignUuidFor()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-geography",
+      "text": "geography()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-geometry",
+      "text": "geometry()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-id",
+      "text": "id()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-increments",
+      "text": "increments()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-integer",
+      "text": "integer()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-ipAddress",
+      "text": "ipAddress()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-json",
+      "text": "json()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-jsonb",
+      "text": "jsonb()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-longText",
+      "text": "longText()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-macAddress",
+      "text": "macAddress()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-mediumIncrements",
+      "text": "mediumIncrements()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-mediumInteger",
+      "text": "mediumInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-mediumText",
+      "text": "mediumText()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-morphs",
+      "text": "morphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-nullableMorphs",
+      "text": "nullableMorphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-nullableUlidMorphs",
+      "text": "nullableUlidMorphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-nullableUuidMorphs",
+      "text": "nullableUuidMorphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-rememberToken",
+      "text": "rememberToken()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-set",
+      "text": "set()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-smallIncrements",
+      "text": "smallIncrements()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-smallInteger",
+      "text": "smallInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-softDeletesTz",
+      "text": "softDeletesTz()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-softDeletes",
+      "text": "softDeletes()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-string",
+      "text": "string()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-text",
+      "text": "text()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-timeTz",
+      "text": "timeTz()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-time",
+      "text": "time()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-timestampTz",
+      "text": "timestampTz()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-timestamp",
+      "text": "timestamp()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-timestampsTz",
+      "text": "timestampsTz()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-timestamps",
+      "text": "timestamps()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-tinyIncrements",
+      "text": "tinyIncrements()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-tinyInteger",
+      "text": "tinyInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-tinyText",
+      "text": "tinyText()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-unsignedBigInteger",
+      "text": "unsignedBigInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-unsignedInteger",
+      "text": "unsignedInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-unsignedMediumInteger",
+      "text": "unsignedMediumInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-unsignedSmallInteger",
+      "text": "unsignedSmallInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-unsignedTinyInteger",
+      "text": "unsignedTinyInteger()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-ulidMorphs",
+      "text": "ulidMorphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-uuidMorphs",
+      "text": "uuidMorphs()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-ulid",
+      "text": "ulid()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-uuid",
+      "text": "uuid()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-vector",
+      "text": "vector()"
+    },
+    {
+      "level": 4,
+      "id": "column-method-year",
+      "text": "year()"
+    },
+    {
+      "level": 3,
+      "id": "column-modifiers",
+      "text": "Column Modifiers"
+    },
+    {
+      "level": 4,
+      "id": "default-expressions",
+      "text": "Default Expressions"
+    },
+    {
+      "level": 4,
+      "id": "column-order",
+      "text": "Column Order"
+    },
+    {
+      "level": 4,
+      "id": "instant-column-operations",
+      "text": "Instant Column Operations"
+    },
+    {
+      "level": 4,
+      "id": "ddl-locking",
+      "text": "DDL Locking"
+    },
+    {
+      "level": 3,
+      "id": "modifying-columns",
+      "text": "Modifying Columns"
+    },
+    {
+      "level": 3,
+      "id": "renaming-columns",
+      "text": "Renaming Columns"
+    },
+    {
+      "level": 3,
+      "id": "dropping-columns",
+      "text": "Dropping Columns"
+    },
+    {
+      "level": 4,
+      "id": "available-command-aliases",
+      "text": "Available Command Aliases"
+    },
+    {
+      "level": 2,
+      "id": "indexes",
+      "text": "Indexes"
+    },
+    {
+      "level": 3,
+      "id": "creating-indexes",
+      "text": "Creating Indexes"
+    },
+    {
+      "level": 4,
+      "id": "available-index-types",
+      "text": "Available Index Types"
+    },
+    {
+      "level": 4,
+      "id": "online-index-creation",
+      "text": "Online Index Creation"
+    },
+    {
+      "level": 3,
+      "id": "renaming-indexes",
+      "text": "Renaming Indexes"
+    },
+    {
+      "level": 3,
+      "id": "dropping-indexes",
+      "text": "Dropping Indexes"
+    },
+    {
+      "level": 3,
+      "id": "foreign-key-constraints",
+      "text": "Foreign Key Constraints"
+    },
+    {
+      "level": 4,
+      "id": "dropping-foreign-keys",
+      "text": "Dropping Foreign Keys"
+    },
+    {
+      "level": 4,
+      "id": "toggling-foreign-key-constraints",
+      "text": "Toggling Foreign Key Constraints"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 128,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

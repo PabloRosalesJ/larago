@@ -1,0 +1,185 @@
+{
+  "url": "https://laravel.com/docs/13.x/middleware",
+  "title": "Middleware",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "defining-middleware",
+      "text": "Defining Middleware"
+    },
+    {
+      "level": 4,
+      "id": "middleware-and-responses",
+      "text": "Middleware and Responses"
+    },
+    {
+      "level": 2,
+      "id": "registering-middleware",
+      "text": "Registering Middleware"
+    },
+    {
+      "level": 3,
+      "id": "global-middleware",
+      "text": "Global Middleware"
+    },
+    {
+      "level": 4,
+      "id": "manually-managing-laravels-default-global-middleware",
+      "text": "Manually Managing Laravel's Default Global Middleware"
+    },
+    {
+      "level": 3,
+      "id": "assigning-middleware-to-routes",
+      "text": "Assigning Middleware to Routes"
+    },
+    {
+      "level": 4,
+      "id": "excluding-middleware",
+      "text": "Excluding Middleware"
+    },
+    {
+      "level": 3,
+      "id": "middleware-groups",
+      "text": "Middleware Groups"
+    },
+    {
+      "level": 4,
+      "id": "laravels-default-middleware-groups",
+      "text": "Laravel's Default Middleware Groups"
+    },
+    {
+      "level": 4,
+      "id": "manually-managing-laravels-default-middleware-groups",
+      "text": "Manually Managing Laravel's Default Middleware Groups"
+    },
+    {
+      "level": 3,
+      "id": "middleware-aliases",
+      "text": "Middleware Aliases"
+    },
+    {
+      "level": 3,
+      "id": "sorting-middleware",
+      "text": "Sorting Middleware"
+    },
+    {
+      "level": 2,
+      "id": "middleware-parameters",
+      "text": "Middleware Parameters"
+    },
+    {
+      "level": 2,
+      "id": "terminable-middleware",
+      "text": "Terminable Middleware"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 24,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

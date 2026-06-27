@@ -1,0 +1,275 @@
+{
+  "url": "https://laravel.com/docs/13.x/authorization",
+  "title": "Authorization",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "gates",
+      "text": "Gates"
+    },
+    {
+      "level": 3,
+      "id": "writing-gates",
+      "text": "Writing Gates"
+    },
+    {
+      "level": 3,
+      "id": "authorizing-actions-via-gates",
+      "text": "Authorizing Actions"
+    },
+    {
+      "level": 4,
+      "id": "authorizing-or-throwing-exceptions",
+      "text": "Authorizing or Throwing Exceptions"
+    },
+    {
+      "level": 4,
+      "id": "gates-supplying-additional-context",
+      "text": "Supplying Additional Context"
+    },
+    {
+      "level": 3,
+      "id": "gate-responses",
+      "text": "Gate Responses"
+    },
+    {
+      "level": 4,
+      "id": "customizing-gate-response-status",
+      "text": "Customizing The HTTP Response Status"
+    },
+    {
+      "level": 3,
+      "id": "intercepting-gate-checks",
+      "text": "Intercepting Gate Checks"
+    },
+    {
+      "level": 3,
+      "id": "inline-authorization",
+      "text": "Inline Authorization"
+    },
+    {
+      "level": 2,
+      "id": "creating-policies",
+      "text": "Creating Policies"
+    },
+    {
+      "level": 3,
+      "id": "generating-policies",
+      "text": "Generating Policies"
+    },
+    {
+      "level": 3,
+      "id": "registering-policies",
+      "text": "Registering Policies"
+    },
+    {
+      "level": 4,
+      "id": "policy-discovery",
+      "text": "Policy Discovery"
+    },
+    {
+      "level": 4,
+      "id": "manually-registering-policies",
+      "text": "Manually Registering Policies"
+    },
+    {
+      "level": 2,
+      "id": "writing-policies",
+      "text": "Writing Policies"
+    },
+    {
+      "level": 3,
+      "id": "policy-methods",
+      "text": "Policy Methods"
+    },
+    {
+      "level": 3,
+      "id": "policy-responses",
+      "text": "Policy Responses"
+    },
+    {
+      "level": 4,
+      "id": "customizing-policy-response-status",
+      "text": "Customizing the HTTP Response Status"
+    },
+    {
+      "level": 3,
+      "id": "methods-without-models",
+      "text": "Methods Without Models"
+    },
+    {
+      "level": 3,
+      "id": "guest-users",
+      "text": "Guest Users"
+    },
+    {
+      "level": 3,
+      "id": "policy-filters",
+      "text": "Policy Filters"
+    },
+    {
+      "level": 2,
+      "id": "authorizing-actions-using-policies",
+      "text": "Authorizing Actions Using Policies"
+    },
+    {
+      "level": 3,
+      "id": "via-the-user-model",
+      "text": "Via the User Model"
+    },
+    {
+      "level": 4,
+      "id": "user-model-actions-that-dont-require-models",
+      "text": "Actions That Don't Require Models"
+    },
+    {
+      "level": 3,
+      "id": "via-the-gate-facade",
+      "text": "Via the Gate Facade"
+    },
+    {
+      "level": 4,
+      "id": "controller-actions-that-dont-require-models",
+      "text": "Actions That Don't Require Models"
+    },
+    {
+      "level": 3,
+      "id": "via-middleware",
+      "text": "Via Middleware"
+    },
+    {
+      "level": 4,
+      "id": "middleware-actions-that-dont-require-models",
+      "text": "Actions That Don't Require Models"
+    },
+    {
+      "level": 3,
+      "id": "via-blade-templates",
+      "text": "Via Blade Templates"
+    },
+    {
+      "level": 4,
+      "id": "blade-actions-that-dont-require-models",
+      "text": "Actions That Don't Require Models"
+    },
+    {
+      "level": 3,
+      "id": "supplying-additional-context",
+      "text": "Supplying Additional Context"
+    },
+    {
+      "level": 2,
+      "id": "authorization-and-inertia",
+      "text": "Authorization &amp; Inertia"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 45,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

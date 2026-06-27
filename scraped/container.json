@@ -1,0 +1,250 @@
+{
+  "url": "https://laravel.com/docs/13.x/container",
+  "title": "Service Container",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "zero-configuration-resolution",
+      "text": "Zero Configuration Resolution"
+    },
+    {
+      "level": 3,
+      "id": "when-to-use-the-container",
+      "text": "When to Utilize the Container"
+    },
+    {
+      "level": 2,
+      "id": "binding",
+      "text": "Binding"
+    },
+    {
+      "level": 3,
+      "id": "binding-basics",
+      "text": "Binding Basics"
+    },
+    {
+      "level": 4,
+      "id": "simple-bindings",
+      "text": "Simple Bindings"
+    },
+    {
+      "level": 4,
+      "id": "binding-a-singleton",
+      "text": "Binding A Singleton"
+    },
+    {
+      "level": 4,
+      "id": "singleton-attribute",
+      "text": "Singleton Attribute"
+    },
+    {
+      "level": 4,
+      "id": "binding-scoped",
+      "text": "Binding Scoped Singletons"
+    },
+    {
+      "level": 4,
+      "id": "scoped-attribute",
+      "text": "Scoped Attribute"
+    },
+    {
+      "level": 4,
+      "id": "binding-instances",
+      "text": "Binding Instances"
+    },
+    {
+      "level": 3,
+      "id": "binding-interfaces-to-implementations",
+      "text": "Binding Interfaces to Implementations"
+    },
+    {
+      "level": 4,
+      "id": "bind-attribute",
+      "text": "Bind Attribute"
+    },
+    {
+      "level": 3,
+      "id": "contextual-binding",
+      "text": "Contextual Binding"
+    },
+    {
+      "level": 3,
+      "id": "contextual-attributes",
+      "text": "Contextual Attributes"
+    },
+    {
+      "level": 4,
+      "id": "defining-custom-attributes",
+      "text": "Defining Custom Attributes"
+    },
+    {
+      "level": 3,
+      "id": "binding-primitives",
+      "text": "Binding Primitives"
+    },
+    {
+      "level": 3,
+      "id": "binding-typed-variadics",
+      "text": "Binding Typed Variadics"
+    },
+    {
+      "level": 4,
+      "id": "variadic-tag-dependencies",
+      "text": "Variadic Tag Dependencies"
+    },
+    {
+      "level": 3,
+      "id": "tagging",
+      "text": "Tagging"
+    },
+    {
+      "level": 3,
+      "id": "extending-bindings",
+      "text": "Extending Bindings"
+    },
+    {
+      "level": 2,
+      "id": "resolving",
+      "text": "Resolving"
+    },
+    {
+      "level": 3,
+      "id": "the-make-method",
+      "text": "The make Method"
+    },
+    {
+      "level": 3,
+      "id": "automatic-injection",
+      "text": "Automatic Injection"
+    },
+    {
+      "level": 2,
+      "id": "method-invocation-and-injection",
+      "text": "Method Invocation and Injection"
+    },
+    {
+      "level": 2,
+      "id": "container-events",
+      "text": "Container Events"
+    },
+    {
+      "level": 3,
+      "id": "rebinding",
+      "text": "Rebinding"
+    },
+    {
+      "level": 2,
+      "id": "psr-11",
+      "text": "PSR-11"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 45,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

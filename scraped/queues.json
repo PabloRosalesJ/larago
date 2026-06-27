@@ -1,0 +1,690 @@
+{
+  "url": "https://laravel.com/docs/13.x/queues",
+  "title": "Queues",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "connections-vs-queues",
+      "text": "Connections vs. Queues"
+    },
+    {
+      "level": 3,
+      "id": "driver-prerequisites",
+      "text": "Driver Notes and Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "database",
+      "text": "Database"
+    },
+    {
+      "level": 4,
+      "id": "redis",
+      "text": "Redis"
+    },
+    {
+      "level": 4,
+      "id": "sqs-overflow-storage",
+      "text": "SQS Overflow Storage"
+    },
+    {
+      "level": 4,
+      "id": "other-driver-prerequisites",
+      "text": "Other Driver Prerequisites"
+    },
+    {
+      "level": 2,
+      "id": "creating-jobs",
+      "text": "Creating Jobs"
+    },
+    {
+      "level": 3,
+      "id": "generating-job-classes",
+      "text": "Generating Job Classes"
+    },
+    {
+      "level": 3,
+      "id": "class-structure",
+      "text": "Class Structure"
+    },
+    {
+      "level": 4,
+      "id": "handle-method-dependency-injection",
+      "text": "handle Method Dependency Injection"
+    },
+    {
+      "level": 4,
+      "id": "handling-relationships",
+      "text": "Queued Relationships"
+    },
+    {
+      "level": 3,
+      "id": "unique-jobs",
+      "text": "Unique Jobs"
+    },
+    {
+      "level": 4,
+      "id": "keeping-jobs-unique-until-processing-begins",
+      "text": "Keeping Jobs Unique Until Processing Begins"
+    },
+    {
+      "level": 4,
+      "id": "unique-job-locks",
+      "text": "Unique Job Locks"
+    },
+    {
+      "level": 3,
+      "id": "debounced-jobs",
+      "text": "Debounced Jobs"
+    },
+    {
+      "level": 3,
+      "id": "encrypted-jobs",
+      "text": "Encrypted Jobs"
+    },
+    {
+      "level": 2,
+      "id": "job-middleware",
+      "text": "Job Middleware"
+    },
+    {
+      "level": 3,
+      "id": "rate-limiting",
+      "text": "Rate Limiting"
+    },
+    {
+      "level": 4,
+      "id": "rate-limiting-with-redis",
+      "text": "Rate Limiting With Redis"
+    },
+    {
+      "level": 3,
+      "id": "preventing-job-overlaps",
+      "text": "Preventing Job Overlaps"
+    },
+    {
+      "level": 4,
+      "id": "sharing-lock-keys",
+      "text": "Sharing Lock Keys Across Job Classes"
+    },
+    {
+      "level": 3,
+      "id": "throttling-exceptions",
+      "text": "Throttling Exceptions"
+    },
+    {
+      "level": 4,
+      "id": "throttling-exceptions-with-redis",
+      "text": "Throttling Exceptions With Redis"
+    },
+    {
+      "level": 3,
+      "id": "skipping-jobs",
+      "text": "Skipping Jobs"
+    },
+    {
+      "level": 2,
+      "id": "dispatching-jobs",
+      "text": "Dispatching Jobs"
+    },
+    {
+      "level": 3,
+      "id": "delayed-dispatching",
+      "text": "Delayed Dispatching"
+    },
+    {
+      "level": 3,
+      "id": "synchronous-dispatching",
+      "text": "Synchronous Dispatching"
+    },
+    {
+      "level": 4,
+      "id": "deferred-dispatching",
+      "text": "Deferred Dispatching"
+    },
+    {
+      "level": 3,
+      "id": "bulk-dispatching",
+      "text": "Bulk Dispatching"
+    },
+    {
+      "level": 3,
+      "id": "preparing-jobs-before-dispatch",
+      "text": "Preparing Jobs Before Dispatch"
+    },
+    {
+      "level": 3,
+      "id": "jobs-and-database-transactions",
+      "text": "Jobs &amp; Database Transactions"
+    },
+    {
+      "level": 4,
+      "id": "specifying-commit-dispatch-behavior-inline",
+      "text": "Specifying Commit Dispatch Behavior Inline"
+    },
+    {
+      "level": 3,
+      "id": "job-chaining",
+      "text": "Job Chaining"
+    },
+    {
+      "level": 4,
+      "id": "chain-connection-queue",
+      "text": "Chain Connection and Queue"
+    },
+    {
+      "level": 4,
+      "id": "adding-jobs-to-the-chain",
+      "text": "Adding Jobs to the Chain"
+    },
+    {
+      "level": 4,
+      "id": "chain-failures",
+      "text": "Chain Failures"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-queue-and-connection",
+      "text": "Customizing the Queue and Connection"
+    },
+    {
+      "level": 4,
+      "id": "dispatching-to-a-particular-queue",
+      "text": "Dispatching to a Particular Queue"
+    },
+    {
+      "level": 4,
+      "id": "dispatching-to-a-particular-connection",
+      "text": "Dispatching to a Particular Connection"
+    },
+    {
+      "level": 4,
+      "id": "queue-routing",
+      "text": "Queue Routing"
+    },
+    {
+      "level": 3,
+      "id": "max-job-attempts-and-timeout",
+      "text": "Specifying Max Job Attempts / Timeout Values"
+    },
+    {
+      "level": 4,
+      "id": "max-attempts",
+      "text": "Max Attempts"
+    },
+    {
+      "level": 4,
+      "id": "time-based-attempts",
+      "text": "Time Based Attempts"
+    },
+    {
+      "level": 4,
+      "id": "max-exceptions",
+      "text": "Max Exceptions"
+    },
+    {
+      "level": 4,
+      "id": "stopping-retries-by-exception",
+      "text": "Stopping Retries by Exception"
+    },
+    {
+      "level": 4,
+      "id": "timeout",
+      "text": "Timeout"
+    },
+    {
+      "level": 4,
+      "id": "failing-on-timeout",
+      "text": "Failing on Timeout"
+    },
+    {
+      "level": 3,
+      "id": "sqs-fifo-and-fair-queues",
+      "text": "SQS FIFO and Fair Queues"
+    },
+    {
+      "level": 4,
+      "id": "fair-queues",
+      "text": "Fair Queues"
+    },
+    {
+      "level": 4,
+      "id": "fifo-listeners-mail-and-notifications",
+      "text": "FIFO Listeners, Mail, and Notifications"
+    },
+    {
+      "level": 3,
+      "id": "queue-failover",
+      "text": "Queue Failover"
+    },
+    {
+      "level": 3,
+      "id": "error-handling",
+      "text": "Error Handling"
+    },
+    {
+      "level": 4,
+      "id": "manually-releasing-a-job",
+      "text": "Manually Releasing a Job"
+    },
+    {
+      "level": 4,
+      "id": "manually-failing-a-job",
+      "text": "Manually Failing a Job"
+    },
+    {
+      "level": 4,
+      "id": "fail-jobs-on-exceptions",
+      "text": "Failing Jobs on Specific Exceptions"
+    },
+    {
+      "level": 2,
+      "id": "job-batching",
+      "text": "Job Batching"
+    },
+    {
+      "level": 3,
+      "id": "defining-batchable-jobs",
+      "text": "Defining Batchable Jobs"
+    },
+    {
+      "level": 3,
+      "id": "dispatching-batches",
+      "text": "Dispatching Batches"
+    },
+    {
+      "level": 4,
+      "id": "naming-batches",
+      "text": "Naming Batches"
+    },
+    {
+      "level": 4,
+      "id": "batch-connection-queue",
+      "text": "Batch Connection and Queue"
+    },
+    {
+      "level": 3,
+      "id": "chains-and-batches",
+      "text": "Chains and Batches"
+    },
+    {
+      "level": 3,
+      "id": "adding-jobs-to-batches",
+      "text": "Adding Jobs to Batches"
+    },
+    {
+      "level": 3,
+      "id": "inspecting-batches",
+      "text": "Inspecting Batches"
+    },
+    {
+      "level": 4,
+      "id": "returning-batches-from-routes",
+      "text": "Returning Batches From Routes"
+    },
+    {
+      "level": 3,
+      "id": "cancelling-batches",
+      "text": "Cancelling Batches"
+    },
+    {
+      "level": 3,
+      "id": "batch-failures",
+      "text": "Batch Failures"
+    },
+    {
+      "level": 4,
+      "id": "allowing-failures",
+      "text": "Allowing Failures"
+    },
+    {
+      "level": 4,
+      "id": "retrying-failed-batch-jobs",
+      "text": "Retrying Failed Batch Jobs"
+    },
+    {
+      "level": 3,
+      "id": "pruning-batches",
+      "text": "Pruning Batches"
+    },
+    {
+      "level": 3,
+      "id": "storing-batches-in-dynamodb",
+      "text": "Storing Batches in DynamoDB"
+    },
+    {
+      "level": 4,
+      "id": "dynamodb-batch-table-configuration",
+      "text": "DynamoDB Batch Table Configuration"
+    },
+    {
+      "level": 4,
+      "id": "dynamodb-configuration",
+      "text": "DynamoDB Configuration"
+    },
+    {
+      "level": 4,
+      "id": "pruning-batches-in-dynamodb",
+      "text": "Pruning Batches in DynamoDB"
+    },
+    {
+      "level": 2,
+      "id": "queueing-closures",
+      "text": "Queueing Closures"
+    },
+    {
+      "level": 2,
+      "id": "running-the-queue-worker",
+      "text": "Running the Queue Worker"
+    },
+    {
+      "level": 3,
+      "id": "the-queue-work-command",
+      "text": "The queue:work Command"
+    },
+    {
+      "level": 4,
+      "id": "running-multiple-queue-workers",
+      "text": "Running Multiple Queue Workers"
+    },
+    {
+      "level": 4,
+      "id": "specifying-the-connection-queue",
+      "text": "Specifying the Connection and Queue"
+    },
+    {
+      "level": 4,
+      "id": "processing-a-specified-number-of-jobs",
+      "text": "Processing a Specified Number of Jobs"
+    },
+    {
+      "level": 4,
+      "id": "processing-all-queued-jobs-then-exiting",
+      "text": "Processing All Queued Jobs and Then Exiting"
+    },
+    {
+      "level": 4,
+      "id": "processing-jobs-for-a-given-number-of-seconds",
+      "text": "Processing Jobs for a Given Number of Seconds"
+    },
+    {
+      "level": 4,
+      "id": "worker-sleep-duration",
+      "text": "Worker Sleep Duration"
+    },
+    {
+      "level": 4,
+      "id": "maintenance-mode-queues",
+      "text": "Maintenance Mode and Queues"
+    },
+    {
+      "level": 4,
+      "id": "resource-considerations",
+      "text": "Resource Considerations"
+    },
+    {
+      "level": 3,
+      "id": "queue-priorities",
+      "text": "Queue Priorities"
+    },
+    {
+      "level": 3,
+      "id": "queue-workers-and-deployment",
+      "text": "Queue Workers and Deployment"
+    },
+    {
+      "level": 3,
+      "id": "reacting-to-worker-signals",
+      "text": "Reacting to Worker Signals"
+    },
+    {
+      "level": 3,
+      "id": "job-expirations-and-timeouts",
+      "text": "Job Expirations and Timeouts"
+    },
+    {
+      "level": 4,
+      "id": "job-expiration",
+      "text": "Job Expiration"
+    },
+    {
+      "level": 4,
+      "id": "worker-timeouts",
+      "text": "Worker Timeouts"
+    },
+    {
+      "level": 3,
+      "id": "pausing-and-resuming-queue-workers",
+      "text": "Pausing and Resuming Queue Workers"
+    },
+    {
+      "level": 4,
+      "id": "worker-restart-and-pause-signals",
+      "text": "Worker Restart and Pause Signals"
+    },
+    {
+      "level": 2,
+      "id": "supervisor-configuration",
+      "text": "Supervisor Configuration"
+    },
+    {
+      "level": 4,
+      "id": "installing-supervisor",
+      "text": "Installing Supervisor"
+    },
+    {
+      "level": 4,
+      "id": "configuring-supervisor",
+      "text": "Configuring Supervisor"
+    },
+    {
+      "level": 4,
+      "id": "starting-supervisor",
+      "text": "Starting Supervisor"
+    },
+    {
+      "level": 2,
+      "id": "dealing-with-failed-jobs",
+      "text": "Dealing With Failed Jobs"
+    },
+    {
+      "level": 3,
+      "id": "cleaning-up-after-failed-jobs",
+      "text": "Cleaning Up After Failed Jobs"
+    },
+    {
+      "level": 3,
+      "id": "retrying-failed-jobs",
+      "text": "Retrying Failed Jobs"
+    },
+    {
+      "level": 3,
+      "id": "ignoring-missing-models",
+      "text": "Ignoring Missing Models"
+    },
+    {
+      "level": 3,
+      "id": "pruning-failed-jobs",
+      "text": "Pruning Failed Jobs"
+    },
+    {
+      "level": 3,
+      "id": "storing-failed-jobs-in-dynamodb",
+      "text": "Storing Failed Jobs in DynamoDB"
+    },
+    {
+      "level": 3,
+      "id": "disabling-failed-job-storage",
+      "text": "Disabling Failed Job Storage"
+    },
+    {
+      "level": 3,
+      "id": "failed-job-events",
+      "text": "Failed Job Events"
+    },
+    {
+      "level": 2,
+      "id": "clearing-jobs-from-queues",
+      "text": "Clearing Jobs From Queues"
+    },
+    {
+      "level": 2,
+      "id": "monitoring-your-queues",
+      "text": "Monitoring Your Queues"
+    },
+    {
+      "level": 2,
+      "id": "testing",
+      "text": "Testing"
+    },
+    {
+      "level": 3,
+      "id": "faking-a-subset-of-jobs",
+      "text": "Faking a Subset of Jobs"
+    },
+    {
+      "level": 3,
+      "id": "testing-job-chains",
+      "text": "Testing Job Chains"
+    },
+    {
+      "level": 4,
+      "id": "testing-chain-modifications",
+      "text": "Testing Chain Modifications"
+    },
+    {
+      "level": 4,
+      "id": "testing-chained-batches",
+      "text": "Testing Chained Batches"
+    },
+    {
+      "level": 3,
+      "id": "testing-job-batches",
+      "text": "Testing Job Batches"
+    },
+    {
+      "level": 4,
+      "id": "testing-job-batch-interaction",
+      "text": "Testing Job / Batch Interaction"
+    },
+    {
+      "level": 3,
+      "id": "testing-job-queue-interactions",
+      "text": "Testing Job / Queue Interactions"
+    },
+    {
+      "level": 2,
+      "id": "job-events",
+      "text": "Job Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 193,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

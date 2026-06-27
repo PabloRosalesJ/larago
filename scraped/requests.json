@@ -1,0 +1,345 @@
+{
+  "url": "https://laravel.com/docs/13.x/requests",
+  "title": "HTTP Requests",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "interacting-with-the-request",
+      "text": "Interacting With The Request"
+    },
+    {
+      "level": 3,
+      "id": "accessing-the-request",
+      "text": "Accessing the Request"
+    },
+    {
+      "level": 4,
+      "id": "dependency-injection-route-parameters",
+      "text": "Dependency Injection and Route Parameters"
+    },
+    {
+      "level": 3,
+      "id": "request-path-and-method",
+      "text": "Request Path, Host, and Method"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-the-request-path",
+      "text": "Retrieving the Request Path"
+    },
+    {
+      "level": 4,
+      "id": "inspecting-the-request-path",
+      "text": "Inspecting the Request Path / Route"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-the-request-url",
+      "text": "Retrieving the Request URL"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-the-request-host",
+      "text": "Retrieving the Request Host"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-the-request-method",
+      "text": "Retrieving the Request Method"
+    },
+    {
+      "level": 3,
+      "id": "request-headers",
+      "text": "Request Headers"
+    },
+    {
+      "level": 3,
+      "id": "request-ip-address",
+      "text": "Request IP Address"
+    },
+    {
+      "level": 3,
+      "id": "content-negotiation",
+      "text": "Content Negotiation"
+    },
+    {
+      "level": 3,
+      "id": "psr7-requests",
+      "text": "PSR-7 Requests"
+    },
+    {
+      "level": 2,
+      "id": "input",
+      "text": "Input"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-input",
+      "text": "Retrieving Input"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-all-input-data",
+      "text": "Retrieving All Input Data"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-an-input-value",
+      "text": "Retrieving an Input Value"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-input-from-the-query-string",
+      "text": "Retrieving Input From the Query String"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-json-input-values",
+      "text": "Retrieving JSON Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-stringable-input-values",
+      "text": "Retrieving Stringable Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-integer-input-values",
+      "text": "Retrieving Integer Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-boolean-input-values",
+      "text": "Retrieving Boolean Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-array-input-values",
+      "text": "Retrieving Array Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-date-input-values",
+      "text": "Retrieving Date Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-interval-input-values",
+      "text": "Retrieving Interval Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-enum-input-values",
+      "text": "Retrieving Enum Input Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-input-via-dynamic-properties",
+      "text": "Retrieving Input via Dynamic Properties"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-a-portion-of-the-input-data",
+      "text": "Retrieving a Portion of the Input Data"
+    },
+    {
+      "level": 3,
+      "id": "input-presence",
+      "text": "Input Presence"
+    },
+    {
+      "level": 3,
+      "id": "merging-additional-input",
+      "text": "Merging Additional Input"
+    },
+    {
+      "level": 3,
+      "id": "old-input",
+      "text": "Old Input"
+    },
+    {
+      "level": 4,
+      "id": "flashing-input-to-the-session",
+      "text": "Flashing Input to the Session"
+    },
+    {
+      "level": 4,
+      "id": "flashing-input-then-redirecting",
+      "text": "Flashing Input Then Redirecting"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-old-input",
+      "text": "Retrieving Old Input"
+    },
+    {
+      "level": 3,
+      "id": "cookies",
+      "text": "Cookies"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-cookies-from-requests",
+      "text": "Retrieving Cookies From Requests"
+    },
+    {
+      "level": 2,
+      "id": "input-trimming-and-normalization",
+      "text": "Input Trimming and Normalization"
+    },
+    {
+      "level": 2,
+      "id": "files",
+      "text": "Files"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-uploaded-files",
+      "text": "Retrieving Uploaded Files"
+    },
+    {
+      "level": 4,
+      "id": "validating-successful-uploads",
+      "text": "Validating Successful Uploads"
+    },
+    {
+      "level": 4,
+      "id": "file-paths-extensions",
+      "text": "File Paths and Extensions"
+    },
+    {
+      "level": 4,
+      "id": "other-file-methods",
+      "text": "Other File Methods"
+    },
+    {
+      "level": 3,
+      "id": "storing-uploaded-files",
+      "text": "Storing Uploaded Files"
+    },
+    {
+      "level": 2,
+      "id": "configuring-trusted-proxies",
+      "text": "Configuring Trusted Proxies"
+    },
+    {
+      "level": 4,
+      "id": "trusting-all-proxies",
+      "text": "Trusting All Proxies"
+    },
+    {
+      "level": 2,
+      "id": "configuring-trusted-hosts",
+      "text": "Configuring Trusted Hosts"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 82,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

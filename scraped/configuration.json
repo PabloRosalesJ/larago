@@ -1,0 +1,230 @@
+{
+  "url": "https://laravel.com/docs/13.x/configuration",
+  "title": "Configuration",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 4,
+      "id": "the-about-command",
+      "text": "The about Command"
+    },
+    {
+      "level": 2,
+      "id": "environment-configuration",
+      "text": "Environment Configuration"
+    },
+    {
+      "level": 4,
+      "id": "environment-file-security",
+      "text": "Environment File Security"
+    },
+    {
+      "level": 4,
+      "id": "additional-environment-files",
+      "text": "Additional Environment Files"
+    },
+    {
+      "level": 3,
+      "id": "environment-variable-types",
+      "text": "Environment Variable Types"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-environment-configuration",
+      "text": "Retrieving Environment Configuration"
+    },
+    {
+      "level": 3,
+      "id": "determining-the-current-environment",
+      "text": "Determining the Current Environment"
+    },
+    {
+      "level": 3,
+      "id": "encrypting-environment-files",
+      "text": "Encrypting Environment Files"
+    },
+    {
+      "level": 4,
+      "id": "encryption",
+      "text": "Encryption"
+    },
+    {
+      "level": 4,
+      "id": "readable-variable-names",
+      "text": "Readable Variable Names"
+    },
+    {
+      "level": 4,
+      "id": "decryption",
+      "text": "Decryption"
+    },
+    {
+      "level": 2,
+      "id": "accessing-configuration-values",
+      "text": "Accessing Configuration Values"
+    },
+    {
+      "level": 2,
+      "id": "configuration-caching",
+      "text": "Configuration Caching"
+    },
+    {
+      "level": 2,
+      "id": "configuration-publishing",
+      "text": "Configuration Publishing"
+    },
+    {
+      "level": 2,
+      "id": "debug-mode",
+      "text": "Debug Mode"
+    },
+    {
+      "level": 2,
+      "id": "maintenance-mode",
+      "text": "Maintenance Mode"
+    },
+    {
+      "level": 4,
+      "id": "bypassing-maintenance-mode",
+      "text": "Bypassing Maintenance Mode"
+    },
+    {
+      "level": 4,
+      "id": "maintenance-mode-on-multiple-servers",
+      "text": "Maintenance Mode on Multiple Servers"
+    },
+    {
+      "level": 4,
+      "id": "pre-rendering-the-maintenance-mode-view",
+      "text": "Pre-Rendering the Maintenance Mode View"
+    },
+    {
+      "level": 4,
+      "id": "redirecting-maintenance-mode-requests",
+      "text": "Redirecting Maintenance Mode Requests"
+    },
+    {
+      "level": 4,
+      "id": "disabling-maintenance-mode",
+      "text": "Disabling Maintenance Mode"
+    },
+    {
+      "level": 4,
+      "id": "maintenance-mode-queues",
+      "text": "Maintenance Mode and Queues"
+    },
+    {
+      "level": 4,
+      "id": "alternatives-to-maintenance-mode",
+      "text": "Alternatives to Maintenance Mode"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 32,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "url": "https://laravel.com/docs/13.x/scheduling",
+  "title": "Task Scheduling",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "defining-schedules",
+      "text": "Defining Schedules"
+    },
+    {
+      "level": 3,
+      "id": "scheduling-artisan-commands",
+      "text": "Scheduling Artisan Commands"
+    },
+    {
+      "level": 4,
+      "id": "scheduling-artisan-closure-commands",
+      "text": "Scheduling Artisan Closure Commands"
+    },
+    {
+      "level": 3,
+      "id": "scheduling-queued-jobs",
+      "text": "Scheduling Queued Jobs"
+    },
+    {
+      "level": 3,
+      "id": "scheduling-shell-commands",
+      "text": "Scheduling Shell Commands"
+    },
+    {
+      "level": 3,
+      "id": "schedule-frequency-options",
+      "text": "Schedule Frequency Options"
+    },
+    {
+      "level": 4,
+      "id": "day-constraints",
+      "text": "Day Constraints"
+    },
+    {
+      "level": 4,
+      "id": "between-time-constraints",
+      "text": "Between Time Constraints"
+    },
+    {
+      "level": 4,
+      "id": "truth-test-constraints",
+      "text": "Truth Test Constraints"
+    },
+    {
+      "level": 4,
+      "id": "environment-constraints",
+      "text": "Environment Constraints"
+    },
+    {
+      "level": 3,
+      "id": "timezones",
+      "text": "Timezones"
+    },
+    {
+      "level": 3,
+      "id": "preventing-task-overlaps",
+      "text": "Preventing Task Overlaps"
+    },
+    {
+      "level": 3,
+      "id": "running-tasks-on-one-server",
+      "text": "Running Tasks on One Server"
+    },
+    {
+      "level": 4,
+      "id": "naming-unique-jobs",
+      "text": "Naming Single Server Jobs"
+    },
+    {
+      "level": 3,
+      "id": "background-tasks",
+      "text": "Background Tasks"
+    },
+    {
+      "level": 3,
+      "id": "maintenance-mode",
+      "text": "Maintenance Mode"
+    },
+    {
+      "level": 3,
+      "id": "pausing-scheduled-tasks",
+      "text": "Pausing Scheduled Tasks"
+    },
+    {
+      "level": 3,
+      "id": "schedule-groups",
+      "text": "Schedule Groups"
+    },
+    {
+      "level": 2,
+      "id": "running-the-scheduler",
+      "text": "Running the Scheduler"
+    },
+    {
+      "level": 3,
+      "id": "sub-minute-scheduled-tasks",
+      "text": "Sub-Minute Scheduled Tasks"
+    },
+    {
+      "level": 4,
+      "id": "interrupting-sub-minute-tasks",
+      "text": "Interrupting Sub-Minute Tasks"
+    },
+    {
+      "level": 3,
+      "id": "running-the-scheduler-locally",
+      "text": "Running the Scheduler Locally"
+    },
+    {
+      "level": 2,
+      "id": "task-output",
+      "text": "Task Output"
+    },
+    {
+      "level": 2,
+      "id": "task-hooks",
+      "text": "Task Hooks"
+    },
+    {
+      "level": 4,
+      "id": "pinging-urls",
+      "text": "Pinging URLs"
+    },
+    {
+      "level": 2,
+      "id": "events",
+      "text": "Events"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 47,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

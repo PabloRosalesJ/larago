@@ -1,0 +1,225 @@
+{
+  "url": "https://laravel.com/docs/13.x/session",
+  "title": "HTTP Session",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 3,
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "level": 3,
+      "id": "driver-prerequisites",
+      "text": "Driver Prerequisites"
+    },
+    {
+      "level": 4,
+      "id": "database",
+      "text": "Database"
+    },
+    {
+      "level": 4,
+      "id": "redis",
+      "text": "Redis"
+    },
+    {
+      "level": 2,
+      "id": "interacting-with-the-session",
+      "text": "Interacting With the Session"
+    },
+    {
+      "level": 3,
+      "id": "retrieving-data",
+      "text": "Retrieving Data"
+    },
+    {
+      "level": 4,
+      "id": "the-global-session-helper",
+      "text": "The Global Session Helper"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-all-session-data",
+      "text": "Retrieving All Session Data"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-a-portion-of-the-session-data",
+      "text": "Retrieving a Portion of the Session Data"
+    },
+    {
+      "level": 4,
+      "id": "determining-if-an-item-exists-in-the-session",
+      "text": "Determining if an Item Exists in the Session"
+    },
+    {
+      "level": 3,
+      "id": "storing-data",
+      "text": "Storing Data"
+    },
+    {
+      "level": 4,
+      "id": "pushing-to-array-session-values",
+      "text": "Pushing to Array Session Values"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-deleting-an-item",
+      "text": "Retrieving and Deleting an Item"
+    },
+    {
+      "level": 4,
+      "id": "incrementing-and-decrementing-session-values",
+      "text": "Incrementing and Decrementing Session Values"
+    },
+    {
+      "level": 3,
+      "id": "flash-data",
+      "text": "Flash Data"
+    },
+    {
+      "level": 3,
+      "id": "deleting-data",
+      "text": "Deleting Data"
+    },
+    {
+      "level": 3,
+      "id": "regenerating-the-session-id",
+      "text": "Regenerating the Session ID"
+    },
+    {
+      "level": 2,
+      "id": "session-cache",
+      "text": "Session Cache"
+    },
+    {
+      "level": 2,
+      "id": "session-blocking",
+      "text": "Session Blocking"
+    },
+    {
+      "level": 2,
+      "id": "adding-custom-session-drivers",
+      "text": "Adding Custom Session Drivers"
+    },
+    {
+      "level": 3,
+      "id": "implementing-the-driver",
+      "text": "Implementing the Driver"
+    },
+    {
+      "level": 3,
+      "id": "registering-the-driver",
+      "text": "Registering the Driver"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 24,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

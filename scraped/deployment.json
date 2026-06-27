@@ -1,0 +1,195 @@
+{
+  "url": "https://laravel.com/docs/13.x/deployment",
+  "title": "Deployment",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "server-requirements",
+      "text": "Server Requirements"
+    },
+    {
+      "level": 2,
+      "id": "server-configuration",
+      "text": "Server Configuration"
+    },
+    {
+      "level": 3,
+      "id": "nginx",
+      "text": "Nginx"
+    },
+    {
+      "level": 3,
+      "id": "frankenphp",
+      "text": "FrankenPHP"
+    },
+    {
+      "level": 3,
+      "id": "directory-permissions",
+      "text": "Directory Permissions"
+    },
+    {
+      "level": 2,
+      "id": "optimization",
+      "text": "Optimization"
+    },
+    {
+      "level": 3,
+      "id": "optimizing-configuration-loading",
+      "text": "Caching Configuration"
+    },
+    {
+      "level": 3,
+      "id": "caching-events",
+      "text": "Caching Events"
+    },
+    {
+      "level": 3,
+      "id": "optimizing-route-loading",
+      "text": "Caching Routes"
+    },
+    {
+      "level": 3,
+      "id": "optimizing-view-loading",
+      "text": "Caching Views"
+    },
+    {
+      "level": 2,
+      "id": "reloading-services",
+      "text": "Reloading Services"
+    },
+    {
+      "level": 2,
+      "id": "debug-mode",
+      "text": "Debug Mode"
+    },
+    {
+      "level": 2,
+      "id": "the-health-route",
+      "text": "The Health Route"
+    },
+    {
+      "level": 2,
+      "id": "deploying-with-cloud-or-forge",
+      "text": "Deploying With Laravel Cloud or Forge"
+    },
+    {
+      "level": 4,
+      "id": "laravel-cloud",
+      "text": "Laravel Cloud"
+    },
+    {
+      "level": 4,
+      "id": "laravel-forge",
+      "text": "Laravel Forge"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 10,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

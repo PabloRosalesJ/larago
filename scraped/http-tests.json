@@ -1,0 +1,675 @@
+{
+  "url": "https://laravel.com/docs/13.x/http-tests",
+  "title": "HTTP Tests",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "making-requests",
+      "text": "Making Requests"
+    },
+    {
+      "level": 3,
+      "id": "customizing-request-headers",
+      "text": "Customizing Request Headers"
+    },
+    {
+      "level": 3,
+      "id": "cookies",
+      "text": "Cookies"
+    },
+    {
+      "level": 3,
+      "id": "session-and-authentication",
+      "text": "Session / Authentication"
+    },
+    {
+      "level": 3,
+      "id": "debugging-responses",
+      "text": "Debugging Responses"
+    },
+    {
+      "level": 3,
+      "id": "exception-handling",
+      "text": "Exception Handling"
+    },
+    {
+      "level": 2,
+      "id": "testing-json-apis",
+      "text": "Testing JSON APIs"
+    },
+    {
+      "level": 4,
+      "id": "verifying-exact-match",
+      "text": "Asserting Exact JSON Matches"
+    },
+    {
+      "level": 4,
+      "id": "verifying-json-paths",
+      "text": "Asserting on JSON Paths"
+    },
+    {
+      "level": 3,
+      "id": "fluent-json-testing",
+      "text": "Fluent JSON Testing"
+    },
+    {
+      "level": 4,
+      "id": "asserting-json-attribute-presence-and-absence",
+      "text": "Asserting Attribute Presence / Absence"
+    },
+    {
+      "level": 4,
+      "id": "asserting-against-json-collections",
+      "text": "Asserting Against JSON Collections"
+    },
+    {
+      "level": 4,
+      "id": "scoping-json-collection-assertions",
+      "text": "Scoping JSON Collection Assertions"
+    },
+    {
+      "level": 4,
+      "id": "asserting-json-types",
+      "text": "Asserting JSON Types"
+    },
+    {
+      "level": 2,
+      "id": "testing-file-uploads",
+      "text": "Testing File Uploads"
+    },
+    {
+      "level": 4,
+      "id": "fake-file-customization",
+      "text": "Fake File Customization"
+    },
+    {
+      "level": 2,
+      "id": "testing-views",
+      "text": "Testing Views"
+    },
+    {
+      "level": 4,
+      "id": "sharing-errors",
+      "text": "Sharing Errors"
+    },
+    {
+      "level": 3,
+      "id": "rendering-blade-and-components",
+      "text": "Rendering Blade and Components"
+    },
+    {
+      "level": 2,
+      "id": "caching-routes",
+      "text": "Caching Routes"
+    },
+    {
+      "level": 2,
+      "id": "available-assertions",
+      "text": "Available Assertions"
+    },
+    {
+      "level": 3,
+      "id": "response-assertions",
+      "text": "Response Assertions"
+    },
+    {
+      "level": 4,
+      "id": "assert-accepted",
+      "text": "assertAccepted"
+    },
+    {
+      "level": 4,
+      "id": "assert-bad-request",
+      "text": "assertBadRequest"
+    },
+    {
+      "level": 4,
+      "id": "assert-client-error",
+      "text": "assertClientError"
+    },
+    {
+      "level": 4,
+      "id": "assert-conflict",
+      "text": "assertConflict"
+    },
+    {
+      "level": 4,
+      "id": "assert-cookie",
+      "text": "assertCookie"
+    },
+    {
+      "level": 4,
+      "id": "assert-cookie-expired",
+      "text": "assertCookieExpired"
+    },
+    {
+      "level": 4,
+      "id": "assert-cookie-not-expired",
+      "text": "assertCookieNotExpired"
+    },
+    {
+      "level": 4,
+      "id": "assert-cookie-missing",
+      "text": "assertCookieMissing"
+    },
+    {
+      "level": 4,
+      "id": "assert-created",
+      "text": "assertCreated"
+    },
+    {
+      "level": 4,
+      "id": "assert-dont-see",
+      "text": "assertDontSee"
+    },
+    {
+      "level": 4,
+      "id": "assert-dont-see-text",
+      "text": "assertDontSeeText"
+    },
+    {
+      "level": 4,
+      "id": "assert-download",
+      "text": "assertDownload"
+    },
+    {
+      "level": 4,
+      "id": "assert-exact-json",
+      "text": "assertExactJson"
+    },
+    {
+      "level": 4,
+      "id": "assert-exact-json-structure",
+      "text": "assertExactJsonStructure"
+    },
+    {
+      "level": 4,
+      "id": "assert-failed-dependency",
+      "text": "assertFailedDependency"
+    },
+    {
+      "level": 4,
+      "id": "assert-forbidden",
+      "text": "assertForbidden"
+    },
+    {
+      "level": 4,
+      "id": "assert-found",
+      "text": "assertFound"
+    },
+    {
+      "level": 4,
+      "id": "assert-gone",
+      "text": "assertGone"
+    },
+    {
+      "level": 4,
+      "id": "assert-header",
+      "text": "assertHeader"
+    },
+    {
+      "level": 4,
+      "id": "assert-header-contains",
+      "text": "assertHeaderContains"
+    },
+    {
+      "level": 4,
+      "id": "assert-header-missing",
+      "text": "assertHeaderMissing"
+    },
+    {
+      "level": 4,
+      "id": "assert-internal-server-error",
+      "text": "assertInternalServerError"
+    },
+    {
+      "level": 4,
+      "id": "assert-json",
+      "text": "assertJson"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-count",
+      "text": "assertJsonCount"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-fragment",
+      "text": "assertJsonFragment"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-is-array",
+      "text": "assertJsonIsArray"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-is-object",
+      "text": "assertJsonIsObject"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-missing",
+      "text": "assertJsonMissing"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-missing-exact",
+      "text": "assertJsonMissingExact"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-missing-validation-errors",
+      "text": "assertJsonMissingValidationErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-path",
+      "text": "assertJsonPath"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-paths",
+      "text": "assertJsonPaths"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-missing-path",
+      "text": "assertJsonMissingPath"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-missing-paths",
+      "text": "assertJsonMissingPaths"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-structure",
+      "text": "assertJsonStructure"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-validation-errors",
+      "text": "assertJsonValidationErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-json-validation-error-for",
+      "text": "assertJsonValidationErrorFor"
+    },
+    {
+      "level": 4,
+      "id": "assert-method-not-allowed",
+      "text": "assertMethodNotAllowed"
+    },
+    {
+      "level": 4,
+      "id": "assert-moved-permanently",
+      "text": "assertMovedPermanently"
+    },
+    {
+      "level": 4,
+      "id": "assert-location",
+      "text": "assertLocation"
+    },
+    {
+      "level": 4,
+      "id": "assert-content",
+      "text": "assertContent"
+    },
+    {
+      "level": 4,
+      "id": "assert-no-content",
+      "text": "assertNoContent"
+    },
+    {
+      "level": 4,
+      "id": "assert-streamed",
+      "text": "assertStreamed"
+    },
+    {
+      "level": 4,
+      "id": "assert-streamed-content",
+      "text": "assertStreamedContent"
+    },
+    {
+      "level": 4,
+      "id": "assert-not-found",
+      "text": "assertNotFound"
+    },
+    {
+      "level": 4,
+      "id": "assert-ok",
+      "text": "assertOk"
+    },
+    {
+      "level": 4,
+      "id": "assert-payment-required",
+      "text": "assertPaymentRequired"
+    },
+    {
+      "level": 4,
+      "id": "assert-plain-cookie",
+      "text": "assertPlainCookie"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect",
+      "text": "assertRedirect"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-back",
+      "text": "assertRedirectBack"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-back-with-errors",
+      "text": "assertRedirectBackWithErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-back-without-errors",
+      "text": "assertRedirectBackWithoutErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-contains",
+      "text": "assertRedirectContains"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-to-route",
+      "text": "assertRedirectToRoute"
+    },
+    {
+      "level": 4,
+      "id": "assert-redirect-to-signed-route",
+      "text": "assertRedirectToSignedRoute"
+    },
+    {
+      "level": 4,
+      "id": "assert-request-timeout",
+      "text": "assertRequestTimeout"
+    },
+    {
+      "level": 4,
+      "id": "assert-see",
+      "text": "assertSee"
+    },
+    {
+      "level": 4,
+      "id": "assert-see-in-order",
+      "text": "assertSeeInOrder"
+    },
+    {
+      "level": 4,
+      "id": "assert-see-text",
+      "text": "assertSeeText"
+    },
+    {
+      "level": 4,
+      "id": "assert-see-text-in-order",
+      "text": "assertSeeTextInOrder"
+    },
+    {
+      "level": 4,
+      "id": "assert-server-error",
+      "text": "assertServerError"
+    },
+    {
+      "level": 4,
+      "id": "assert-service-unavailable",
+      "text": "assertServiceUnavailable"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has",
+      "text": "assertSessionHas"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has-input",
+      "text": "assertSessionHasInput"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has-all",
+      "text": "assertSessionHasAll"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has-errors",
+      "text": "assertSessionHasErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has-errors-in",
+      "text": "assertSessionHasErrorsIn"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-has-no-errors",
+      "text": "assertSessionHasNoErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-doesnt-have-errors",
+      "text": "assertSessionDoesntHaveErrors"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-missing",
+      "text": "assertSessionMissing"
+    },
+    {
+      "level": 4,
+      "id": "assert-session-missing-input",
+      "text": "assertSessionMissingInput"
+    },
+    {
+      "level": 4,
+      "id": "assert-status",
+      "text": "assertStatus"
+    },
+    {
+      "level": 4,
+      "id": "assert-successful",
+      "text": "assertSuccessful"
+    },
+    {
+      "level": 4,
+      "id": "assert-too-many-requests",
+      "text": "assertTooManyRequests"
+    },
+    {
+      "level": 4,
+      "id": "assert-unauthorized",
+      "text": "assertUnauthorized"
+    },
+    {
+      "level": 4,
+      "id": "assert-unprocessable",
+      "text": "assertUnprocessable"
+    },
+    {
+      "level": 4,
+      "id": "assert-unsupported-media-type",
+      "text": "assertUnsupportedMediaType"
+    },
+    {
+      "level": 4,
+      "id": "assert-valid",
+      "text": "assertValid"
+    },
+    {
+      "level": 4,
+      "id": "assert-invalid",
+      "text": "assertInvalid"
+    },
+    {
+      "level": 4,
+      "id": "assert-view-has",
+      "text": "assertViewHas"
+    },
+    {
+      "level": 4,
+      "id": "assert-view-has-all",
+      "text": "assertViewHasAll"
+    },
+    {
+      "level": 4,
+      "id": "assert-view-is",
+      "text": "assertViewIs"
+    },
+    {
+      "level": 4,
+      "id": "assert-view-missing",
+      "text": "assertViewMissing"
+    },
+    {
+      "level": 3,
+      "id": "authentication-assertions",
+      "text": "Authentication Assertions"
+    },
+    {
+      "level": 4,
+      "id": "assert-authenticated",
+      "text": "assertAuthenticated"
+    },
+    {
+      "level": 4,
+      "id": "assert-guest",
+      "text": "assertGuest"
+    },
+    {
+      "level": 4,
+      "id": "assert-authenticated-as",
+      "text": "assertAuthenticatedAs"
+    },
+    {
+      "level": 2,
+      "id": "validation-assertions",
+      "text": "Validation Assertions"
+    },
+    {
+      "level": 4,
+      "id": "validation-assert-valid",
+      "text": "assertValid"
+    },
+    {
+      "level": 4,
+      "id": "validation-assert-invalid",
+      "text": "assertInvalid"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 176,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}

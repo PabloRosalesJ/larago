@@ -1,0 +1,995 @@
+{
+  "url": "https://laravel.com/docs/13.x/validation",
+  "title": "Validation",
+  "headings": [
+    {
+      "level": 2,
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "level": 2,
+      "id": "validation-quickstart",
+      "text": "Validation Quickstart"
+    },
+    {
+      "level": 3,
+      "id": "quick-defining-the-routes",
+      "text": "Defining the Routes"
+    },
+    {
+      "level": 3,
+      "id": "quick-creating-the-controller",
+      "text": "Creating the Controller"
+    },
+    {
+      "level": 3,
+      "id": "quick-writing-the-validation-logic",
+      "text": "Writing the Validation Logic"
+    },
+    {
+      "level": 4,
+      "id": "stopping-on-first-validation-failure",
+      "text": "Stopping on First Validation Failure"
+    },
+    {
+      "level": 4,
+      "id": "a-note-on-nested-attributes",
+      "text": "A Note on Nested Attributes"
+    },
+    {
+      "level": 3,
+      "id": "quick-displaying-the-validation-errors",
+      "text": "Displaying the Validation Errors"
+    },
+    {
+      "level": 4,
+      "id": "quick-customizing-the-error-messages",
+      "text": "Customizing the Error Messages"
+    },
+    {
+      "level": 4,
+      "id": "quick-xhr-requests-and-validation",
+      "text": "XHR Requests and Validation"
+    },
+    {
+      "level": 4,
+      "id": "the-at-error-directive",
+      "text": "The @error Directive"
+    },
+    {
+      "level": 3,
+      "id": "repopulating-forms",
+      "text": "Repopulating Forms"
+    },
+    {
+      "level": 3,
+      "id": "a-note-on-optional-fields",
+      "text": "A Note on Optional Fields"
+    },
+    {
+      "level": 3,
+      "id": "validation-error-response-format",
+      "text": "Validation Error Response Format"
+    },
+    {
+      "level": 2,
+      "id": "form-request-validation",
+      "text": "Form Request Validation"
+    },
+    {
+      "level": 3,
+      "id": "creating-form-requests",
+      "text": "Creating Form Requests"
+    },
+    {
+      "level": 4,
+      "id": "performing-additional-validation-on-form-requests",
+      "text": "Performing Additional Validation"
+    },
+    {
+      "level": 4,
+      "id": "request-stopping-on-first-validation-rule-failure",
+      "text": "Stopping on the First Validation Failure"
+    },
+    {
+      "level": 4,
+      "id": "request-failing-on-unknown-fields",
+      "text": "Failing on Unknown Fields"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-redirect-location",
+      "text": "Customizing the Redirect Location"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-error-bag",
+      "text": "Customizing the Error Bag"
+    },
+    {
+      "level": 3,
+      "id": "authorizing-form-requests",
+      "text": "Authorizing Form Requests"
+    },
+    {
+      "level": 3,
+      "id": "customizing-the-error-messages",
+      "text": "Customizing the Error Messages"
+    },
+    {
+      "level": 4,
+      "id": "customizing-the-validation-attributes",
+      "text": "Customizing the Validation Attributes"
+    },
+    {
+      "level": 3,
+      "id": "preparing-input-for-validation",
+      "text": "Preparing Input for Validation"
+    },
+    {
+      "level": 2,
+      "id": "manually-creating-validators",
+      "text": "Manually Creating Validators"
+    },
+    {
+      "level": 3,
+      "id": "automatic-redirection",
+      "text": "Automatic Redirection"
+    },
+    {
+      "level": 3,
+      "id": "named-error-bags",
+      "text": "Named Error Bags"
+    },
+    {
+      "level": 3,
+      "id": "manual-customizing-the-error-messages",
+      "text": "Customizing the Error Messages"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-custom-message-for-a-given-attribute",
+      "text": "Specifying a Custom Message for a Given Attribute"
+    },
+    {
+      "level": 4,
+      "id": "specifying-custom-attribute-values",
+      "text": "Specifying Custom Attribute Values"
+    },
+    {
+      "level": 3,
+      "id": "performing-additional-validation",
+      "text": "Performing Additional Validation"
+    },
+    {
+      "level": 2,
+      "id": "working-with-validated-input",
+      "text": "Working With Validated Input"
+    },
+    {
+      "level": 2,
+      "id": "working-with-error-messages",
+      "text": "Working With Error Messages"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-the-first-error-message-for-a-field",
+      "text": "Retrieving the First Error Message for a Field"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-all-error-messages-for-a-field",
+      "text": "Retrieving All Error Messages for a Field"
+    },
+    {
+      "level": 4,
+      "id": "retrieving-all-error-messages-for-all-fields",
+      "text": "Retrieving All Error Messages for All Fields"
+    },
+    {
+      "level": 4,
+      "id": "determining-if-messages-exist-for-a-field",
+      "text": "Determining if Messages Exist for a Field"
+    },
+    {
+      "level": 3,
+      "id": "specifying-custom-messages-in-language-files",
+      "text": "Specifying Custom Messages in Language Files"
+    },
+    {
+      "level": 4,
+      "id": "custom-messages-for-specific-attributes",
+      "text": "Custom Messages for Specific Attributes"
+    },
+    {
+      "level": 3,
+      "id": "specifying-attribute-in-language-files",
+      "text": "Specifying Attributes in Language Files"
+    },
+    {
+      "level": 3,
+      "id": "specifying-values-in-language-files",
+      "text": "Specifying Values in Language Files"
+    },
+    {
+      "level": 2,
+      "id": "available-validation-rules",
+      "text": "Available Validation Rules"
+    },
+    {
+      "level": 4,
+      "id": "rule-accepted",
+      "text": "accepted"
+    },
+    {
+      "level": 4,
+      "id": "rule-accepted-if",
+      "text": "accepted_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-active-url",
+      "text": "active_url"
+    },
+    {
+      "level": 4,
+      "id": "rule-after",
+      "text": "after:date"
+    },
+    {
+      "level": 4,
+      "id": "rule-after-or-equal",
+      "text": "after_or_equal:date"
+    },
+    {
+      "level": 4,
+      "id": "rule-anyof",
+      "text": "anyOf"
+    },
+    {
+      "level": 4,
+      "id": "rule-alpha",
+      "text": "alpha"
+    },
+    {
+      "level": 4,
+      "id": "rule-alpha-dash",
+      "text": "alpha_dash"
+    },
+    {
+      "level": 4,
+      "id": "rule-alpha-num",
+      "text": "alpha_num"
+    },
+    {
+      "level": 4,
+      "id": "rule-array",
+      "text": "array"
+    },
+    {
+      "level": 4,
+      "id": "rule-ascii",
+      "text": "ascii"
+    },
+    {
+      "level": 4,
+      "id": "rule-bail",
+      "text": "bail"
+    },
+    {
+      "level": 4,
+      "id": "rule-before",
+      "text": "before:date"
+    },
+    {
+      "level": 4,
+      "id": "rule-before-or-equal",
+      "text": "before_or_equal:date"
+    },
+    {
+      "level": 4,
+      "id": "rule-between",
+      "text": "between:min,max"
+    },
+    {
+      "level": 4,
+      "id": "rule-boolean",
+      "text": "boolean"
+    },
+    {
+      "level": 4,
+      "id": "rule-confirmed",
+      "text": "confirmed"
+    },
+    {
+      "level": 4,
+      "id": "rule-contains",
+      "text": "contains:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-doesnt-contain",
+      "text": "doesnt_contain:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-current-password",
+      "text": "current_password"
+    },
+    {
+      "level": 4,
+      "id": "rule-date",
+      "text": "date"
+    },
+    {
+      "level": 4,
+      "id": "rule-date-equals",
+      "text": "date_equals:date"
+    },
+    {
+      "level": 4,
+      "id": "rule-date-format",
+      "text": "date_format:format,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-decimal",
+      "text": "decimal:min,max"
+    },
+    {
+      "level": 4,
+      "id": "rule-declined",
+      "text": "declined"
+    },
+    {
+      "level": 4,
+      "id": "rule-declined-if",
+      "text": "declined_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-different",
+      "text": "different:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-digits",
+      "text": "digits:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-digits-between",
+      "text": "digits_between:min,max"
+    },
+    {
+      "level": 4,
+      "id": "rule-dimensions",
+      "text": "dimensions"
+    },
+    {
+      "level": 4,
+      "id": "rule-distinct",
+      "text": "distinct"
+    },
+    {
+      "level": 4,
+      "id": "rule-doesnt-start-with",
+      "text": "doesnt_start_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-doesnt-end-with",
+      "text": "doesnt_end_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-email",
+      "text": "email"
+    },
+    {
+      "level": 4,
+      "id": "rule-encoding",
+      "text": "encoding:encoding_type"
+    },
+    {
+      "level": 4,
+      "id": "rule-ends-with",
+      "text": "ends_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-enum",
+      "text": "enum"
+    },
+    {
+      "level": 4,
+      "id": "rule-exclude",
+      "text": "exclude"
+    },
+    {
+      "level": 4,
+      "id": "rule-exclude-if",
+      "text": "exclude_if:anotherfield,value"
+    },
+    {
+      "level": 4,
+      "id": "rule-exclude-unless",
+      "text": "exclude_unless:anotherfield,value"
+    },
+    {
+      "level": 4,
+      "id": "rule-exclude-with",
+      "text": "exclude_with:anotherfield"
+    },
+    {
+      "level": 4,
+      "id": "rule-exclude-without",
+      "text": "exclude_without:anotherfield"
+    },
+    {
+      "level": 4,
+      "id": "rule-exists",
+      "text": "exists:table,column"
+    },
+    {
+      "level": 4,
+      "id": "basic-usage-of-exists-rule",
+      "text": "Basic Usage of Exists Rule"
+    },
+    {
+      "level": 4,
+      "id": "specifying-a-custom-column-name",
+      "text": "Specifying a Custom Column Name"
+    },
+    {
+      "level": 4,
+      "id": "rule-extensions",
+      "text": "extensions:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-file",
+      "text": "file"
+    },
+    {
+      "level": 4,
+      "id": "rule-filled",
+      "text": "filled"
+    },
+    {
+      "level": 4,
+      "id": "rule-gt",
+      "text": "gt:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-gte",
+      "text": "gte:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-hex-color",
+      "text": "hex_color"
+    },
+    {
+      "level": 4,
+      "id": "rule-image",
+      "text": "image"
+    },
+    {
+      "level": 4,
+      "id": "rule-in",
+      "text": "in:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-in-array",
+      "text": "in_array:anotherfield.*"
+    },
+    {
+      "level": 4,
+      "id": "rule-in-array-keys",
+      "text": "in_array_keys:value.*"
+    },
+    {
+      "level": 4,
+      "id": "rule-integer",
+      "text": "integer"
+    },
+    {
+      "level": 4,
+      "id": "rule-ip",
+      "text": "ip"
+    },
+    {
+      "level": 4,
+      "id": "ipv4",
+      "text": "ipv4"
+    },
+    {
+      "level": 4,
+      "id": "ipv6",
+      "text": "ipv6"
+    },
+    {
+      "level": 4,
+      "id": "rule-json",
+      "text": "json"
+    },
+    {
+      "level": 4,
+      "id": "rule-lt",
+      "text": "lt:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-lte",
+      "text": "lte:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-lowercase",
+      "text": "lowercase"
+    },
+    {
+      "level": 4,
+      "id": "rule-list",
+      "text": "list"
+    },
+    {
+      "level": 4,
+      "id": "rule-mac",
+      "text": "mac_address"
+    },
+    {
+      "level": 4,
+      "id": "rule-max",
+      "text": "max:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-max-digits",
+      "text": "max_digits:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-mimetypes",
+      "text": "mimetypes:text/plain,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-mimes",
+      "text": "mimes:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "mime-types-and-extensions",
+      "text": "MIME Types and Extensions"
+    },
+    {
+      "level": 4,
+      "id": "rule-min",
+      "text": "min:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-min-digits",
+      "text": "min_digits:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-multiple-of",
+      "text": "multiple_of:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-missing",
+      "text": "missing"
+    },
+    {
+      "level": 4,
+      "id": "rule-missing-if",
+      "text": "missing_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-missing-unless",
+      "text": "missing_unless:anotherfield,value"
+    },
+    {
+      "level": 4,
+      "id": "rule-missing-with",
+      "text": "missing_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-missing-with-all",
+      "text": "missing_with_all:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-not-in",
+      "text": "not_in:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-not-regex",
+      "text": "not_regex:pattern"
+    },
+    {
+      "level": 4,
+      "id": "rule-nullable",
+      "text": "nullable"
+    },
+    {
+      "level": 4,
+      "id": "rule-numeric",
+      "text": "numeric"
+    },
+    {
+      "level": 4,
+      "id": "rule-present",
+      "text": "present"
+    },
+    {
+      "level": 4,
+      "id": "rule-present-if",
+      "text": "present_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-present-unless",
+      "text": "present_unless:anotherfield,value"
+    },
+    {
+      "level": 4,
+      "id": "rule-present-with",
+      "text": "present_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-present-with-all",
+      "text": "present_with_all:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibited",
+      "text": "prohibited"
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibited-if",
+      "text": "prohibited_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibited-if-accepted",
+      "text": "prohibited_if_accepted:anotherfield,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibited-if-declined",
+      "text": "prohibited_if_declined:anotherfield,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibited-unless",
+      "text": "prohibited_unless:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-prohibits",
+      "text": "prohibits:anotherfield,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-regex",
+      "text": "regex:pattern"
+    },
+    {
+      "level": 4,
+      "id": "rule-required",
+      "text": "required"
+    },
+    {
+      "level": 4,
+      "id": "rule-required-if",
+      "text": "required_if:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-if-accepted",
+      "text": "required_if_accepted:anotherfield,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-if-declined",
+      "text": "required_if_declined:anotherfield,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-unless",
+      "text": "required_unless:anotherfield,value,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-with",
+      "text": "required_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-with-all",
+      "text": "required_with_all:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-without",
+      "text": "required_without:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-without-all",
+      "text": "required_without_all:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-required-array-keys",
+      "text": "required_array_keys:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-same",
+      "text": "same:field"
+    },
+    {
+      "level": 4,
+      "id": "rule-size",
+      "text": "size:value"
+    },
+    {
+      "level": 4,
+      "id": "rule-starts-with",
+      "text": "starts_with:foo,bar,..."
+    },
+    {
+      "level": 4,
+      "id": "rule-string",
+      "text": "string"
+    },
+    {
+      "level": 4,
+      "id": "rule-timezone",
+      "text": "timezone"
+    },
+    {
+      "level": 4,
+      "id": "rule-unique",
+      "text": "unique:table,column"
+    },
+    {
+      "level": 4,
+      "id": "rule-uppercase",
+      "text": "uppercase"
+    },
+    {
+      "level": 4,
+      "id": "rule-url",
+      "text": "url"
+    },
+    {
+      "level": 4,
+      "id": "rule-ulid",
+      "text": "ulid"
+    },
+    {
+      "level": 4,
+      "id": "rule-uuid",
+      "text": "uuid"
+    },
+    {
+      "level": 2,
+      "id": "conditionally-adding-rules",
+      "text": "Conditionally Adding Rules"
+    },
+    {
+      "level": 4,
+      "id": "skipping-validation-when-fields-have-certain-values",
+      "text": "Skipping Validation When Fields Have Certain Values"
+    },
+    {
+      "level": 4,
+      "id": "validating-when-present",
+      "text": "Validating When Present"
+    },
+    {
+      "level": 4,
+      "id": "complex-conditional-validation",
+      "text": "Complex Conditional Validation"
+    },
+    {
+      "level": 4,
+      "id": "complex-conditional-array-validation",
+      "text": "Complex Conditional Array Validation"
+    },
+    {
+      "level": 2,
+      "id": "validating-arrays",
+      "text": "Validating Arrays"
+    },
+    {
+      "level": 3,
+      "id": "validating-nested-array-input",
+      "text": "Validating Nested Array Input"
+    },
+    {
+      "level": 4,
+      "id": "accessing-nested-array-data",
+      "text": "Accessing Nested Array Data"
+    },
+    {
+      "level": 3,
+      "id": "error-message-indexes-and-positions",
+      "text": "Error Message Indexes and Positions"
+    },
+    {
+      "level": 2,
+      "id": "validating-files",
+      "text": "Validating Files"
+    },
+    {
+      "level": 4,
+      "id": "validating-files-file-types",
+      "text": "Validating File Types"
+    },
+    {
+      "level": 4,
+      "id": "validating-files-file-sizes",
+      "text": "Validating File Sizes"
+    },
+    {
+      "level": 4,
+      "id": "validating-files-image-files",
+      "text": "Validating Image Files"
+    },
+    {
+      "level": 4,
+      "id": "validating-files-image-dimensions",
+      "text": "Validating Image Dimensions"
+    },
+    {
+      "level": 2,
+      "id": "validating-passwords",
+      "text": "Validating Passwords"
+    },
+    {
+      "level": 4,
+      "id": "defining-default-password-rules",
+      "text": "Defining Default Password Rules"
+    },
+    {
+      "level": 2,
+      "id": "custom-validation-rules",
+      "text": "Custom Validation Rules"
+    },
+    {
+      "level": 3,
+      "id": "using-rule-objects",
+      "text": "Using Rule Objects"
+    },
+    {
+      "level": 3,
+      "id": "using-closures",
+      "text": "Using Closures"
+    },
+    {
+      "level": 3,
+      "id": "implicit-rules",
+      "text": "Implicit Rules"
+    }
+  ],
+  "toc": [],
+  "code_blocks": 170,
+  "related_pages": [
+    "context",
+    "strings",
+    "precognition",
+    "contributions",
+    "eloquent",
+    "testing",
+    "validation",
+    "mongodb",
+    "controllers",
+    "telescope",
+    "starter-kits",
+    "pulse",
+    "frontend",
+    "http-client",
+    "views",
+    "vite",
+    "filesystem",
+    "notifications",
+    "events",
+    "socialite",
+    "helpers",
+    "passwords",
+    "errors",
+    "scheduling",
+    "migrations",
+    "ai-sdk",
+    "queues",
+    "eloquent-mutators",
+    "eloquent-resources",
+    "localization",
+    "contracts",
+    "cashier-paddle",
+    "logging",
+    "urls",
+    "eloquent-collections",
+    "envoy",
+    "structure",
+    "session",
+    "eloquent-serialization",
+    "blade",
+    "hashing",
+    "sail",
+    "console-tests",
+    "folio",
+    "artisan",
+    "authorization",
+    "sanctum",
+    "configuration",
+    "container",
+    "installation",
+    "verification",
+    "upgrade",
+    "mix",
+    "homestead",
+    "pennant",
+    "facades",
+    "pint",
+    "csrf",
+    "mail",
+    "pagination",
+    "dusk",
+    "providers",
+    "redis",
+    "collections",
+    "queries",
+    "eloquent-relationships",
+    "rate-limiting",
+    "passport",
+    "broadcasting",
+    "packages",
+    "ai",
+    "prompts",
+    "deployment",
+    "lifecycle",
+    "releases",
+    "valet",
+    "http-tests",
+    "database-testing",
+    "concurrency",
+    "requests",
+    "mcp",
+    "billing",
+    "boost",
+    "processes",
+    "search",
+    "encryption",
+    "scout",
+    "authentication",
+    "seeding",
+    "horizon",
+    "reverb",
+    "octane",
+    "routing",
+    "mocking",
+    "cache",
+    "fortify",
+    "middleware",
+    "database",
+    "eloquent-factories",
+    "responses"
+  ]
+}
