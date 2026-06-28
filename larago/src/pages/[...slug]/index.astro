@@ -1,0 +1,137 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content'
+import MainLayout from '@/layouts/MainLayout.astro'
+import DocContent from '@/components/DocContent.astro'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import { Sidebar } from '@/components/Sidebar'
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs')
+  const validDocs = docs.filter((doc) => !doc.id.endsWith('/template'))
+
+  const paths = validDocs.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, type: 'doc' as const },
+  }))
+
+  const sectionDocs = new Map<string, typeof validDocs>()
+  for (const doc of validDocs) {
+    const sectionId = doc.data.section
+    if (!sectionDocs.has(sectionId)) {
+      sectionDocs.set(sectionId, [])
+    }
+    sectionDocs.get(sectionId)!.push(doc)
+  }
+
+  for (const [sectionId, sectionEntries] of sectionDocs) {
+    const sorted = sectionEntries.sort((a, b) => a.data.order - b.data.order)
+    paths.push({
+      params: { slug: sectionId },
+      props: {
+        type: 'section' as const,
+        sectionId,
+        sectionName: sectionId
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' '),
+        docs: sorted,
+      },
+    })
+  }
+
+  return paths
+}
+
+const { type } = Astro.props
+
+const allDocs = await getCollection('docs')
+const sortedDocs = allDocs
+  .filter((doc) => !doc.id.endsWith('/template'))
+  .sort((a, b) => a.data.section.localeCompare(b.data.section) || a.data.order - b.data.order)
+
+const sectionMap = new Map<string, { id: string; title: string; pages: { id: string; title: string; slug: string }[] }>()
+
+for (const doc of sortedDocs) {
+  const sectionId = doc.data.section
+  if (!sectionMap.has(sectionId)) {
+    const sectionName = sectionId
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+    sectionMap.set(sectionId, { id: sectionId, title: sectionName, pages: [] })
+  }
+  const section = sectionMap.get(sectionId)!
+  section.pages.push({
+    id: doc.id,
+    title: doc.data.title,
+    slug: doc.id,
+  })
+}
+
+const sections = Array.from(sectionMap.values())
+---
+
+{type === 'doc' ? (
+  <MainLayout title={`${Astro.props.entry.data.title} - LaraGo`} description={Astro.props.entry.data.description}>
+    <div class="flex min-h-screen">
+      <Sidebar sections={sections} client:load currentSlug={Astro.props.entry.id} />
+      
+      <main class="flex-1 min-w-0">
+        <div class="container max-w-4xl px-4 py-8 lg:px-8">
+          <DocContent
+            title={Astro.props.entry.data.title}
+            description={Astro.props.entry.data.description}
+            laravelUrl={Astro.props.entry.data.laravel_url}
+            goPackages={Astro.props.entry.data.go_packages}
+            content={Astro.props.entry.body || ''}
+          />
+        </div>
+      </main>
+    </div>
+  </MainLayout>
+) : (
+  <MainLayout title={`${Astro.props.sectionName} - LaraGo`} description={`Seccion ${Astro.props.sectionName} de LaraGo`}>
+    <div class="flex min-h-screen">
+      <Sidebar sections={sections} client:load currentSlug={Astro.props.sectionId} />
+      
+      <main class="flex-1 min-w-0">
+        <div class="container max-w-4xl px-4 py-8 lg:px-8">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <h1 class="text-3xl font-bold tracking-tight">{Astro.props.sectionName}</h1>
+              <p class="text-muted-foreground">
+                {Astro.props.docs.length} {Astro.props.docs.length === 1 ? 'pagina' : 'paginas'} en esta seccion
+              </p>
+            </div>
+
+            <Separator />
+
+            <div class="flex flex-col gap-3">
+              {Astro.props.docs.map((doc: any) => (
+                <a href={`/${doc.id}`} class="block">
+                  <Card className="hover:bg-accent/50 transition-colors">
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between text-base">
+                        <span>{doc.data.title}</span>
+                        <Badge variant="outline" className="text-xs">
+                          {doc.data.order}
+                        </Badge>
+                      </CardTitle>
+                    </CardHeader>
+                    {doc.data.description && (
+                      <CardContent>
+                        <p class="text-sm text-muted-foreground">{doc.data.description}</p>
+                      </CardContent>
+                    )}
+                  </Card>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </MainLayout>
+)}

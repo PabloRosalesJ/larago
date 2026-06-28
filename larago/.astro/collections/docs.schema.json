@@ -18,6 +18,7 @@
       "type": "string"
     },
     "go_packages": {
+      "default": [],
       "type": "array",
       "items": {
         "type": "string"
@@ -28,6 +29,9 @@
     }
   },
   "required": [
-    "title"
+    "title",
+    "description",
+    "order",
+    "section"
   ]
 }

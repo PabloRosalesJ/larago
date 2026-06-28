@@ -4,9 +4,7 @@ description: "Prueba operaciones de base de datos en Go con SQLite en memoria, t
 order: 3
 section: "11-testing"
 laravel_url: "https://laravel.com/docs/13.x/database-testing"
-go_packages:
-  - testing
-  - database/sql
+go_packages: ["testing", "database/sql", "github.com/mattn/go-sqlite3"]
 ---
 
 # Testing con base de datos

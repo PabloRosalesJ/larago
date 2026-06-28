@@ -1,23 +1,15 @@
-import { defineConfig } from 'astro/config';
+// @ts-check
 
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
 
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://larago.dev',
-  trailingSlash: 'always',
-
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-      wrap: true,
-    },
-  },
-
   vite: {
-    plugins: [tailwindcss()],
-  },
+      plugins: [tailwindcss()],
+	},
 
   integrations: [react()],
 });

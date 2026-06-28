@@ -1,193 +1,78 @@
 ---
-import { getCollection } from 'astro:content';
-import { cleanSlug } from '../utils';
-import '../styles/global.css';
+import { getCollection } from 'astro:content'
+import MainLayout from '@/layouts/MainLayout.astro'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
-const docs = await getCollection('docs');
-docs.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
-const firstDoc = docs[0];
-const firstPath = firstDoc ? cleanSlug(firstDoc.id) : 'prologue/filosofia-de-go-vs-laravel';
+const allDocs = await getCollection('docs')
+const sortedDocs = allDocs
+  .filter((doc) => !doc.id.endsWith('/template'))
+  .sort((a, b) => a.data.section.localeCompare(b.data.section) || a.data.order - b.data.order)
 
-const sections = [
-  { name: 'Prólogo', count: 3, desc: 'Filosofía, mentalidad, contribuciones' },
-  { name: 'Getting Started', count: 4, desc: 'Instalación, configuración, estructura' },
-  { name: 'Arquitectura', count: 4, desc: 'Lifecycle, DI, providers, facades' },
-  { name: 'The Basics', count: 11, desc: 'Routing, middleware, requests, templates' },
-  { name: 'Seguridad', count: 5, desc: 'Auth, autorización, encriptación' },
-  { name: 'Database', count: 5, desc: 'Conexión, queries, migraciones' },
-  { name: 'GORM', count: 7, desc: 'ORM al estilo Eloquent' },
-  { name: 'sqlc', count: 7, desc: 'Query Builder con generación de código' },
-  { name: 'Digging Deeper', count: 8, desc: 'Caché, eventos, colas, cron' },
-  { name: 'Testing', count: 4, desc: 'Tests, HTTP, DB, mocks' },
-  { name: 'Contexto', count: 1, desc: 'Lo que Laravel tiene y Go no necesita' },
-];
+const sectionMap = new Map<string, { id: string; title: string; count: number; firstSlug: string }>()
+
+for (const doc of sortedDocs) {
+  const sectionId = doc.data.section
+  if (!sectionMap.has(sectionId)) {
+    const sectionName = sectionId
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+    sectionMap.set(sectionId, {
+      id: sectionId,
+      title: sectionName,
+      count: 0,
+      firstSlug: doc.id,
+    })
+  }
+  const section = sectionMap.get(sectionId)!
+  section.count++
+}
+
+const sections = Array.from(sectionMap.values())
 ---
 
-<!DOCTYPE html>
-<html lang="es" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaraGo — De Laravel a Go con la stdlib</title>
-    <meta name="description" content="Guía para desarrolladores Laravel/PHP que migran a Go usando la biblioteca estándar" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body class="min-h-screen bg-background text-foreground antialiased">
-    <!-- Nav -->
-    <header class="sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
-      <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
-        <a href="/" class="text-lg font-bold tracking-tight">
-          Lara<span class="text-primary">Go</span>
-        </a>
-        <a
-          href={`/${firstPath}/`}
-          class="inline-flex h-8 items-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground hover:bg-primary/80"
-        >
-          Comenzar
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+<MainLayout title="LaraGo - De Laravel a Go">
+  <div class="flex flex-col min-h-screen">
+    <header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div class="container flex h-14 items-center px-4">
+        <a href="/" class="flex items-center gap-2">
+          <span class="font-bold text-lg">LaraGo</span>
+          <Badge variant="secondary">Docs</Badge>
         </a>
       </div>
     </header>
 
-    <!-- Hero -->
-    <section class="border-b border-border">
-      <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:py-32">
-        <div class="mx-auto max-w-3xl text-center">
-          <div class="mb-4 inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
-            Laravel 13.x → Go stdlib
+    <main class="flex-1">
+      <div class="container max-w-5xl px-4 py-12">
+        <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-2">
+            <h1 class="text-4xl font-bold tracking-tight">LaraGo</h1>
+            <p class="text-xl text-muted-foreground">
+              De Laravel a Go con la stdlib. Documentacion para devs PHP/Laravel que migran a Go.
+            </p>
           </div>
-          <h1 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-            De Laravel a <span class="text-primary">Go</span>
-          </h1>
-          <p class="mb-8 text-lg text-muted-foreground md:text-xl">
-            60 guías prácticas para migrar tu mentalidad de Laravel/PHP a Go,
-            mapeando cada concepto con su equivalente en la biblioteca estándar,
-            GORM y sqlc.
-          </p>
-          <div class="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={`/${firstPath}/`}
-              class="inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground hover:bg-primary/80"
-            >
-              Explorar guías
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <a
-              href="/prologue/filosofia-de-go-vs-laravel/"
-              class="inline-flex h-10 items-center gap-2 rounded-lg border border-border bg-background px-5 text-sm font-medium text-foreground hover:bg-muted"
-            >
-              Leer el prólogo
-            </a>
+
+          <Separator />
+
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {sections.map((section) => (
+              <a href={`/${section.firstSlug}`} class="block">
+                <Card className="h-full hover:bg-accent/50 transition-colors">
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {section.title}
+                      <Badge variant="outline">{section.count}</Badge>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+              </a>
+            ))}
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Features grid -->
-    <section class="border-b border-border">
-      <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-        <h2 class="mb-2 text-center text-2xl font-bold tracking-tight md:text-3xl">
-          ¿Qué encontrarás?
-        </h2>
-        <p class="mb-10 text-center text-muted-foreground">
-          Cada concepto de Laravel con su contraparte en Go, explicado lado a lado
-        </p>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
-            </div>
-            <h3 class="font-medium">Código funcional</h3>
-            <p class="text-muted-foreground">Ejemplos reales de Go que puedes copiar, pegar y adaptar a tus proyectos.</p>
-          </div>
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18a6 6 0 0 0-12 0"/><circle cx="10" cy="7" r="4"/><path d="M20 18a6 6 0 0 0-4-5.33"/><path d="M16 7a2 2 0 0 0-1.47-1.94"/></svg>
-            </div>
-            <h3 class="font-medium">Comparativas lado a lado</h3>
-            <p class="text-muted-foreground">Tablas Eloquent ↔ GORM ↔ sqlc para elegir la herramienta adecuada.</p>
-          </div>
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3 class="font-medium">Errores comunes</h3>
-            <p class="text-muted-foreground">Pitfalls típicos al migrar de PHP/Laravel a Go y cómo evitarlos.</p>
-          </div>
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10h2"/></svg>
-            </div>
-            <h3 class="font-medium">GORM + sqlc</h3>
-            <p class="text-muted-foreground">Dos alternativas a Eloquent: ORM completo y generación de código SQL.</p>
-          </div>
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            </div>
-            <h3 class="font-medium">Sin dependencias mágicas</h3>
-            <p class="text-muted-foreground">Priorizamos la stdlib de Go. Sin contenedores DI, sin fachadas, sin magia.</p>
-          </div>
-          <div class="group/card flex flex-col gap-3 overflow-hidden rounded-xl bg-card p-4 text-sm text-card-foreground ring-1 ring-foreground/10">
-            <div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </div>
-            <h3 class="font-medium">60 páginas de contenido</h3>
-            <p class="text-muted-foreground">Cubre desde routing y middleware hasta colas, eventos y testing.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section list -->
-    <section class="border-b border-border">
-      <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-        <h2 class="mb-2 text-center text-2xl font-bold tracking-tight md:text-3xl">
-          Secciones
-        </h2>
-        <p class="mb-10 text-center text-muted-foreground">
-          Navegación completa del LaraGo
-        </p>
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {sections.map(s => (
-            <div class="flex items-center justify-between rounded-xl border border-border bg-card p-4">
-              <div>
-                <h3 class="text-sm font-medium">{s.name}</h3>
-                <p class="text-xs text-muted-foreground">{s.desc}</p>
-              </div>
-              <span class="flex size-7 shrink-0 items-center justify-center rounded-md bg-muted text-[0.7rem] font-medium text-muted-foreground">
-                {s.count}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="mb-2 text-2xl font-bold tracking-tight md:text-3xl">
-          ¿Listo para empezar?
-        </h2>
-        <p class="mb-8 text-muted-foreground">
-          Empieza por el prólogo para entender la filosofía, o salta directamente a la sección que te interese.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={`/${firstPath}/`}
-            class="inline-flex h-10 items-center gap-2 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground hover:bg-primary/80"
-          >
-            Ir a la primera guía
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-border py-6 text-center text-xs text-muted-foreground">
-      LaraGo &mdash; De Laravel a Go con la stdlib
-    </footer>
-  </body>
-</html>
+    </main>
+  </div>
+</MainLayout>
