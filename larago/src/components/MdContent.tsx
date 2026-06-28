@@ -12,6 +12,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  AlertTriangle,
+  CheckCircle,
+  Lightbulb,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  type LucideIcon,
+} from "lucide-react"
+
+interface NavItem {
+  title: string
+  slug: string
+}
 
 interface MdContentProps {
   title: string
@@ -19,6 +32,8 @@ interface MdContentProps {
   laravelUrl?: string
   goPackages?: string[]
   content: string
+  prev?: NavItem | null
+  next?: NavItem | null
 }
 
 interface ParsedBlock {
@@ -28,6 +43,41 @@ interface ParsedBlock {
   language?: string
   filename?: string
   tableData?: { headers: string[]; rows: string[][] }
+}
+
+interface SpecialSection {
+  pattern: RegExp
+  icon: LucideIcon
+  iconColor: string
+}
+
+const SPECIAL_SECTIONS: SpecialSection[] = [
+  {
+    pattern: /errores?\s+comunes/i,
+    icon: AlertTriangle,
+    iconColor: "text-orange-400",
+  },
+  {
+    pattern: /buenas\s+prácticas/i,
+    icon: CheckCircle,
+    iconColor: "text-green-400",
+  },
+  {
+    pattern: /ejercicio\s+sugerido/i,
+    icon: Lightbulb,
+    iconColor: "text-blue-400",
+  },
+]
+
+function getSpecialSection(heading: string): SpecialSection | null {
+  for (const section of SPECIAL_SECTIONS) {
+    if (section.pattern.test(heading)) return section
+  }
+  return null
+}
+
+function isSiguientesPasos(heading: string): boolean {
+  return /siguientes\s+pasos/i.test(heading)
 }
 
 function parseMarkdownToBlocks(markdown: string): ParsedBlock[] {
@@ -66,7 +116,6 @@ function parseMarkdownToBlocks(markdown: string): ParsedBlock[] {
   }
 
   for (const line of lines) {
-    // Code blocks
     if (line.startsWith("```")) {
       if (inCodeBlock) {
         blocks.push({
@@ -91,10 +140,8 @@ function parseMarkdownToBlocks(markdown: string): ParsedBlock[] {
       continue
     }
 
-    // Tables
     if (line.trim().startsWith("|")) {
       const trimmed = line.trim()
-      // Skip separator row (|---|---|)
       if (/^\|[\s-]+\|/.test(trimmed)) {
         inTable = true
         continue
@@ -114,7 +161,6 @@ function parseMarkdownToBlocks(markdown: string): ParsedBlock[] {
       flushTable()
     }
 
-    // Headings
     const headingMatch = line.match(/^(#{1,6})\s+(.+)/)
     if (headingMatch) {
       flushText()
@@ -127,7 +173,6 @@ function parseMarkdownToBlocks(markdown: string): ParsedBlock[] {
       continue
     }
 
-    // Regular text
     currentTextBlock += line + "\n"
   }
 
@@ -210,25 +255,27 @@ function renderTextBlock(text: string): string {
   return html.join("\n")
 }
 
-function HeadingBlock({ level, content }: { level: number; content: string }) {
+function HeadingBlock({ level, content, id }: { level: number; content: string; id?: string }) {
   const rendered = renderInlineMarkdown(content)
   const className = "font-bold tracking-tight"
 
+  const props = id ? { id } : {}
+
   switch (level) {
     case 1:
-      return <h1 className={`${className} text-2xl mt-4 mb-2`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h1 {...props} className={`${className} text-2xl mt-4 mb-2`} dangerouslySetInnerHTML={{ __html: rendered }} />
     case 2:
-      return <h2 className={`${className} text-xl mt-4 mb-2`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h2 {...props} className={`${className} text-xl mt-4 mb-2`} dangerouslySetInnerHTML={{ __html: rendered }} />
     case 3:
-      return <h3 className={`${className} text-lg mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h3 {...props} className={`${className} text-lg mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
     case 4:
-      return <h4 className={`${className} text-base mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h4 {...props} className={`${className} text-base mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
     case 5:
-      return <h5 className={`${className} text-sm mt-2 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h5 {...props} className={`${className} text-sm mt-2 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
     case 6:
-      return <h6 className={`${className} text-sm mt-2 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h6 {...props} className={`${className} text-sm mt-2 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
     default:
-      return <h3 className={`${className} text-lg mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
+      return <h3 {...props} className={`${className} text-lg mt-3 mb-1`} dangerouslySetInnerHTML={{ __html: rendered }} />
   }
 }
 
@@ -287,8 +334,126 @@ function getFilenameForCode(code: string, language: string): string {
   return `code.${language === "typescript" ? "ts" : language === "javascript" ? "js" : language}`
 }
 
-export function MdContent({ title, description, laravelUrl, goPackages, content }: MdContentProps) {
+function getHeadingId(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+}
+
+function BlockRenderer({ block }: { block: ParsedBlock }) {
+  if (block.type === "heading") {
+    const id = getHeadingId(block.content)
+    return <HeadingBlock level={block.level || 2} content={block.content} id={id} />
+  }
+  if (block.type === "table" && block.tableData) {
+    return <TableBlock headers={block.tableData.headers} rows={block.tableData.rows} />
+  }
+  if (block.type === "text") {
+    return <TextRenderer text={block.content} />
+  }
+  if (block.type === "code") {
+    const lang = block.language || detectLanguage(block.content)
+    return (
+      <CodeBlock
+        code={block.content}
+        language={lang === "terminal" ? "bash" : lang}
+        filename={getFilenameForCode(block.content, lang)}
+        bodyClassName="bg-secondary"
+      />
+    )
+  }
+  return null
+}
+
+export function MdContent({ title, description, laravelUrl, goPackages, content, prev, next }: MdContentProps) {
   const blocks = parseMarkdownToBlocks(content)
+
+  const elements: React.ReactNode[] = []
+  let i = 0
+
+  while (i < blocks.length) {
+    const block = blocks[i]
+
+    if (block.type === "heading" && block.level === 2) {
+      if (isSiguientesPasos(block.content)) {
+        const childBlocks: ParsedBlock[] = []
+        i++
+        while (i < blocks.length) {
+          const next = blocks[i]
+          if (next.type === "heading" && (next.level || 2) <= 2) break
+          childBlocks.push(next)
+          i++
+        }
+
+        elements.push(
+          <div key={`special-${i}`} className="mt-8">
+            <Separator className="mb-6" />
+            <h2 className="text-xl font-bold tracking-tight mb-4" dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(block.content) }} />
+            <div className="flex items-center justify-between gap-4">
+              {prev ? (
+                <a
+                  href={`/${prev.slug}`}
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ChevronLeftIcon className="h-4 w-4" />
+                  {prev.title}
+                </a>
+              ) : <div />}
+              {next ? (
+                <a
+                  href={`/${next.slug}`}
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {next.title}
+                  <ChevronRightIcon className="h-4 w-4" />
+                </a>
+              ) : <div />}
+            </div>
+          </div>
+        )
+        continue
+      }
+
+      const special = getSpecialSection(block.content)
+      if (special) {
+        const Icon = special.icon
+        const childBlocks: ParsedBlock[] = []
+        i++
+
+        while (i < blocks.length) {
+          const next = blocks[i]
+          if (next.type === "heading" && (next.level || 2) <= 2) break
+          childBlocks.push(next)
+          i++
+        }
+
+        elements.push(
+          <Card key={`special-${i}`} className="border border-border">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Icon className={`h-5 w-5 ${special.iconColor}`} />
+                <span dangerouslySetInnerHTML={{ __html: renderInlineMarkdown(block.content) }} />
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-col gap-3">
+              {childBlocks.map((child, j) => (
+                <BlockRenderer key={j} block={child} />
+              ))}
+            </CardContent>
+          </Card>
+        )
+        continue
+      }
+    }
+
+    elements.push(<BlockRenderer key={i} block={block} />)
+    i++
+  }
 
   return (
     <article className="flex flex-col gap-4">
@@ -318,30 +483,7 @@ export function MdContent({ title, description, laravelUrl, goPackages, content 
 
       <Separator />
 
-      {blocks.map((block, i) => {
-        if (block.type === "heading") {
-          return <HeadingBlock key={i} level={block.level || 2} content={block.content} />
-        }
-        if (block.type === "table" && block.tableData) {
-          return <TableBlock key={i} headers={block.tableData.headers} rows={block.tableData.rows} />
-        }
-        if (block.type === "text") {
-          return <TextRenderer key={i} text={block.content} />
-        }
-        if (block.type === "code") {
-          const lang = block.language || detectLanguage(block.content)
-          return (
-            <CodeBlock
-              key={i}
-              code={block.content}
-              language={lang === "terminal" ? "bash" : lang}
-              filename={getFilenameForCode(block.content, lang)}
-              bodyClassName="bg-secondary"
-            />
-          )
-        }
-        return null
-      })}
+      {elements}
     </article>
   )
 }

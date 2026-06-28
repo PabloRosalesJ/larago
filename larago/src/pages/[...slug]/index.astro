@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
 import { Sidebar } from '@/components/Sidebar'
 import { MdContent } from '@/components/MdContent'
+import { RightSidebar } from '@/components/RightSidebar'
+import { getPrevNext } from '@/lib/page-data'
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs')
@@ -68,6 +70,14 @@ for (const doc of sortedDocs) {
 }
 
 const sections = Array.from(sectionMap.values())
+
+let prev = null
+let next = null
+if (type === 'doc') {
+  const nav = await getPrevNext(Astro.props.entry.id)
+  prev = nav.prev
+  next = nav.next
+}
 ---
 
 {type === 'doc' ? (
@@ -76,7 +86,7 @@ const sections = Array.from(sectionMap.values())
       <Sidebar sections={sections} client:load currentSlug={Astro.props.entry.id} />
       
       <main class="flex-1 min-w-0">
-        <div class="container max-w-4xl px-4 py-8 lg:px-8">
+        <div class="px-6 py-8 max-w-5xl mx-auto">
           <MdContent
             client:load
             title={Astro.props.entry.data.title}
@@ -84,9 +94,16 @@ const sections = Array.from(sectionMap.values())
             laravelUrl={Astro.props.entry.data.laravel_url}
             goPackages={Astro.props.entry.data.go_packages}
             content={Astro.props.entry.body || ''}
+            prev={prev}
+            next={next}
           />
         </div>
       </main>
+
+      <RightSidebar
+        client:load
+        content={Astro.props.entry.body || ''}
+      />
     </div>
   </MainLayout>
 ) : (
@@ -95,7 +112,7 @@ const sections = Array.from(sectionMap.values())
       <Sidebar sections={sections} client:load currentSlug={Astro.props.sectionId} />
       
       <main class="flex-1 min-w-0">
-        <div class="container max-w-4xl px-4 py-8 lg:px-8">
+        <div class="px-6 py-8 max-w-5xl mx-auto">
           <div class="flex flex-col gap-6">
             <div class="flex flex-col gap-2">
               <h1 class="text-3xl font-bold tracking-tight">{Astro.props.sectionName}</h1>
