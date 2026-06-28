@@ -127,4 +127,7 @@
   html {
     @apply font-sans;
     }
+  [data-slot="card-content"] pre {
+    background: transparent !important;
+    }
 }

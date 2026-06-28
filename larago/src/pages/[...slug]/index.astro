@@ -1,11 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
-import DocContent from '@/components/DocContent.astro'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import { Sidebar } from '@/components/Sidebar'
+import { MdContent } from '@/components/MdContent'
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs')
@@ -80,7 +77,8 @@ const sections = Array.from(sectionMap.values())
       
       <main class="flex-1 min-w-0">
         <div class="container max-w-4xl px-4 py-8 lg:px-8">
-          <DocContent
+          <MdContent
+            client:load
             title={Astro.props.entry.data.title}
             description={Astro.props.entry.data.description}
             laravelUrl={Astro.props.entry.data.laravel_url}
@@ -106,26 +104,22 @@ const sections = Array.from(sectionMap.values())
               </p>
             </div>
 
-            <Separator />
+            <div class="h-px bg-border" />
 
             <div class="flex flex-col gap-3">
               {Astro.props.docs.map((doc: any) => (
                 <a href={`/${doc.id}`} class="block">
-                  <Card className="hover:bg-accent/50 transition-colors">
-                    <CardHeader>
-                      <CardTitle className="flex items-center justify-between text-base">
-                        <span>{doc.data.title}</span>
-                        <Badge variant="outline" className="text-xs">
-                          {doc.data.order}
-                        </Badge>
-                      </CardTitle>
-                    </CardHeader>
+                  <div class="rounded-lg border bg-card p-4 hover:bg-accent/50 transition-colors">
+                    <div class="flex items-center justify-between">
+                      <h3 class="font-medium">{doc.data.title}</h3>
+                      <span class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                        {doc.data.order}
+                      </span>
+                    </div>
                     {doc.data.description && (
-                      <CardContent>
-                        <p class="text-sm text-muted-foreground">{doc.data.description}</p>
-                      </CardContent>
+                      <p class="text-sm text-muted-foreground mt-1">{doc.data.description}</p>
                     )}
-                  </Card>
+                  </div>
                 </a>
               ))}
             </div>

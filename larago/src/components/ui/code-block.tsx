@@ -108,18 +108,10 @@ async function renderCode(
 ): Promise<string> {
   return codeToHtml(code, {
     lang: language as BundledLanguage,
-    themes: { light: "github-light", dark: "github-dark-default" },
+    theme: "github-dark-default",
     tabindex: false,
     transformers: [
       {
-        pre(node) {
-          // Strip shiki's inline background-color so the wrapper's bodyClassName shows through
-          if (node.properties?.style) {
-            node.properties.style = (node.properties.style as string)
-              .replace(/background-color:\s*[^;]+;?\s*/gi, "")
-              .replace(/--shiki-dark-bg:\s*[^;]+;?\s*/gi, "");
-          }
-        },
         line(node, line) {
           if (highlightLines?.includes(line)) {
             this.addClassToHast(node, "line-highlighted");

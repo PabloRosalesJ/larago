@@ -1,10 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 
 const allDocs = await getCollection('docs')
 const sortedDocs = allDocs
@@ -40,7 +36,7 @@ const sections = Array.from(sectionMap.values())
       <div class="container flex h-14 items-center px-4">
         <a href="/" class="flex items-center gap-2">
           <span class="font-bold text-lg">LaraGo</span>
-          <Badge variant="secondary">Docs</Badge>
+          <span class="text-xs bg-muted px-2 py-0.5 rounded">Docs</span>
         </a>
       </div>
     </header>
@@ -55,19 +51,19 @@ const sections = Array.from(sectionMap.values())
             </p>
           </div>
 
-          <Separator />
+          <div class="h-px bg-border" />
 
           <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {sections.map((section) => (
               <a href={`/${section.firstSlug}`} class="block">
-                <Card className="h-full hover:bg-accent/50 transition-colors">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {section.title}
-                      <Badge variant="outline">{section.count}</Badge>
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
+                <div class="h-full rounded-lg border bg-card p-4 hover:bg-accent/50 transition-colors">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-medium">{section.title}</h3>
+                    <span class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                      {section.count}
+                    </span>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
