@@ -1,13 +1,32 @@
 ---
 import { getCollection } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import { Button } from '@/components/ui/button'
 
 const allDocs = await getCollection('docs')
 const sortedDocs = allDocs
   .filter((doc) => !doc.id.endsWith('/template'))
   .sort((a, b) => a.data.section.localeCompare(b.data.section) || a.data.order - b.data.order)
 
-const sectionMap = new Map<string, { id: string; title: string; count: number; firstSlug: string }>()
+const sectionMap = new Map<string, { id: string; title: string; count: number; firstSlug: string; description: string }>()
+
+const sectionDescriptions: Record<string, string> = {
+  '01-prologue': 'Filosofia de Go vs Laravel y como cambiar tu mentalidad',
+  '02-getting-started': 'Instalacion, configuracion y estructura de proyecto',
+  '03-architecture': 'Ciclo de vida, DI, bootstrapping y patron arquitectonico',
+  '04-the-basics': 'Routing, middleware, handlers, requests y responses',
+  '05-security': 'Auth, autorizacion, encriptacion y hashing desde cero',
+  '06-database': 'Conexion, queries, paginacion, migraciones y seed data',
+  '07-gorm': 'ORM para Go: modelos, relaciones, CRUD y hooks',
+  '08-sqlc': 'Query Builder con generacion de codigo typesafe',
+  '09-comparativa': 'Tabla comparativa Eloquent vs GORM vs sqlc',
+  '10-digging-deeper': 'Cache, eventos, filesystem, HTTP client, queues y mas',
+  '11-testing': 'Testing en Go: unitarios, HTTP, DB y mocks',
+  '12-contexto-laravel': 'Lo que Laravel tiene y Go no necesita',
+}
 
 for (const doc of sortedDocs) {
   const sectionId = doc.data.section
@@ -21,6 +40,7 @@ for (const doc of sortedDocs) {
       title: sectionName,
       count: 0,
       firstSlug: doc.id,
+      description: sectionDescriptions[sectionId] || '',
     })
   }
   const section = sectionMap.get(sectionId)!
@@ -28,12 +48,27 @@ for (const doc of sortedDocs) {
 }
 
 const sections = Array.from(sectionMap.values())
+
+const features = [
+  {
+    title: 'Stdlib First',
+    description: 'Sin frameworks magicos. Go te da todo lo que necesitas en la caja.',
+  },
+  {
+    title: 'Codigo Explicito',
+    description: 'Cada linea es predecible. No hay sorpresas ocultas debajo del capo.',
+  },
+  {
+    title: 'Comparativa 1:1',
+    description: 'Cada concepto de Laravel tiene su contraparte en Go documentada.',
+  },
+]
 ---
 
 <MainLayout title="LaraGo - De Laravel a Go">
   <div class="flex flex-col min-h-screen">
     <header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div class="container flex h-14 items-center px-4">
+      <div class="max-w-6xl mx-auto flex h-14 items-center px-4">
         <a href="/" class="flex items-center gap-2">
           <span class="font-bold text-lg">LaraGo</span>
           <span class="text-xs bg-muted px-2 py-0.5 rounded">Docs</span>
@@ -42,33 +77,113 @@ const sections = Array.from(sectionMap.values())
     </header>
 
     <main class="flex-1">
-      <div class="container max-w-5xl px-4 py-12">
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-col gap-2">
-            <h1 class="text-4xl font-bold tracking-tight">LaraGo</h1>
-            <p class="text-xl text-muted-foreground">
-              De Laravel a Go con la stdlib. Documentacion para devs PHP/Laravel que migran a Go.
-            </p>
-          </div>
+      <!-- Hero -->
+      <section class="max-w-4xl mx-auto px-4 pt-20 pb-16">
+        <div class="flex flex-col items-center text-center gap-6">
+          <Badge variant="secondary" className="px-4 py-1.5 text-sm">
+            Guia de migracion Laravel → Go
+          </Badge>
+          
+          <h1 class="text-5xl md:text-6xl font-bold tracking-tight">
+            De Laravel a
+            <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent"> Go</span>
+          </h1>
+          
+          <p class="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            Documentacion para devs PHP/Laravel que migran a Go. 
+            Sin frameworks magicos, solo stdlib. Cada concepto de Laravel 
+            tiene su contraparte en Go documentada paso a paso.
+          </p>
 
-          <div class="h-px bg-border" />
-
-          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {sections.map((section) => (
-              <a href={`/${section.firstSlug}`} class="block">
-                <div class="h-full rounded-lg border bg-card p-4 hover:bg-accent/50 transition-colors">
-                  <div class="flex items-center justify-between">
-                    <h3 class="font-medium">{section.title}</h3>
-                    <span class="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
-                      {section.count}
-                    </span>
-                  </div>
-                </div>
+          <div class="flex items-center gap-4 mt-4">
+            <Button asChild size="lg">
+              <a href="/01-prologue/01-01-filosofia-de-go-vs-laravel">
+                Empezar a leer
               </a>
-            ))}
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href="/02-getting-started/02-01-instalacion-y-setup">
+                Instalacion
+              </a>
+            </Button>
           </div>
         </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-4">
+        <Separator />
       </div>
+
+      <!-- Features -->
+      <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid gap-6 md:grid-cols-3">
+          {features.map((feature) => (
+            <Card className="border-0 bg-muted/30">
+              <CardHeader>
+                <CardTitle className="text-lg">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p class="text-sm text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto px-4">
+        <Separator />
+      </div>
+
+      <!-- Sections -->
+      <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="flex flex-col gap-2 mb-8">
+          <h2 class="text-2xl font-bold tracking-tight">Contenido</h2>
+          <p class="text-muted-foreground">
+            {sortedDocs.length} paginas organizadas por tema
+          </p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {sections.map((section) => (
+            <a href={`/${section.firstSlug}`} class="group block">
+              <Card className="h-full transition-colors group-hover:bg-accent/50">
+                <CardHeader className="pb-3">
+                  <div class="flex items-center justify-between">
+                    <CardTitle className="text-base">{section.title}</CardTitle>
+                    <Badge variant="secondary" className="text-xs">
+                      {section.count}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p class="text-sm text-muted-foreground">
+                    {section.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold">LaraGo</span>
+              <span class="text-sm text-muted-foreground">
+                De Laravel a Go con la stdlib
+              </span>
+            </div>
+            <p class="text-sm text-muted-foreground">
+              Basado en Laravel 13.x docs
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   </div>
 </MainLayout>
