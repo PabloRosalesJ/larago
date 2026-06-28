@@ -1,6 +1,5 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import {
   Sheet,
@@ -10,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
-import { MenuIcon } from "lucide-react"
+import { MenuIcon, ChevronRightIcon } from "lucide-react"
 
 interface Section {
   id: string
@@ -24,31 +23,133 @@ interface SidebarProps {
   className?: string
 }
 
+function SidebarLink({
+  page,
+  currentSlug,
+}: {
+  page: { id: string; title: string; slug: string }
+  currentSlug: string
+}) {
+  const linkRef = React.useRef<HTMLAnchorElement>(null)
+  const [isHovered, setIsHovered] = React.useState(false)
+  const [linkRect, setLinkRect] = React.useState<DOMRect | null>(null)
+
+  const handleMouseEnter = () => {
+    if (linkRef.current) {
+      setLinkRect(linkRef.current.getBoundingClientRect())
+    }
+    setIsHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    setLinkRect(null)
+  }
+
+  return (
+    <>
+      <a
+        ref={linkRef}
+        href={`/${page.slug}`}
+        className="relative block"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <span
+          className={cn(
+            "block px-3 py-1.5 text-sm rounded-md transition-colors duration-150",
+            currentSlug === page.slug
+              ? "bg-accent text-accent-foreground font-medium"
+              : "text-muted-foreground"
+          )}
+        >
+          <span className="block truncate">{page.title}</span>
+        </span>
+      </a>
+
+      {isHovered && linkRect && (
+        <div
+          className="fixed z-[9999] pointer-events-none"
+          style={{
+            top: linkRect.top,
+            left: linkRect.left,
+            width: "auto",
+            minWidth: linkRect.width,
+          }}
+        >
+          <span
+            className={cn(
+              "block px-3 py-1.5 text-sm rounded-md -translate-y-0.5",
+              currentSlug === page.slug
+                ? "bg-accent text-accent-foreground font-medium"
+                : "bg-muted text-foreground"
+            )}
+          >
+            <span className="block whitespace-nowrap">{page.title}</span>
+          </span>
+        </div>
+      )}
+    </>
+  )
+}
+
+function CollapsibleSection({
+  section,
+  currentSlug,
+}: {
+  section: Section
+  currentSlug: string
+}) {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const hasActiveChild = section.pages.some((p) => currentSlug === p.slug)
+
+  React.useEffect(() => {
+    if (hasActiveChild) setIsOpen(true)
+  }, [hasActiveChild])
+
+  return (
+    <div className="flex flex-col">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={cn(
+          "flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider rounded-md transition-colors w-full text-left",
+          hasActiveChild
+            ? "text-foreground"
+            : "text-muted-foreground hover:text-foreground hover:bg-muted"
+        )}
+      >
+        <ChevronRightIcon
+          className={cn(
+            "h-3 w-3 shrink-0 transition-transform",
+            isOpen && "rotate-90"
+          )}
+        />
+        <span className="truncate">{section.title}</span>
+      </button>
+      {isOpen && (
+        <div className="flex flex-col gap-0.5 ml-4 pl-3 border-l">
+          {section.pages.map((page) => (
+            <SidebarLink
+              key={page.id}
+              page={page}
+              currentSlug={currentSlug}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function SidebarNav({ sections, currentSlug }: SidebarProps) {
   return (
-    <nav className="flex flex-col gap-4">
+    <nav className="flex flex-col gap-1">
       {sections.map((section) => (
-        <div key={section.id} className="flex flex-col gap-1">
-          <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider px-2">
-            {section.title}
-          </h4>
-          <div className="flex flex-col gap-0.5">
-            {section.pages.map((page) => (
-              <a
-                key={page.id}
-                href={`/${page.slug}`}
-                className={cn(
-                  "px-2 py-1.5 text-sm rounded-md transition-colors",
-                  currentSlug === page.slug
-                    ? "bg-accent text-accent-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                )}
-              >
-                {page.title}
-              </a>
-            ))}
-          </div>
-        </div>
+        <CollapsibleSection
+          key={section.id}
+          section={section}
+          currentSlug={currentSlug}
+        />
       ))}
     </nav>
   )
@@ -57,8 +158,13 @@ function SidebarNav({ sections, currentSlug }: SidebarProps) {
 export function Sidebar({ sections, currentSlug, className }: SidebarProps) {
   return (
     <>
-      <aside className={cn("hidden lg:block", className)}>
-        <ScrollArea className="h-[calc(100vh-4rem)]">
+      <aside
+        className={cn(
+          "hidden lg:block sticky top-14 h-[calc(100vh-3.5rem)] shrink-0 border-r w-[260px] max-w-[260px]",
+          className
+        )}
+      >
+        <ScrollArea className="h-full">
           <div className="p-4">
             <SidebarNav sections={sections} currentSlug={currentSlug} />
           </div>
