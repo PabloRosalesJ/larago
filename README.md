@@ -1,12 +1,24 @@
-# LaraGo
+<h1 align="center">LaraGo</h1>
 
-> From Laravel to Go with the stdlib — Documentation for PHP/Laravel developers migrating to Go.
+<p align="center">
+  <strong>From Laravel to Go with the stdlib</strong><br>
+  Documentation for PHP/Laravel developers migrating to Go.
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<p align="center">
+  <a href="https://pablorosalesj.github.io/larago/">
+    <img src="https://img.shields.io/badge/📖_Read_the_docs-online-blue?style=for-the-badge" alt="Read the docs">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT">
+  </a>
+</p>
+
+---
 
 ## About
 
-LaraGo is a documentation site that maps Laravel 13.x concepts to Go's standard library. Each section compares side by side how the same problem is solved in both ecosystems, with working code, comparison tables, and hands-on exercises.
+LaraGo maps Laravel 13.x concepts to Go's standard library. Each section compares side by side how the same problem is solved in both ecosystems, with working code, comparison tables, and hands-on exercises.
 
 **Goal:** If you know Laravel, you should be productive in Go within a week.
 
@@ -35,11 +47,6 @@ LaraGo is a documentation site that maps Laravel 13.x concepts to Go's standard 
 - [shadcn/ui](https://ui.shadcn.com) — UI components
 - [MDX](https://mdxjs.com) — Content with runnable code
 
-## Prerequisites
-
-- Node.js >= 22.12.0
-- pnpm
-
 ## Development
 
 ```bash
@@ -55,35 +62,6 @@ pnpm build
 # Preview the build
 pnpm preview
 ```
-
-## Project Structure
-
-```
-larago/
-├── src/
-│   ├── content/docs/    ← Markdown files (content)
-│   ├── components/      ← React components (shadcn/ui)
-│   ├── layouts/         ← Astro layouts
-│   ├── pages/           ← Routes
-│   └── lib/             ← Utilities
-├── public/              ← Static assets
-├── astro.config.mjs
-├── tailwind.config.mjs
-└── package.json
-```
-
-## Content Format
-
-Each Markdown page follows a standard format:
-
-1. **Frontmatter** — title, description, section, order
-2. **TL;DR** — quick connection to Laravel
-3. **In Laravel** — concept context in PHP
-4. **In Go** — stdlib implementation
-5. **Code** — copy-pasteable working examples
-6. **Comparison** — side-by-side table
-7. **Common errors** — frequent pitfalls
-8. **Exercise** — suggested practice
 
 ## Contributing
 
