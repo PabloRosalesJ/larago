@@ -43,6 +43,8 @@ export async function getStaticPaths() {
   return paths
 }
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+
 const { type } = Astro.props
 
 const allDocs = await getCollection('docs')
@@ -83,7 +85,7 @@ if (type === 'doc') {
 {type === 'doc' ? (
   <MainLayout title={`${Astro.props.entry.data.title} - LaraGo`} description={Astro.props.entry.data.description}>
     <div class="flex min-h-screen">
-      <Sidebar sections={sections} client:load currentSlug={Astro.props.entry.id} />
+      <Sidebar sections={sections} client:load currentSlug={Astro.props.entry.id} basePath={base} />
       
       <main class="flex-1 min-w-0">
         <div class="px-6 py-8 max-w-5xl mx-auto">
@@ -96,6 +98,7 @@ if (type === 'doc') {
             content={Astro.props.entry.body || ''}
             prev={prev}
             next={next}
+            basePath={base}
           />
         </div>
       </main>
@@ -109,7 +112,7 @@ if (type === 'doc') {
 ) : (
   <MainLayout title={`${Astro.props.sectionName} - LaraGo`} description={`Seccion ${Astro.props.sectionName} de LaraGo`}>
     <div class="flex min-h-screen">
-      <Sidebar sections={sections} client:load currentSlug={Astro.props.sectionId} />
+      <Sidebar sections={sections} client:load currentSlug={Astro.props.sectionId} basePath={base} />
       
       <main class="flex-1 min-w-0">
         <div class="px-6 py-8 max-w-5xl mx-auto">
@@ -125,7 +128,7 @@ if (type === 'doc') {
 
             <div class="flex flex-col gap-3">
               {Astro.props.docs.map((doc: any) => (
-                <a href={`/${doc.id}`} class="block">
+                <a href={`${base}${doc.id}`} class="block">
                   <div class="rounded-lg border bg-card p-4 hover:bg-accent/50 transition-colors">
                     <div class="flex items-center justify-between">
                       <h3 class="font-medium">{doc.data.title}</h3>

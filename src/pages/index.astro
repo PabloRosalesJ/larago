@@ -49,6 +49,8 @@ for (const doc of sortedDocs) {
 
 const sections = Array.from(sectionMap.values())
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'
+
 const features = [
   {
     title: 'Stdlib First',
@@ -69,7 +71,7 @@ const features = [
   <div class="flex flex-col min-h-screen">
     <header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div class="max-w-6xl mx-auto flex h-14 items-center px-4">
-        <a href="/" class="flex items-center gap-2">
+        <a href={base} class="flex items-center gap-2">
           <span class="font-bold text-lg">LaraGo</span>
           <span class="text-xs bg-muted px-2 py-0.5 rounded">Docs</span>
         </a>
@@ -97,12 +99,12 @@ const features = [
 
           <div class="flex items-center gap-4 mt-4">
             <Button asChild size="lg">
-              <a href="/01-prologue/01-01-filosofia-de-go-vs-laravel">
+              <a href={`${base}01-prologue/01-01-filosofia-de-go-vs-laravel`}>
                 Empezar a leer
               </a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="/02-getting-started/02-01-instalacion-y-setup">
+              <a href={`${base}02-getting-started/02-01-instalacion-y-setup`}>
                 Instalacion
               </a>
             </Button>
@@ -147,7 +149,7 @@ const features = [
 
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {sections.map((section) => (
-            <a href={`/${section.firstSlug}`} class="group block">
+            <a href={`${base}${section.firstSlug}`} class="group block">
               <Card className="h-full transition-colors group-hover:bg-accent/50">
                 <CardHeader className="pb-3">
                   <div class="flex items-center justify-between">

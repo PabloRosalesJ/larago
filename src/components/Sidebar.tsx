@@ -20,15 +20,18 @@ interface Section {
 interface SidebarProps {
   sections: Section[]
   currentSlug: string
+  basePath?: string
   className?: string
 }
 
 function SidebarLink({
   page,
   currentSlug,
+  basePath = '/',
 }: {
   page: { id: string; title: string; slug: string }
   currentSlug: string
+  basePath?: string
 }) {
   const linkRef = React.useRef<HTMLAnchorElement>(null)
   const [isHovered, setIsHovered] = React.useState(false)
@@ -50,7 +53,7 @@ function SidebarLink({
     <>
       <a
         ref={linkRef}
-        href={`/${page.slug}`}
+        href={`${basePath}${page.slug}`}
         className="relative block"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -96,9 +99,11 @@ function SidebarLink({
 function CollapsibleSection({
   section,
   currentSlug,
+  basePath = '/',
 }: {
   section: Section
   currentSlug: string
+  basePath?: string
 }) {
   const [isOpen, setIsOpen] = React.useState(false)
   const hasActiveChild = section.pages.some((p) => currentSlug === p.slug)
@@ -133,6 +138,7 @@ function CollapsibleSection({
               key={page.id}
               page={page}
               currentSlug={currentSlug}
+              basePath={basePath}
             />
           ))}
         </div>
@@ -141,7 +147,7 @@ function CollapsibleSection({
   )
 }
 
-function SidebarNav({ sections, currentSlug }: SidebarProps) {
+function SidebarNav({ sections, currentSlug, basePath }: SidebarProps) {
   return (
     <nav className="flex flex-col gap-1">
       {sections.map((section) => (
@@ -149,13 +155,14 @@ function SidebarNav({ sections, currentSlug }: SidebarProps) {
           key={section.id}
           section={section}
           currentSlug={currentSlug}
+          basePath={basePath}
         />
       ))}
     </nav>
   )
 }
 
-export function Sidebar({ sections, currentSlug, className }: SidebarProps) {
+export function Sidebar({ sections, currentSlug, basePath, className }: SidebarProps) {
   return (
     <>
       <aside
@@ -166,7 +173,7 @@ export function Sidebar({ sections, currentSlug, className }: SidebarProps) {
       >
         <ScrollArea className="h-full">
           <div className="p-4">
-            <SidebarNav sections={sections} currentSlug={currentSlug} />
+            <SidebarNav sections={sections} currentSlug={currentSlug} basePath={basePath} />
           </div>
         </ScrollArea>
       </aside>
@@ -183,7 +190,7 @@ export function Sidebar({ sections, currentSlug, className }: SidebarProps) {
             </SheetHeader>
             <ScrollArea className="h-[calc(100vh-8rem)]">
               <div className="p-4">
-                <SidebarNav sections={sections} currentSlug={currentSlug} />
+                <SidebarNav sections={sections} currentSlug={currentSlug} basePath={basePath} />
               </div>
             </ScrollArea>
           </SheetContent>

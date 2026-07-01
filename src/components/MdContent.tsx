@@ -34,6 +34,7 @@ interface MdContentProps {
   content: string
   prev?: NavItem | null
   next?: NavItem | null
+  basePath?: string
 }
 
 interface ParsedBlock {
@@ -370,7 +371,7 @@ function BlockRenderer({ block }: { block: ParsedBlock }) {
   return null
 }
 
-export function MdContent({ title, description, laravelUrl, goPackages, content, prev, next }: MdContentProps) {
+export function MdContent({ title, description, laravelUrl, goPackages, content, prev, next, basePath = '/' }: MdContentProps) {
   const blocks = parseMarkdownToBlocks(content)
 
   const elements: React.ReactNode[] = []
@@ -397,7 +398,7 @@ export function MdContent({ title, description, laravelUrl, goPackages, content,
             <div className="flex items-center justify-between gap-4">
               {prev ? (
                 <a
-                  href={`/${prev.slug}`}
+                  href={`${basePath}${prev.slug}`}
                   className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <ChevronLeftIcon className="h-4 w-4" />
@@ -406,7 +407,7 @@ export function MdContent({ title, description, laravelUrl, goPackages, content,
               ) : <div />}
               {next ? (
                 <a
-                  href={`/${next.slug}`}
+                  href={`${basePath}${next.slug}`}
                   className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {next.title}
